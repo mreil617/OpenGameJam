@@ -16,7 +16,15 @@ _global_script_class_icons={
 [application]
 
 config/name="New Game Project"
-run/main_scene="res://Node2D.tscn"
+
+run/main_scene="res://enemy_mover.tscn"
+config/icon="res://icon.png"
+
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [input]
 
