@@ -1,22 +1,54 @@
 extends Node
 
+const duel_laser = preload("res://duel_laser.tscn")
 
+const damage = 20
+const bullet_speed = 5
+const cooldown = 2 #seconds
+var remaining_cooldown = 0
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+var enemies_in_range = []
+var lasers = []
 
 func _on_Area2D_body_entered(body):
-	print("body entered")
-	body.get_parent().takeDamage(100)
+	enemies_in_range.append(body)
+
+func _on_Area2D_body_exited(body):
+	enemies_in_range.remove(enemies_in_range.find(body))
+
+func _process(delta):
+	remaining_cooldown = remaining_cooldown - delta
+	
+	if enemies_in_range.size() > 0 && remaining_cooldown <= 0:
+		remaining_cooldown = cooldown
+		var turretBody = get_node("KinematicBody2D")
+		var targetPosition = enemies_in_range.front().get_parent().transform.origin
+		turretBody.look_at(targetPosition)
+		turretBody.rotate(275 * PI / 180) #adjusts rotation from lookat to be slightly in-front
+		##enemies_in_range.front().get_parent().takeDamage(damage)
+		
+		var laser = duel_laser.instance()
+		laser.name = "laser"
+		laser.get_child(0).transform.origin = turretBody.transform.origin
+		add_child(laser)
+		lasers.append(laser)
+	
+	if enemies_in_range.size() > 0:
+		var targetPosition = enemies_in_range.front().get_parent().transform.origin
+		for lsr in lasers:
+			lsr.get_child(0).look_at(targetPosition)
+			lsr.get_child(0).rotate(275 * PI / 180)
+			var velocity = (targetPosition - lsr.get_child(0).transform.origin).normalized() * bullet_speed
+			var collision = lsr.get_child(0).move_and_collide(velocity)
+			if collision != null:
+				collision.collider.get_parent().takeDamage(damage)
+				remove_child(lsr)
+				lasers.remove(lasers.find(lsr))
+		
+
+func _on_HoverArea_mouse_entered():
 	pass # Replace with function body.
 
 
-func _on_Area2D_body_exited(body):
-	print("body exited")
+func _on_HoverArea_mouse_exited():
 	pass # Replace with function body.
