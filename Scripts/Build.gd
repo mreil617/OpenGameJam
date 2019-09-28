@@ -60,7 +60,7 @@ func _on_TextureButton_pressed():
 		build.get_parent().remove_child(self)
 	else:
 		building = true
-		cursorSprite = load("res://BuildSprite.tscn")
+		cursorSprite = load("res://Prefabs/BuildSprite.tscn")
 		build = cursorSprite.instance()
 		build.texture = self.texture_normal
 		get_node("../../").add_child(build)
