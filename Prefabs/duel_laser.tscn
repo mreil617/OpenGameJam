@@ -2,7 +2,6 @@
 
 [ext_resource path="res://Assets/beams.png" type="Texture" id=1]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 
 [node name="bullet" type="Node"]

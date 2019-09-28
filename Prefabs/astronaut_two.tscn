@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/enemy_follower.gd" type="Script" id=1]
+[ext_resource path="res://Assets/spaceAstronauts_004.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 10.08
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.705882, 0.113725, 0.113725, 1 )
+
+[node name="PathFollow2D" type="PathFollow2D"]
+position = Vector2( 106.081, 9.28479 )
+rotation = -0.220829
+rotate = false
+loop = false
+script = ExtResource( 1 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+position = Vector2( 2.37585, -9.36755 )
+rotation = 0.192286
+scale = Vector2( 0.305689, 0.305689 )
+collision_layer = 524289
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+scale = Vector2( 6.08, 3.08 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+scale = Vector2( 2.65371, 2.65371 )
+texture = ExtResource( 2 )
+
+[node name="HealthBar" type="ProgressBar" parent="KinematicBody2D"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -51.1927
+margin_top = -82.1617
+margin_right = 57.8073
+margin_bottom = -62.1617
+rect_rotation = 2.00358
+custom_styles/fg = SubResource( 2 )
+value = 100.0

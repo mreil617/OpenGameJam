@@ -3,12 +3,12 @@
 [ext_resource path="res://test_tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/test_pathing.gd" type="Script" id=2]
 [ext_resource path="res://Assets/shipBeige_manned.png" type="Texture" id=3]
-[ext_resource path="res://Scripts/playerBodyHandler.gd" type="Script" id=4]
-[ext_resource path="res://Scripts/player.gd" type="Script" id=5]
-[ext_resource path="res://Assets/spaceAstronauts_002.png" type="Texture" id=6]
-[ext_resource path="res://Scripts/Player_Health.gd" type="Script" id=7]
-[ext_resource path="res://Scripts/rocket_spawn.gd" type="Script" id=8]
-[ext_resource path="res://Assets/spaceRockets_002.png" type="Texture" id=9]
+[ext_resource path="res://Scripts/rocket_spawn.gd" type="Script" id=4]
+[ext_resource path="res://Assets/spaceRockets_002.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/playerBodyHandler.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/player.gd" type="Script" id=7]
+[ext_resource path="res://Assets/spaceAstronauts_002.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/Player_Health.gd" type="Script" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 10.08
@@ -16,9 +16,9 @@ radius = 10.08
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.705882, 0.113725, 0.113725, 1 )
 
-[sub_resource type="RectangleShape2D" id=3]
-
 [sub_resource type="CapsuleShape2D" id=4]
+
+[sub_resource type="RectangleShape2D" id=3]
 
 [node name="Node2D" type="Node2D"]
 
@@ -63,44 +63,46 @@ rect_rotation = 2.00358
 custom_styles/fg = SubResource( 2 )
 value = 100.0
 
-[node name="Player" type="Node" parent="."]
+[node name="DemoLine" type="Line2D" parent="."]
+points = PoolVector2Array( 116.149, 11.9998, 196.525, -23.6603, 331.241, -18.566, 417.278, 95.7726 )
+texture_mode = 1052819649
+
+[node name="Rocket" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Rocket"]
+position = Vector2( -59.1945, 19.7314 )
 script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rocket/KinematicBody2D"]
+position = Vector2( 934.345, -159.013 )
+scale = Vector2( 4.45417, 5.0965 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Rocket/KinematicBody2D"]
+position = Vector2( 936.229, -162.451 )
+scale = Vector2( 0.625067, 0.625067 )
+texture = ExtResource( 5 )
+
+[node name="Player" type="Node2D" parent="."]
+visible = false
+position = Vector2( 878.633, 354.007 )
+script = ExtResource( 6 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="Player"]
 editor/display_folded = true
-position = Vector2( 216.821, 362.064 )
 scale = Vector2( 0.5, 0.5 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 5 )
+script = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/KinematicBody2D"]
 shape = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="Player/KinematicBody2D"]
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 
 [node name="PlayerHealth" type="ProgressBar" parent="Player"]
 margin_right = 100.0
 margin_bottom = 14.0
-script = ExtResource( 7 )
-
-[node name="DemoLine" type="Line2D" parent="."]
-points = PoolVector2Array( 116.149, 11.9998, 196.525, -23.6603, 331.241, -18.566, 417.278, 95.7726 )
-texture_mode = 1052819649
-
-[node name="Node" type="Node" parent="."]
-
-[node name="KinematicBody2D" type="KinematicBody2D" parent="Node"]
-position = Vector2( -59.1945, 19.7314 )
-script = ExtResource( 8 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/KinematicBody2D"]
-position = Vector2( 934.345, -159.013 )
-scale = Vector2( 4.45417, 5.0965 )
-shape = SubResource( 4 )
-
-[node name="Sprite" type="Sprite" parent="Node/KinematicBody2D"]
-position = Vector2( 936.229, -162.451 )
-scale = Vector2( 0.625067, 0.625067 )
-texture = ExtResource( 9 )
+script = ExtResource( 9 )
