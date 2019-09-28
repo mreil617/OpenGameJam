@@ -9,7 +9,7 @@ var playerInst
 func _ready():
 	playerInst = preload("res://Player.tscn")
 	var player = playerInst.instance()
-	player.get_child(0).set_position(Vector2(self.position.x,self.position.y*4))
+	player.get_child(0).set_position(self.get_global_position())
 	self.add_child(player)
 	pass # Replace with function body.
 

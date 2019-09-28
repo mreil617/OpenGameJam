@@ -35,6 +35,7 @@ func get_input():
 	get_node("../../EnemyBody").path = path
 	if Input.is_action_just_pressed("Lmouse"):
 		update_health(damage)
+	#	print("this")
 	
 func _physics_process(delta):
 	get_input()
@@ -42,8 +43,7 @@ func _physics_process(delta):
 	
 func respawn():
 	dead = false
-	self.position.x = OS.get_window_size().x/2
-	self.position.y = OS.get_window_size().y/2
+	self.set_position(get_node("../../../PSpawn").get_global_position())
 	print("update")
 	health = 0
 	update_health(max_health)
