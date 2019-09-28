@@ -14,7 +14,6 @@ func _ready():
 func _process(delta):
 	if(health <= 0):
 		dead = true
-		print("died")
 		respawn()
 	
 func get_input():

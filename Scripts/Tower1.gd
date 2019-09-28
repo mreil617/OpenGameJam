@@ -1,6 +1,6 @@
 extends Node
 
-const duel_laser = preload("res://duel_laser.tscn")
+const duel_laser = preload("res://Prefabs/duel_laser.tscn")
 
 const damage = 20
 const bullet_speed = 5

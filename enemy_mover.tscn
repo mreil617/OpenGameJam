@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/spaceBuilding_006.png" type="Texture" id=4]
 [ext_resource path="res://Assets/spaceBuilding_001.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/spawner.gd" type="Script" id=6]
-[ext_resource path="res://tower_one.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Prefabs/tower_one.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scripts/gold.gd" type="Script" id=8]
 [ext_resource path="res://Scripts/PSpawn.gd" type="Script" id=9]
 [ext_resource path="res://Scripts/PowerUpSpawner.gd" type="Script" id=10]
@@ -53,12 +53,12 @@ shader = SubResource( 2 )
 
 [sub_resource type="Curve2D" id=4]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 106.081, 9.28479, 0, 0, 0, 0, 108.524, 115.578, 0, 0, 0, 0, 103.637, 359.93, 0, 0, 0, 0, 644.877, 369.704, 0, 0, 0, 0, 1013.85, 367.26 )
+"points": PoolVector2Array( 0, 0, 0, 0, -52.9685, 375.536, 0, 0, 0, 0, 1056.02, 374.073 )
 }
 
 [sub_resource type="Curve2D" id=5]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 110.329, 10.4944, 0, 0, 0, 0, 109.669, 120.086, 0, 0, 0, 0, 648.384, 125.368, 0, 0, 0, 0, 649.044, 370.298, 0, 0, 0, 0, 652.345, 594.763 )
+"points": PoolVector2Array( 0, 0, 0, 0, -48.5797, 335.303, 0, 0, 0, 0, 1053.09, 337.497 )
 }
 
 [node name="Root" type="Node2D"]

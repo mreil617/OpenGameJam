@@ -10,7 +10,7 @@ var HealthPackPre
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	HealthPackPre = preload("res://HealthPack.tscn")
+	HealthPackPre = preload("res://Prefabs/HealthPack.tscn")
 	for i in range(initalSpawn):
 		spawn_hp()
 	pass # Replace with function body.

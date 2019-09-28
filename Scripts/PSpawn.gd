@@ -7,7 +7,7 @@ var playerInst
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	playerInst = preload("res://Player.tscn")
+	playerInst = preload("res://Prefabs/Player.tscn")
 	var player = playerInst.instance()
 	player.get_child(0).set_position(self.get_global_position())
 	self.add_child(player)

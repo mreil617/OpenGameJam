@@ -5,6 +5,8 @@ var health = 100
 
 func _process(delta):
 	offset += 1
+	if unit_offset >= 1:
+		get_parent().remove_child(self)
 
 func takeDamage(amount):
 	health -= amount
