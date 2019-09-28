@@ -15,9 +15,9 @@ _global_script_class_icons={
 
 [application]
 
-config/name="New Game Project"
+config/name="OpenGameJam 2019"
 run/main_scene="res://enemy_mover.tscn"
-config/icon="res://icon.png"
+config/icon="res://Assets/spaceAstronauts_002.png"
 
 [display]
 
