@@ -16,9 +16,9 @@ radius = 10.08
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.705882, 0.113725, 0.113725, 1 )
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=3]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 
 [node name="Node2D" type="Node2D"]
 
@@ -77,7 +77,7 @@ script = ExtResource( 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rocket/KinematicBody2D"]
 position = Vector2( 934.345, -159.013 )
 scale = Vector2( 4.45417, 5.0965 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="Rocket/KinematicBody2D"]
 position = Vector2( 936.229, -162.451 )
@@ -97,7 +97,7 @@ collision_mask = 2
 script = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/KinematicBody2D"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="Player/KinematicBody2D"]
 texture = ExtResource( 8 )

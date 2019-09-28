@@ -5,27 +5,27 @@
 [ext_resource path="res://Prefabs/alien_staic_green_right.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Prefabs/alien_static_red_right.tscn" type="PackedScene" id=4]
 
-[sub_resource type="Curve2D" id=4]
+[sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -52.9685, 375.536, 0, 0, 0, 0, 1056.02, 374.073 )
 }
 
-[sub_resource type="Curve2D" id=5]
+[sub_resource type="Curve2D" id=2]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -48.5797, 335.303, 0, 0, 0, 0, 1053.09, 337.497 )
 }
 
-[sub_resource type="Curve2D" id=6]
+[sub_resource type="Curve2D" id=3]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -50.0428, 290.68, 0, 0, 0, 0, 1055.29, 289.948 )
 }
 
-[sub_resource type="Curve2D" id=7]
+[sub_resource type="Curve2D" id=4]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -33.9492, 252.641, 0, 0, 0, 0, 1064.8, 251.909 )
 }
 
-[sub_resource type="Curve2D" id=8]
+[sub_resource type="Curve2D" id=5]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -50.7744, 210.944, 0, 0, 0, 0, 1056.02, 214.602 )
 }
@@ -48,19 +48,19 @@ editor/display_folded = true
 script = ExtResource( 2 )
 
 [node name="Path1" type="Path2D" parent="Paths"]
-curve = SubResource( 4 )
+curve = SubResource( 1 )
 
 [node name="Path2" type="Path2D" parent="Paths"]
-curve = SubResource( 5 )
+curve = SubResource( 2 )
 
 [node name="Path3" type="Path2D" parent="Paths"]
-curve = SubResource( 6 )
+curve = SubResource( 3 )
 
 [node name="Path4" type="Path2D" parent="Paths"]
-curve = SubResource( 7 )
+curve = SubResource( 4 )
 
 [node name="Path5" type="Path2D" parent="Paths"]
-curve = SubResource( 8 )
+curve = SubResource( 5 )
 
 [node name="Aliens" type="Node" parent="."]
 

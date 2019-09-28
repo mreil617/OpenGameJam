@@ -10,11 +10,11 @@
 [ext_resource path="res://Scripts/Build.gd" type="Script" id=8]
 [ext_resource path="res://test_tiles.tres" type="TileSet" id=9]
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=1]
 size = 50
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=2]
 size = 27
 font_data = ExtResource( 5 )
 
@@ -56,7 +56,7 @@ margin_left = 132.0
 margin_top = 35.0
 margin_right = 273.0
 margin_bottom = 92.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 1 )
 text = "1000g"
 align = 2
 valign = 1
@@ -79,7 +79,7 @@ script = ExtResource( 8 )
 margin_top = 86.0
 margin_right = 109.0
 margin_bottom = 117.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 2 )
 text = "Turret1 "
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="UI"]
@@ -99,7 +99,7 @@ script = ExtResource( 8 )
 margin_top = 86.0
 margin_right = 109.0
 margin_bottom = 117.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 2 )
 text = "Turret1 "
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="UI"]
@@ -119,7 +119,7 @@ script = ExtResource( 8 )
 margin_top = 86.0
 margin_right = 109.0
 margin_bottom = 117.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 2 )
 text = "Turret1 "
 
 [node name="TextureRect" type="TextureRect" parent="UI"]
