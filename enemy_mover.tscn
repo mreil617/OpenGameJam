@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Assets/spaceStation_003.png" type="Texture" id=1]
 [ext_resource path="res://Assets/spaceBuilding_007.png" type="Texture" id=2]
@@ -6,11 +6,10 @@
 [ext_resource path="res://Assets/spaceBuilding_006.png" type="Texture" id=4]
 [ext_resource path="res://Assets/spaceBuilding_001.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/spawner.gd" type="Script" id=6]
-[ext_resource path="res://Scripts/Tower1.gd" type="Script" id=7]
-[ext_resource path="res://Assets/spaceShips_008.png" type="Texture" id=8]
-[ext_resource path="res://Scripts/gold.gd" type="Script" id=9]
-[ext_resource path="res://Scripts/PSpawn.gd" type="Script" id=10]
-[ext_resource path="res://Scripts/PowerUpSpawner.gd" type="Script" id=11]
+[ext_resource path="res://tower_one.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/gold.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/PSpawn.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/PowerUpSpawner.gd" type="Script" id=10]
 
 [sub_resource type="VisualShaderNodeColorConstant" id=1]
 constant = Color( 0.211285, 0.133209, 0.757813, 1 )
@@ -61,15 +60,6 @@ _data = {
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 110.329, 10.4944, 0, 0, 0, 0, 109.669, 120.086, 0, 0, 0, 0, 648.384, 125.368, 0, 0, 0, 0, 649.044, 370.298, 0, 0, 0, 0, 652.345, 594.763 )
 }
-
-[sub_resource type="CircleShape2D" id=6]
-radius = 100.0
-
-[sub_resource type="CircleShape2D" id=7]
-radius = 15.0
-
-[sub_resource type="CircleShape2D" id=8]
-radius = 15.0
 
 [node name="Root" type="Node2D"]
 position = Vector2( 122.596, 284.208 )
@@ -547,40 +537,7 @@ curve = SubResource( 5 )
 
 [node name="Towers" type="Node" parent="."]
 
-[node name="Tower1" type="Node" parent="Towers"]
-script = ExtResource( 7 )
-
-[node name="RangeArea" type="Area2D" parent="Towers/Tower1"]
-editor/display_folded = true
-position = Vector2( 589.118, 183.104 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Towers/Tower1/RangeArea"]
-shape = SubResource( 6 )
-
-[node name="KinematicBody2D" type="KinematicBody2D" parent="Towers/Tower1"]
-editor/display_folded = true
-position = Vector2( 590.794, 182.266 )
-collision_layer = 0
-collision_mask = 0
-
-[node name="Sprite" type="Sprite" parent="Towers/Tower1/KinematicBody2D"]
-position = Vector2( -1.51703, -1.974 )
-scale = Vector2( 0.349644, 0.349644 )
-texture = ExtResource( 8 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Towers/Tower1/KinematicBody2D"]
-position = Vector2( -1.64819, 0 )
-scale = Vector2( 1.16, 1.16 )
-shape = SubResource( 7 )
-
-[node name="HoverArea" type="Area2D" parent="Towers/Tower1"]
-editor/display_folded = true
-position = Vector2( 590.794, 182.266 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Towers/Tower1/HoverArea"]
-position = Vector2( -1.92, 0 )
-scale = Vector2( 1.2, 1.2 )
-shape = SubResource( 8 )
+[node name="Tower2" parent="Towers" instance=ExtResource( 7 )]
 
 [node name="UI" type="Node" parent="."]
 editor/display_folded = true
@@ -595,15 +552,11 @@ margin_bottom = 21.2621
 rect_scale = Vector2( 2.00094, 2.00094 )
 text = "1000g"
 align = 2
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 
 [node name="PSpawn" type="Node2D" parent="."]
 position = Vector2( 859.759, 84.3434 )
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 
 [node name="PowerUpSpawner" type="Node" parent="."]
-script = ExtResource( 11 )
-[connection signal="body_entered" from="Towers/Tower1/RangeArea" to="Towers/Tower1" method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="Towers/Tower1/RangeArea" to="Towers/Tower1" method="_on_Area2D_body_exited"]
-[connection signal="mouse_entered" from="Towers/Tower1/HoverArea" to="Towers/Tower1" method="_on_HoverArea_mouse_entered"]
-[connection signal="mouse_exited" from="Towers/Tower1/HoverArea" to="Towers/Tower1" method="_on_HoverArea_mouse_exited"]
+script = ExtResource( 10 )

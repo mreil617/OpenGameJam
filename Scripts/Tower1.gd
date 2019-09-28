@@ -47,8 +47,8 @@ func _process(delta):
 		
 
 func _on_HoverArea_mouse_entered():
-	pass # Replace with function body.
+	get_node("RangeSprite").visible = true
 
 
 func _on_HoverArea_mouse_exited():
-	pass # Replace with function body.
+	get_node("RangeSprite").visible = false
