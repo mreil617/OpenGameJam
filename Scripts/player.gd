@@ -9,7 +9,7 @@ var damage = -10
 var dead = false
 
 func _ready():
-	get_node("../Player_Health").set_value(max_health)
+	get_node("../PlayerHealth").set_value(max_health)
 	
 func _process(delta):
 	if(health <= 0):
@@ -47,4 +47,4 @@ func respawn():
 	
 func update_health(amount):
 	health += amount
-	get_node("../Player_Health").set_value(health)
+	get_node("../PlayerHealth").set_value(health)

@@ -1,14 +1,16 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Assets/spaceStation_003.png" type="Texture" id=1]
 [ext_resource path="res://Assets/spaceBuilding_007.png" type="Texture" id=2]
 [ext_resource path="res://Assets/spaceBuilding_002.png" type="Texture" id=3]
 [ext_resource path="res://Assets/spaceBuilding_006.png" type="Texture" id=4]
 [ext_resource path="res://Assets/spaceBuilding_001.png" type="Texture" id=5]
-[ext_resource path="res://spawner.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/spawner.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/Tower1.gd" type="Script" id=7]
 [ext_resource path="res://Assets/spaceShips_008.png" type="Texture" id=8]
 [ext_resource path="res://Scripts/gold.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/PSpawn.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/PowerUpSpawner.gd" type="Script" id=11]
 
 [sub_resource type="VisualShaderNodeColorConstant" id=1]
 constant = Color( 0.211285, 0.133209, 0.757813, 1 )
@@ -594,6 +596,13 @@ rect_scale = Vector2( 2.00094, 2.00094 )
 text = "1000g"
 align = 2
 script = ExtResource( 9 )
+
+[node name="PSpawn" type="Node2D" parent="."]
+position = Vector2( 859.759, 84.3434 )
+script = ExtResource( 10 )
+
+[node name="PowerUpSpawner" type="Node" parent="."]
+script = ExtResource( 11 )
 [connection signal="body_entered" from="Towers/Tower1/RangeArea" to="Towers/Tower1" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Towers/Tower1/RangeArea" to="Towers/Tower1" method="_on_Area2D_body_exited"]
 [connection signal="mouse_entered" from="Towers/Tower1/HoverArea" to="Towers/Tower1" method="_on_HoverArea_mouse_entered"]
