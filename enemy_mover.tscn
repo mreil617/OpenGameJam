@@ -10,10 +10,10 @@
 [ext_resource path="res://spaceShips_008.png" type="Texture" id=8]
 [ext_resource path="res://gold.gd" type="Script" id=9]
 
-[sub_resource type="VisualShaderNodeColorConstant" id=5]
+[sub_resource type="VisualShaderNodeColorConstant" id=1]
 constant = Color( 0.211285, 0.133209, 0.757813, 1 )
 
-[sub_resource type="VisualShader" id=6]
+[sub_resource type="VisualShader" id=2]
 code = "shader_type spatial;
 
 
@@ -42,28 +42,28 @@ void light() {
 "
 graph_offset = Vector2( 0, -97 )
 nodes/fragment/0/position = Vector2( 560, 40 )
-nodes/fragment/2/node = SubResource( 5 )
+nodes/fragment/2/node = SubResource( 1 )
 nodes/fragment/2/position = Vector2( 360, 20 )
 nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0 )
 
-[sub_resource type="ShaderMaterial" id=7]
+[sub_resource type="ShaderMaterial" id=3]
 render_priority = 10
-shader = SubResource( 6 )
+shader = SubResource( 2 )
 
-[sub_resource type="Curve2D" id=1]
+[sub_resource type="Curve2D" id=4]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 106.081, 9.28479, 0, 0, 0, 0, 108.524, 115.578, 0, 0, 0, 0, 103.637, 359.93, 0, 0, 0, 0, 644.877, 369.704, 0, 0, 0, 0, 1013.85, 367.26 )
 }
 
-[sub_resource type="Curve2D" id=2]
+[sub_resource type="Curve2D" id=5]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 110.329, 10.4944, 0, 0, 0, 0, 109.669, 120.086, 0, 0, 0, 0, 648.384, 125.368, 0, 0, 0, 0, 649.044, 370.298, 0, 0, 0, 0, 652.345, 594.763 )
 }
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=6]
 radius = 100.0
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=7]
 radius = 15.0
 
 [sub_resource type="CircleShape2D" id=8]
@@ -305,7 +305,7 @@ texture = ExtResource( 2 )
 [node name="redwall18" type="Sprite" parent="Map/Scenery"]
 modulate = Color( 0.764706, 0.764706, 0.8, 1 )
 self_modulate = Color( 0.6, 0.909804, 0.54902, 1 )
-material = SubResource( 7 )
+material = SubResource( 3 )
 position = Vector2( 574.104, 494.428 )
 texture = ExtResource( 2 )
 
@@ -538,10 +538,10 @@ texture = ExtResource( 4 )
 script = ExtResource( 6 )
 
 [node name="Path1" type="Path2D" parent="Paths"]
-curve = SubResource( 1 )
+curve = SubResource( 4 )
 
 [node name="Path2" type="Path2D" parent="Paths"]
-curve = SubResource( 2 )
+curve = SubResource( 5 )
 
 [node name="Towers" type="Node" parent="."]
 
@@ -553,7 +553,7 @@ editor/display_folded = true
 position = Vector2( 589.118, 183.104 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Towers/Tower1/RangeArea"]
-shape = SubResource( 3 )
+shape = SubResource( 6 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="Towers/Tower1"]
 editor/display_folded = true
@@ -569,7 +569,7 @@ texture = ExtResource( 8 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Towers/Tower1/KinematicBody2D"]
 position = Vector2( -1.64819, 0 )
 scale = Vector2( 1.16, 1.16 )
-shape = SubResource( 4 )
+shape = SubResource( 7 )
 
 [node name="HoverArea" type="Area2D" parent="Towers/Tower1"]
 editor/display_folded = true
