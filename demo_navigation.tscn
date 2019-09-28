@@ -1,0 +1,105 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://test_tiles.tres" type="TileSet" id=1]
+[ext_resource path="res://Scripts/test_pathing.gd" type="Script" id=2]
+[ext_resource path="res://Assets/shipBeige_manned.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/playerBodyHandler.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/player.gd" type="Script" id=5]
+[ext_resource path="res://Assets/spaceAstronauts_002.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/Player_Health.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/rocket_spawn.gd" type="Script" id=8]
+[ext_resource path="res://Assets/spaceRockets_002.png" type="Texture" id=9]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 10.08
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.705882, 0.113725, 0.113725, 1 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+[sub_resource type="CapsuleShape2D" id=4]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="NavNode" type="Navigation2D" parent="."]
+editor/display_folded = true
+
+[node name="TileMap" type="TileMap" parent="NavNode"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 84, 84 )
+cell_custom_transform = Transform2D( 0, 0, 0, 0, 0, 0 )
+collision_layer = 2
+collision_mask = 2
+format = 1
+tile_data = PoolIntArray( 0, 1073741825, 0, 1, 1073741825, 0, 2, 1073741824, 0, 3, 1073741825, 0, 4, 1073741825, 0, 5, 1073741825, 0, 6, 1073741825, 0, 7, 1073741825, 0, 8, 1073741825, 0, 9, 1073741825, 0, 10, 1073741825, 0, 11, 1073741825, 0, 65536, 1073741825, 0, 65537, 1073741825, 0, 65538, 1073741824, 0, 65539, 1073741824, 0, 65540, 1073741824, 0, 65541, 1073741824, 0, 65542, 1073741824, 0, 65543, 1073741824, 0, 65544, 1073741824, 0, 65545, 1073741825, 0, 65546, 1073741825, 0, 65547, 1073741825, 0, 131072, 1073741825, 0, 131073, 1073741825, 0, 131074, 1073741824, 0, 131075, 1073741825, 0, 131076, 1073741825, 0, 131077, 1073741825, 0, 131078, 1073741825, 0, 131079, 1073741825, 0, 131080, 1073741824, 0, 131081, 1073741825, 0, 131082, 1073741825, 0, 131083, 1073741825, 0, 196608, 1073741825, 0, 196609, 1073741825, 0, 196610, 1073741824, 0, 196611, 1073741825, 0, 196612, 1073741825, 0, 196613, 1073741825, 0, 196614, 1073741825, 0, 196615, 1073741825, 0, 196616, 1073741824, 0, 196617, 1073741825, 0, 196618, 1073741825, 0, 196619, 1073741825, 0, 262144, 1073741825, 0, 262145, 1073741825, 0, 262146, 1073741824, 0, 262147, 1073741824, 0, 262148, 1073741824, 0, 262149, 1073741824, 0, 262150, 1073741824, 0, 262151, 1073741824, 0, 262152, 1073741824, 0, 262153, 1073741824, 0, 262154, 1073741824, 0, 262155, 1073741824, 0, 327680, 1073741825, 0, 327681, 1073741825, 0, 327682, 1073741825, 0, 327683, 1073741825, 0, 327684, 1073741825, 0, 327685, 1073741825, 0, 327686, 1073741825, 0, 327687, 1073741825, 0, 327688, 1073741824, 0, 327689, 1073741825, 0, 327690, 1073741825, 0, 327691, 1073741825, 0, 393216, 1073741825, 0, 393217, 1073741825, 0, 393218, 1073741825, 0, 393219, 1073741825, 0, 393220, 1073741825, 0, 393221, 1073741825, 0, 393222, 1073741825, 0, 393223, 1073741825, 0, 393224, 1073741824, 0, 393225, 1073741825, 0, 393226, 1073741825, 0, 393227, 1073741825, 0 )
+
+[node name="EnemyBody" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 204.16, 59.0567 )
+rotation = 0.192286
+scale = Vector2( 0.305689, 0.305689 )
+collision_layer = 524291
+collision_mask = 3
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBody"]
+scale = Vector2( 6.08, 3.08 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="EnemyBody"]
+texture = ExtResource( 3 )
+
+[node name="HealthBar" type="ProgressBar" parent="EnemyBody"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -51.1927
+margin_top = -82.1617
+margin_right = 57.8073
+margin_bottom = -62.1617
+rect_rotation = 2.00358
+custom_styles/fg = SubResource( 2 )
+value = 100.0
+
+[node name="Player" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Player"]
+editor/display_folded = true
+position = Vector2( 216.821, 362.064 )
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/KinematicBody2D"]
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Player/KinematicBody2D"]
+texture = ExtResource( 6 )
+
+[node name="PlayerHealth" type="ProgressBar" parent="Player"]
+margin_right = 100.0
+margin_bottom = 14.0
+script = ExtResource( 7 )
+
+[node name="DemoLine" type="Line2D" parent="."]
+points = PoolVector2Array( 116.149, 11.9998, 196.525, -23.6603, 331.241, -18.566, 417.278, 95.7726 )
+
+[node name="Node" type="Node" parent="."]
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Node"]
+position = Vector2( -59.1945, 19.7314 )
+script = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/KinematicBody2D"]
+position = Vector2( 934.345, -159.013 )
+scale = Vector2( 4.45417, 5.0965 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Node/KinematicBody2D"]
+position = Vector2( 936.229, -162.451 )
+scale = Vector2( 0.625067, 0.625067 )
+texture = ExtResource( 9 )

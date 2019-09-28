@@ -48,10 +48,9 @@ func _process(delta):
 		
 
 func _on_HoverArea_mouse_entered():
-	overlapping = true
-	pass # Replace with function body.
-
+	get_node("RangeSprite").visible = true
+  overlapping = true
 
 func _on_HoverArea_mouse_exited():
+	get_node("RangeSprite").visible = false
 	overlapping = false
-	pass # Replace with function body.
