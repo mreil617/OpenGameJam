@@ -28,7 +28,7 @@ func move_along_path(distance: float):
 	
 	if path.size() > 0 and total_distance <= attack_distance:
 		if attack_cooldown_remaining <= 0:
-			get_node("../Player").takeDamage(damage)
+			get_node("../../PSpawn/Player").takeDamage(damage)
 			attack_cooldown_remaining = attack_cooldown
 		return
 		
