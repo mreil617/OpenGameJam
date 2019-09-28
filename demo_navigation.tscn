@@ -87,6 +87,7 @@ script = ExtResource( 7 )
 
 [node name="DemoLine" type="Line2D" parent="."]
 points = PoolVector2Array( 116.149, 11.9998, 196.525, -23.6603, 331.241, -18.566, 417.278, 95.7726 )
+texture_mode = 1052819649
 
 [node name="Node" type="Node" parent="."]
 

@@ -11,10 +11,10 @@ var overlapping = false
 var enemies_in_range = []
 var lasers = []
 
-func _on_Area2D_body_entered(body):
+func _on_RangeArea_body_entered(body):
 	enemies_in_range.append(body)
 
-func _on_Area2D_body_exited(body):
+func _on_RangeArea_body_exited(body):
 	enemies_in_range.remove(enemies_in_range.find(body))
 
 func _process(delta):
@@ -30,7 +30,7 @@ func _process(delta):
 		
 		var laser = duel_laser.instance()
 		laser.name = "laser"
-		laser.get_child(0).transform.origin = turretBody.transform.origin
+		laser.get_child(0).transform.origin = self.transform.origin
 		add_child(laser)
 		lasers.append(laser)
 	
@@ -49,7 +49,7 @@ func _process(delta):
 
 func _on_HoverArea_mouse_entered():
 	get_node("RangeSprite").visible = true
-  overlapping = true
+	overlapping = true
 
 func _on_HoverArea_mouse_exited():
 	get_node("RangeSprite").visible = false

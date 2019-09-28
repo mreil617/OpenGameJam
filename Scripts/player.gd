@@ -30,9 +30,9 @@ func get_input():
 		velocity.y -= 1
 	velocity = velocity.normalized() * speed
 	
-	var path = get_node("../../NavNode").get_simple_path(get_node("../../EnemyBody").global_position, global_position)
-	get_node("../../DemoLine").points = path
-	get_node("../../EnemyBody").path = path
+#	var path = get_node("../../NavNode").get_simple_path(get_node("../../EnemyBody").global_position, global_position)
+#	get_node("../../DemoLine").points = path
+#	get_node("../../EnemyBody").path = path
 	if Input.is_action_just_pressed("Lmouse"):
 		update_health(damage)
 	#	print("this")

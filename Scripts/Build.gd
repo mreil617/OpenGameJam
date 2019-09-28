@@ -15,20 +15,20 @@ var Tower
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Tower = preload("res://Tower1.tscn")
+	Tower = preload("res://tower_one.tscn")
 	pass # Replace with function body.
 
 func overlapping():
 	var overlap = false
 	var towers = get_node("../../../TowerHandler").get_children()
-	for i in towers:
-		print(i.overlapping)
-		if(i.overlapping):
-			overlap = true
-			break
-		else:
-			overlap = false
-	return overlap
+	#for i in towers:
+		#print(i.overlapping)
+#		if(i.overlapping):
+#			overlap = true
+#			break
+#		else:
+#			overlap = false
+#	return overlap
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(building):
@@ -48,7 +48,7 @@ func _process(delta):
 		if(Input.is_action_just_pressed("Lmouse")):
 			if(get_node("../../../UI/VBoxContainer/HBoxContainer/Gold").current_gold - TowerCost >= 0):
 				var tempTower = Tower.instance()
-				tempTower.get_child(1).set_position(get_global_mouse_position())
+				tempTower.set_position(get_global_mouse_position())
 				get_node("../../../TowerHandler").add_child(tempTower)
 				get_node("../../../UI/VBoxContainer/HBoxContainer/Gold").add_gold(-TowerCost)
 #	pass
