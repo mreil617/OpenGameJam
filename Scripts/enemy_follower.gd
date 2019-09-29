@@ -4,6 +4,7 @@ const text_bubble = preload("res://Prefabs/text_bubble.tscn")
 const gold_worth = 10
 var health = 100
 
+var delayed_text = [] # 
 var queued_text = []
 var current_text_bubble = null
 const text_time = 2
@@ -14,6 +15,20 @@ const random_word_time = 2 #will decide to say random word every this time
 var remaining_random_word_time = 0
 
 func _process(delta):
+	if get_tree().get_root().get_node("Root").paused:
+		return
+		
+	#delayed text
+	var continued_delays = []
+	for i in delayed_text.size():
+		delayed_text[i][1] -= delta
+		if delayed_text[i][1] <= 0:
+			say_something(delayed_text[i][0])
+		else:
+			continued_delays.append(delayed_text[i])
+	delayed_text = continued_delays
+	
+	#queued text
 	if remaining_text_time > 0:
 		remaining_text_time -= delta
 	
@@ -24,16 +39,27 @@ func _process(delta):
 			remove_child(current_text_bubble)
 			current_text_bubble = null
 	
+	#random words
 	if remaining_random_word_time > 0:
 		remaining_random_word_time -= delta
 	else:
 		remaining_random_word_time = random_word_time
 		random_words()
-		
+			
 	#movement
-	offset += 1
-	if unit_offset >= 1:
+	if name == "player_two" and unit_offset >= 0.7:
+		if not get_tree().get_root().get_node("Root").player_has_control:
+			get_tree().get_root().get_node("Root").paused = true
+			get_tree().get_root().get_node("Root/UI/HintPanel").visible = true
+			return
+		offset += 1
+	else:
+		offset += 0.5
+	
+	if unit_offset >= 1 and name != "player_two":
 		get_parent().remove_child(self)
+	elif name == "player_two" and unit_offset >= 1:
+		say_something("This way Ted")
 
 func random_words():
 	var random = randi() % 100 + 1
@@ -50,7 +76,11 @@ func takeDamage(amount):
 			get_node("../../../UI/VBoxContainer/HBoxContainer/Gold").add_gold(gold_worth)
 			get_parent().remove_child(self)
 		
-func say_something(text):
+func say_something(text, delay = 0):
+	if delay != 0:
+		delayed_text.append([text, delay])
+		return
+		
 	if remaining_text_time <= 0:
 		remaining_text_time = text_time
 		if current_text_bubble == null:
@@ -58,5 +88,7 @@ func say_something(text):
 			current_text_bubble.transform.origin.y -= 10
 			self.add_child(current_text_bubble)
 		current_text_bubble.show_text(text)
+		if text == "This way Ted":
+			say_something(text, 5)
 	else:
 		queued_text.append(text)
