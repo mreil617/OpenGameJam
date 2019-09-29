@@ -9,6 +9,7 @@ var time_till_spawn = 0
 func spawn():
 	var newEnemy = enemies[randi() % enemies.size()].instance()
 	newEnemy.name = "enemy"
+	newEnemy.transform.origin = self.transform.origin
 	get_parent().get_parent().add_child(newEnemy)
 	
 func _process(delta):
