@@ -6,7 +6,7 @@ const damage = 20
 const bullet_speed = 5
 const cooldown = 2 #seconds
 var remaining_cooldown = 0
-var overlapping = false
+var IsOverlapping = false
 
 var enemies_in_range = []
 var lasers = []
@@ -50,8 +50,8 @@ func _process(delta):
 
 func _on_HoverArea_mouse_entered():
 	get_node("RangeSprite").visible = true
-	overlapping = true
+	IsOverlapping = true
 
 func _on_HoverArea_mouse_exited():
 	get_node("RangeSprite").visible = false
-	overlapping = false
+	IsOverlapping = false

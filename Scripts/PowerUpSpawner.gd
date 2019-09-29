@@ -1,23 +1,25 @@
 extends Node
 
 var initalSpawn = 3
-var SpawnRate = 10
+var SpawnRate = 2
 var lastSpawn = 1
+var powerupsOut = 0
 var HealthPackPre = preload("res://Prefabs/HealthPack.tscn")
 
 func _ready():
-	for i in range(initalSpawn):
-		spawn_hp()
+	pass
 		
 func _process(delta):
-	lastSpawn+=delta
-	if int(lastSpawn) % SpawnRate  == 0:
-		lastSpawn+=1
-		spawn_hp()
+	if(powerupsOut < 3):
+		lastSpawn+=delta
+		if int(lastSpawn) % SpawnRate  == 0:
+			lastSpawn+=1
+			spawn_hp()
 
 func spawn_hp():
-	print("spawn")
+	var randPosition = Vector2(rand_range(0,1000),rand_range(0,500))
+	powerupsOut += 1
 	var pack = HealthPackPre.instance()
-	pack.set_position(Vector2(rand_range(0,1000),rand_range(0,500)))
+	pack.set_position(randPosition)
 	self.add_child(pack)
 	

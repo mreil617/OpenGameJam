@@ -21,14 +21,16 @@ func _ready():
 func overlapping():
 	var overlap = false
 	var towers = get_node("../../../TowerHandler").get_children()
-	#for i in towers:
-		#print(i.overlapping)
-#		if(i.overlapping):
-#			overlap = true
-#			break
-#		else:
-#			overlap = false
-#	return overlap
+	for i in towers:
+		if(i.IsOverlapping):
+			overlap =  true
+			break
+		else:
+			overlap = false
+	return overlap
+	
+func onPath():
+	return false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(building):
@@ -37,7 +39,8 @@ func _process(delta):
 			build.visible = false
 			build.get_parent().remove_child(self)
 		build.set_position(get_global_mouse_position())
-		if(get_global_mouse_position().distance_to(get_node("../../../PSpawn/Player/KinematicBody2D").get_global_position()) < 100):
+		if(get_global_mouse_position().distance_to(get_node("../../../PSpawn/Player/KinematicBody2D").get_global_position()) < 100 and 
+			get_node("../../../UI/VBoxContainer/HBoxContainer/Gold").current_gold - TowerCost >= 0):
 			build.set_modulate(Color(1,1,1,1))
 			canBuild = true
 		else:
@@ -46,11 +49,12 @@ func _process(delta):
 				
 	if(canBuild && !overlapping()):
 		if(Input.is_action_just_pressed("Lmouse")):
-			if(get_node("../../../UI/VBoxContainer/HBoxContainer/Gold").current_gold - TowerCost >= 0):
-				var tempTower = Tower.instance()
-				tempTower.set_position(get_global_mouse_position())
-				get_node("../../../TowerHandler").add_child(tempTower)
-				get_node("../../../UI/VBoxContainer/HBoxContainer/Gold").add_gold(-TowerCost)
+			if(!onPath()):
+				if(get_node("../../../UI/VBoxContainer/HBoxContainer/Gold").current_gold - TowerCost >= 0):
+					var tempTower = Tower.instance()
+					tempTower.set_position(get_global_mouse_position())
+					get_node("../../../TowerHandler").add_child(tempTower)
+					get_node("../../../UI/VBoxContainer/HBoxContainer/Gold").add_gold(-TowerCost)
 #	pass
 
 func _on_TextureButton_pressed():
