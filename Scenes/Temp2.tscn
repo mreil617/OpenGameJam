@@ -54,9 +54,11 @@ tile_data = PoolIntArray( -65536, 2, 0, -65535, 2, 0, -65534, 2, 0, -65533, 2, 0
 [node name="TowerHandler" parent="." instance=ExtResource( 3 )]
 
 [node name="Enemies" type="Node" parent="."]
+editor/display_folded = true
 script = ExtResource( 4 )
 
 [node name="Spawners" type="Node" parent="Enemies"]
+editor/display_folded = true
 
 [node name="Spawner" type="Node2D" parent="Enemies/Spawners"]
 position = Vector2( 84.707, 41.6189 )
@@ -170,6 +172,7 @@ margin_right = 695.491
 margin_bottom = 577.689
 
 [node name="TimeMachine" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( 516.316, 339.617 )
 script = ExtResource( 13 )
 
