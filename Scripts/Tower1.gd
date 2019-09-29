@@ -23,7 +23,7 @@ func _process(delta):
 	if enemies_in_range.size() > 0 && remaining_cooldown <= 0:
 		remaining_cooldown = cooldown
 		var turretBody = get_node("KinematicBody2D")
-		var targetPosition = enemies_in_range.front().get_parent().transform.origin
+		var targetPosition = enemies_in_range.front().transform.origin
 		turretBody.look_at(targetPosition)
 		turretBody.rotate(275 * PI / 180) #adjusts rotation from lookat to be slightly in-front
 		##enemies_in_range.front().get_parent().takeDamage(damage)
@@ -35,7 +35,7 @@ func _process(delta):
 		lasers.append(laser)
 	
 	if enemies_in_range.size() > 0:
-		var targetPosition = enemies_in_range.front().get_parent().transform.origin
+		var targetPosition = enemies_in_range.front().transform.origin
 		for lsr in lasers:
 			lsr.get_child(0).look_at(targetPosition)
 			lsr.get_child(0).rotate(275 * PI / 180)

@@ -6,9 +6,6 @@
 [ext_resource path="res://Assets/3dred.png" type="Texture" id=4]
 [ext_resource path="res://Assets/spaceBuilding_018.png" type="Texture" id=5]
 
-
-
-
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 0, 0, 84, 0, 84, 84, 0, 84 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
