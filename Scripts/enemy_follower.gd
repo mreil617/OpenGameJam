@@ -15,9 +15,11 @@ var ralph_phrases = ["There it is!", "This way Ted", "Hurry", "There coming for 
 var ralph_phrases_timeline = [0.0, 0.22, 0.6, 0.6]
 
 const random_words = ["Where did we go wrong", "This place sucks!", "I want to go home", "Another day another dolla", "This is life"]
+const ted_died_random_words = ["Did you hear someone tried to escape?", "Poor Ted", "At least someone is trying", "Who's next?", "We need more Teds"]
 const random_word_time = 2 #will decide to say random word every this time
 var remaining_random_word_time = 0
 
+	
 func _process(delta):
 	if get_tree().get_root().get_node("Root").paused:
 		return
@@ -82,7 +84,11 @@ func _process(delta):
 func random_words():
 	var random = randi() % 100 + 1
 	if random == 100:
-		var word = random_words[randi() % random_words.size()]
+		var word = ""
+		if globals.ted_died:
+			word = ted_died_random_words[randi() % ted_died_random_words.size()]
+		else:
+			word = random_words[randi() % random_words.size()]
 		self.say_something(word, 0, 0)
 		
 func takeDamage(amount):
@@ -106,7 +112,7 @@ func say_something(text, delay = 0, style = 0):
 			current_text_bubble.transform.origin.y -= 10
 			self.add_child(current_text_bubble)
 		current_text_bubble.show_text(text, style)
-		if text == "This way Ted":
+		if text == "This way Ted" and name != "Ralph":
 			say_something(text, 5, style)
 	else:
 		queued_text.append([text, delay, style])
