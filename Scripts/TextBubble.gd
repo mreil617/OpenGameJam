@@ -19,7 +19,6 @@ func _draw():
 	
 	
 func show_text(text, style = 0):
-	print("bubble show text " + text)
 	text_style = style
 	bubble_text = text
 	update()

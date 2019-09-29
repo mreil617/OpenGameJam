@@ -17,4 +17,4 @@ func give_player_control():
 	
 
 func _on_ExitArea_body_entered(body):
-	get_tree().change_scene("res://Scenes/sTemp2.tscn")
+	get_tree().change_scene("res://Scenes/Temp2.tscn")

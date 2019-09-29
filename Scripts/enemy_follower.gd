@@ -11,7 +11,7 @@ var current_text_bubble = null
 const text_time = 2
 var remaining_text_time = 0
 
-var ralph_phrases = ["There it is!", "This way ted", "Hurry", "There coming for us!"]
+var ralph_phrases = ["There it is!", "This way Ted", "Hurry", "There coming for us!"]
 var ralph_phrases_timeline = [0.0, 0.22, 0.6, 0.6]
 
 const random_words = ["Where did we go wrong", "This place sucks!", "I want to go home", "Another day another dolla", "This is life"]
