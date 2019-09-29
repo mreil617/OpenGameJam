@@ -27,7 +27,7 @@ font_data = ExtResource( 5 )
 [node name="TowerHandler" parent="." instance=ExtResource( 1 )]
 
 [node name="PSpawn" type="Node2D" parent="."]
-position = Vector2( 863.845, 131.029 )
+position = Vector2( 1005.06, 418.512 )
 script = ExtResource( 2 )
 
 [node name="PowerUpSpawner" type="Node" parent="."]
@@ -146,7 +146,7 @@ script = ExtResource( 10 )
 [node name="Spawners" type="Node" parent="Enemies"]
 
 [node name="Spawner" type="Node2D" parent="Enemies/Spawners"]
-position = Vector2( 80.8299, 17.0641 )
+position = Vector2( 84.707, 41.6189 )
 script = ExtResource( 11 )
 [connection signal="pressed" from="UI/VBoxContainer2/TextureButton" to="UI/VBoxContainer2/TextureButton" method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer3/TextureButton" to="UI/VBoxContainer3/TextureButton" method="_on_TextureButton_pressed"]

@@ -31,6 +31,5 @@ margin_left = -51.1927
 margin_top = -82.1617
 margin_right = 57.8073
 margin_bottom = -62.1617
-rect_rotation = 2.00358
 custom_styles/fg = SubResource( 2 )
 value = 100.0
