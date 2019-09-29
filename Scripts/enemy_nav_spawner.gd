@@ -4,7 +4,7 @@ const enemy_yellowship = preload("res://Prefabs/enemy_yellowship_nav.tscn")
 const enemies = [enemy_yellowship]
 
 var can_spawn = false
-const spawn_interval = 1
+const spawn_interval = 2.5
 var time_till_spawn = spawn_interval
 
 func spawn():

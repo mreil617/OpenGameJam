@@ -64,7 +64,11 @@ func _process(delta):
 		say_something("This way Ted", 0, 1)
 	elif name == "Ralph" and ralph_phrases.size() > 0 and unit_offset >= ralph_phrases_timeline[0]:
 		ralph_phrases_timeline.pop_front()
-		say_something(ralph_phrases.pop_front(), 0, 1)
+		var text = ralph_phrases.pop_front()
+		say_something(text, 0, 1)
+		if text == "There coming for us!":
+			get_node("../../Enemies/Spawners/Spawner").can_spawn = true
+		
 		
 	#movement
 	if name == "player_two" and unit_offset >= 0.7:
