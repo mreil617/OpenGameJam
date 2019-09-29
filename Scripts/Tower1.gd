@@ -42,7 +42,8 @@ func _process(delta):
 			var velocity = (targetPosition - lsr.get_child(0).transform.origin).normalized() * bullet_speed
 			var collision = lsr.get_child(0).move_and_collide(velocity)
 			if collision != null:
-				collision.collider.get_parent().takeDamage(damage)
+#				collision.collider.get_parent().takeDamage(damage)
+				collision.collider.takeDamageEnemy(damage)
 				remove_child(lsr)
 				lasers.remove(lasers.find(lsr))
 		

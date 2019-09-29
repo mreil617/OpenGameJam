@@ -7,6 +7,9 @@ const damage = 10
 const attack_cooldown = 2
 var attack_cooldown_remaining = 0
 
+var health = 100
+var gold_worth = 10
+
 func _ready():
 	set_process(false)
 
@@ -50,3 +53,12 @@ func set_path(value: PoolVector2Array):
 	if value.size() == 0:
 		return
 	set_process(true)
+	
+func takeDamageEnemy(amount):
+	health -= amount
+	var healthbar = get_node("HealthBar")
+	if healthbar != null:
+		healthbar.set_value(health)
+		if health <= 0:
+			get_node("../../UI/VBoxContainer/HBoxContainer/Gold").add_gold(gold_worth)
+			get_parent().remove_child(self)
