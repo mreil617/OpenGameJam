@@ -1,15 +1,18 @@
 extends PathFollow2D
 
-const text_bubble = preload("res://Prefabs/text_bubble.tscn")
 const gold_worth = 10
 var health = 100
 var speed = 1
 
+const text_bubble = preload("res://Prefabs/text_bubble.tscn")
 var delayed_text = [] # 
 var queued_text = []
 var current_text_bubble = null
 const text_time = 2
 var remaining_text_time = 0
+
+var ralph_phrases = ["There it is!", "This way ted", "Hurry", "There coming for us!"]
+var ralph_phrases_timeline = [0.0, 0.22, 0.6, 0.6]
 
 const random_words = ["Where did we go wrong", "This place sucks!", "I want to go home", "Another day another dolla", "This is life"]
 const random_word_time = 2 #will decide to say random word every this time
@@ -48,22 +51,29 @@ func _process(delta):
 		remaining_random_word_time = random_word_time
 		random_words()
 			
-	#movement
+	#events
 	if name == "player_two" and unit_offset >= 0.7:
 		if not get_tree().get_root().get_node("Root").player_has_control:
 			get_tree().get_root().get_node("Root").paused = true
 			get_tree().get_root().get_node("Root/UI/HintPanel").visible = true
 			return
+	
+	if unit_offset >= 1 and name != "player_two" and name != "Ralph":
+		get_parent().remove_child(self)		
+	elif name == "player_two" and unit_offset >= 1:
+		say_something("This way Ted", 0, 1)
+	elif name == "Ralph" and ralph_phrases.size() > 0 and unit_offset >= ralph_phrases_timeline[0]:
+		ralph_phrases_timeline.pop_front()
+		say_something(ralph_phrases.pop_front(), 0, 1)
+		
+	#movement
+	if name == "player_two" and unit_offset >= 0.7:
+		
 		offset += 1
 	elif name == "Ralph":
 		offset += 1
 	else:
 		offset += 0.5 * speed
-	
-	if unit_offset >= 1 and name != "player_two" and name != "Ralph":
-		get_parent().remove_child(self)
-	elif name == "player_two" and unit_offset >= 1:
-		say_something("This way Ted", 0, 1)
 
 func random_words():
 	var random = randi() % 100 + 1

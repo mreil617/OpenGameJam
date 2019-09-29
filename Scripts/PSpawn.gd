@@ -8,7 +8,6 @@ func _ready():
 		var player_two = player_two_prefab.instance()
 		player_two.name = "Ralph"
 		get_node("../RalphPath").add_child(player_two)
-		self.add_child(player_two)
 	
 	var player_one = playerInst.instance()
 	player_one.get_child(0).set_position(self.get_global_position())

@@ -11,6 +11,6 @@ func _process(delta):
 			#var path = get_node("../NavNode").get_simple_path(enemy.global_position, get_node("../PSpawn/Player/KinematicBody2D").global_position)
 			enemy.path = find_path(enemy.global_position, get_node("../PSpawn/Player/KinematicBody2D").global_position)
 			
-	if get_node("../PSpawn/PlayerTwo") != null:
+	if has_node("../PSpawn/PlayerTwo"):
 		get_node("../PSpawn/PlayerTwo/PlayerBody").path = find_path(get_node("../PSpawn/PlayerTwo/PlayerBody").get_global_position(), get_node("../PSpawn/Player/KinematicBody2D").get_global_position())
 	

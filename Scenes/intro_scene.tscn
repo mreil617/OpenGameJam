@@ -111,6 +111,7 @@ position = Vector2( 186.529, 108.302 )
 scale = Vector2( 1.88018, 1.88018 )
 
 [node name="UI" type="Node" parent="."]
+editor/display_folded = true
 script = ExtResource( 6 )
 
 [node name="Button" type="Button" parent="UI"]
@@ -168,6 +169,7 @@ text = "OK"
 position = Vector2( 881.274, 629.652 )
 
 [node name="Area2D" type="Area2D" parent="Node2D"]
+editor/display_folded = true
 collision_layer = 3
 collision_mask = 3
 

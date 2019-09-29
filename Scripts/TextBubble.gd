@@ -13,14 +13,13 @@ func _draw():
 	if text_style == 1:
 		color = Color(1,0.84,0,1)
 		
-	
-	
-	
 	draw_rect(Rect2(Vector2(self.transform.origin.x, self.transform.origin.y - font.get_height()), Vector2(size.x + 2, font.get_height() + 2)), Color(0,0,0,0.7), true)
 	draw_string(font, self.transform.origin, bubble_text, color)
 	label.free()
 	
+	
 func show_text(text, style = 0):
+	print("bubble show text " + text)
 	text_style = style
 	bubble_text = text
 	update()

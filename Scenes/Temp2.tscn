@@ -54,7 +54,6 @@ tile_data = PoolIntArray( -65536, 2, 0, -65535, 2, 0, -65534, 2, 0, -65533, 2, 0
 [node name="TowerHandler" parent="." instance=ExtResource( 3 )]
 
 [node name="Enemies" type="Node" parent="."]
-editor/display_folded = true
 script = ExtResource( 4 )
 
 [node name="Spawners" type="Node" parent="Enemies"]
@@ -74,6 +73,7 @@ script = ExtResource( 7 )
 editor/display_folded = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+editor/display_folded = true
 margin_left = 861.425
 margin_top = 514.961
 margin_right = 1134.43
@@ -101,6 +101,7 @@ valign = 1
 script = ExtResource( 10 )
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="UI"]
+editor/display_folded = true
 margin_left = 791.168
 margin_top = 516.882
 margin_right = 900.168
@@ -121,6 +122,7 @@ custom_fonts/font = SubResource( 2 )
 text = "Turret1 "
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="UI"]
+editor/display_folded = true
 margin_left = 731.738
 margin_top = 517.342
 margin_right = 840.738
@@ -141,6 +143,7 @@ custom_fonts/font = SubResource( 2 )
 text = "Turret1 "
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="UI"]
+editor/display_folded = true
 margin_left = 675.135
 margin_top = 516.874
 margin_right = 784.135
@@ -167,7 +170,6 @@ margin_right = 695.491
 margin_bottom = 577.689
 
 [node name="TimeMachine" type="Node2D" parent="."]
-editor/display_folded = true
 position = Vector2( 516.316, 339.617 )
 script = ExtResource( 13 )
 
@@ -175,11 +177,14 @@ script = ExtResource( 13 )
 texture = ExtResource( 14 )
 
 [node name="Area2D" type="Area2D" parent="TimeMachine"]
+collision_layer = 3
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TimeMachine/Area2D"]
 shape = SubResource( 3 )
 
 [node name="RalphPath" type="Path2D" parent="."]
+editor/display_folded = true
 curve = SubResource( 4 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="RalphPath"]
