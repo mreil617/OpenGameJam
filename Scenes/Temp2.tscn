@@ -72,6 +72,7 @@ script = ExtResource( 6 )
 script = ExtResource( 7 )
 
 [node name="UI" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="ResouceContainer" type="VBoxContainer" parent="UI"]
 margin_left = 861.425
