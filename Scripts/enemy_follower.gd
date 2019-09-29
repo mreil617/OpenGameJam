@@ -3,6 +3,7 @@ extends PathFollow2D
 const text_bubble = preload("res://Prefabs/text_bubble.tscn")
 const gold_worth = 10
 var health = 100
+var speed = 1
 
 var delayed_text = [] # 
 var queued_text = []
@@ -23,7 +24,7 @@ func _process(delta):
 	for i in delayed_text.size():
 		delayed_text[i][1] -= delta
 		if delayed_text[i][1] <= 0:
-			say_something(delayed_text[i][0])
+			say_something(delayed_text[i][0], 0, delayed_text[i][2])
 		else:
 			continued_delays.append(delayed_text[i])
 	delayed_text = continued_delays
@@ -34,7 +35,8 @@ func _process(delta):
 	
 	if remaining_text_time <= 0 and current_text_bubble != null:
 		if queued_text.size() > 0:
-			say_something(queued_text.pop_front())
+			var text = queued_text.pop_front()
+			say_something(text[0], text[1], text[2])
 		else:
 			remove_child(current_text_bubble)
 			current_text_bubble = null
@@ -53,19 +55,21 @@ func _process(delta):
 			get_tree().get_root().get_node("Root/UI/HintPanel").visible = true
 			return
 		offset += 1
+	elif name == "Ralph":
+		offset += 1
 	else:
-		offset += 0.5
+		offset += 0.5 * speed
 	
-	if unit_offset >= 1 and name != "player_two":
+	if unit_offset >= 1 and name != "player_two" and name != "Ralph":
 		get_parent().remove_child(self)
 	elif name == "player_two" and unit_offset >= 1:
-		say_something("This way Ted")
+		say_something("This way Ted", 0, 1)
 
 func random_words():
 	var random = randi() % 100 + 1
 	if random == 100:
 		var word = random_words[randi() % random_words.size()]
-		self.say_something(word)
+		self.say_something(word, 0, 0)
 		
 func takeDamage(amount):
 	health -= amount
@@ -76,9 +80,9 @@ func takeDamage(amount):
 			get_node("../../../UI/VBoxContainer/HBoxContainer/Gold").add_gold(gold_worth)
 			get_parent().remove_child(self)
 		
-func say_something(text, delay = 0):
+func say_something(text, delay = 0, style = 0):
 	if delay != 0:
-		delayed_text.append([text, delay])
+		delayed_text.append([text, delay, style])
 		return
 		
 	if remaining_text_time <= 0:
@@ -87,8 +91,8 @@ func say_something(text, delay = 0):
 			current_text_bubble = text_bubble.instance()
 			current_text_bubble.transform.origin.y -= 10
 			self.add_child(current_text_bubble)
-		current_text_bubble.show_text(text)
+		current_text_bubble.show_text(text, style)
 		if text == "This way Ted":
-			say_something(text, 5)
+			say_something(text, 5, style)
 	else:
-		queued_text.append(text)
+		queued_text.append([text, delay, style])

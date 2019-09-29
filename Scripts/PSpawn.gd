@@ -1,18 +1,15 @@
 extends Node2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-var playerInst
+var playerInst = preload("res://Prefabs/Player.tscn")
+var player_two_prefab = preload("res://Prefabs/player_two.tscn")
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	playerInst = preload("res://Prefabs/Player.tscn")
-	var player = playerInst.instance()
-	player.get_child(0).set_position(self.get_global_position())
-	self.add_child(player)
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	if get_node("../RalphPath") != null:
+		var player_two = player_two_prefab.instance()
+		player_two.name = "Ralph"
+		get_node("../RalphPath").add_child(player_two)
+		self.add_child(player_two)
+	
+	var player_one = playerInst.instance()
+	player_one.get_child(0).set_position(self.get_global_position())
+	self.add_child(player_one)

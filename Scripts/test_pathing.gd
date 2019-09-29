@@ -30,7 +30,7 @@ func move_along_path(distance: float):
 		last_point = path[j]
 	
 	if path.size() > 0 and total_distance <= attack_distance:
-		if attack_cooldown_remaining <= 0:
+		if attack_cooldown_remaining <= 0 && name != "PlayerBody":
 			get_node("../../PSpawn/Player").takeDamage(damage)
 			attack_cooldown_remaining = attack_cooldown
 		return
