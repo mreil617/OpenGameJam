@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spaceBuilding_009.png-466c7b170c7fddf62eaf7727391cba2c.stex"
+path="res://.import/3dred.png-d543ca2c233ab6c7fdd2090317244838.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/spaceBuilding_009.png"
-dest_files=[ "res://.import/spaceBuilding_009.png-466c7b170c7fddf62eaf7727391cba2c.stex" ]
+source_file="res://Assets/Tiles/3dred.png"
+dest_files=[ "res://.import/3dred.png-d543ca2c233ab6c7fdd2090317244838.stex" ]
 
 [params]
 

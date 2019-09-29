@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://test_tiles.tres" type="TileSet" id=1]
+[ext_resource path="res://Assets/Tiles/test_tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/test_pathing.gd" type="Script" id=2]
 [ext_resource path="res://Assets/shipBeige_manned.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/rocket_spawn.gd" type="Script" id=4]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scripts/player.gd" type="Script" id=7]
 [ext_resource path="res://Assets/spaceAstronauts_002.png" type="Texture" id=8]
 [ext_resource path="res://Scripts/Player_Health.gd" type="Script" id=9]
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 10.08

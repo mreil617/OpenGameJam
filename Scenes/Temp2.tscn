@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scripts/sceen_one.gd" type="Script" id=1]
-[ext_resource path="res://test_tiles.tres" type="TileSet" id=2]
+[ext_resource path="res://Assets/Tiles/test_tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://Prefabs/TowerHandler.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/enemy_nav_mover.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/enemy_nav_spawner.gd" type="Script" id=5]

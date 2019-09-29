@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/3d.png-f09f64f97e41bd85f63ac30ef71aadd4.stex"
+path="res://.import/tile_38v2.png-a922173075063fb54e6084b2cc8d6547.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/3d.png"
-dest_files=[ "res://.import/3d.png-f09f64f97e41bd85f63ac30ef71aadd4.stex" ]
+source_file="res://Assets/Tiles/tile_38v2.png"
+dest_files=[ "res://.import/tile_38v2.png-a922173075063fb54e6084b2cc8d6547.stex" ]
 
 [params]
 
