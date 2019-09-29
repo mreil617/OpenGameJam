@@ -46,11 +46,11 @@ func _process(delta):
 				
 	if(canBuild && !overlapping()):
 		if(Input.is_action_just_pressed("Lmouse")):
-			if(get_node("../../../UI/VBoxContainer/HBoxContainer/Gold").current_gold - TowerCost >= 0):
+			if(get_node("../../../UI/ResouceContainer/HBoxContainer/ResourceLabel").current_resources - TowerCost >= 0):
 				var tempTower = Tower.instance()
 				tempTower.set_position(get_global_mouse_position())
 				get_node("../../../TowerHandler").add_child(tempTower)
-				get_node("../../../UI/VBoxContainer/HBoxContainer/Gold").add_gold(-TowerCost)
+				get_node("../../../UI/ResouceContainer/HBoxContainer/ResourceLabel").add_resources(-TowerCost)
 #	pass
 
 func _on_TextureButton_pressed():

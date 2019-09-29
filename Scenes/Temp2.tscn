@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scripts/sceen_one.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tiles/test_tiles.tres" type="TileSet" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://Assets/ufoYellow.png" type="Texture" id=14]
 [ext_resource path="res://Scripts/enemy_follower.gd" type="Script" id=15]
 [ext_resource path="res://Assets/spaceAstronauts_004.png" type="Texture" id=16]
+[ext_resource path="res://Scripts/scrapboxes.gd" type="Script" id=17]
+[ext_resource path="res://Prefabs/scrapbox.tscn" type="PackedScene" id=18]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -70,26 +72,24 @@ script = ExtResource( 6 )
 script = ExtResource( 7 )
 
 [node name="UI" type="Node" parent="."]
-editor/display_folded = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
-editor/display_folded = true
+[node name="ResouceContainer" type="VBoxContainer" parent="UI"]
 margin_left = 861.425
 margin_top = 514.961
 margin_right = 1134.43
 margin_bottom = 642.961
 rect_scale = Vector2( 0.5, 0.5 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/ResouceContainer"]
 margin_right = 273.0
 margin_bottom = 128.0
 
-[node name="TextureRect" type="TextureRect" parent="UI/VBoxContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="UI/ResouceContainer/HBoxContainer"]
 margin_right = 128.0
 margin_bottom = 128.0
 texture = ExtResource( 8 )
 
-[node name="Gold" type="Label" parent="UI/VBoxContainer/HBoxContainer"]
+[node name="ResourceLabel" type="Label" parent="UI/ResouceContainer/HBoxContainer"]
 margin_left = 132.0
 margin_top = 35.0
 margin_right = 273.0
@@ -143,7 +143,6 @@ custom_fonts/font = SubResource( 2 )
 text = "Turret1 "
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="UI"]
-editor/display_folded = true
 margin_left = 675.135
 margin_top = 516.874
 margin_right = 784.135
@@ -206,6 +205,52 @@ shape = SubResource( 5 )
 [node name="Sprite" type="Sprite" parent="RalphPath/PathFollow2D/KinematicBody2D"]
 scale = Vector2( 2.65371, 2.65371 )
 texture = ExtResource( 16 )
+
+[node name="Scrapboxes" type="Node" parent="."]
+editor/display_folded = true
+script = ExtResource( 17 )
+
+[node name="Scrapbox" parent="Scrapboxes" instance=ExtResource( 18 )]
+position = Vector2( 602.42, 138.95 )
+
+[node name="Scrapbox2" parent="Scrapboxes" instance=ExtResource( 18 )]
+position = Vector2( 491.641, 254.236 )
+
+[node name="Scrapbox3" parent="Scrapboxes" instance=ExtResource( 18 )]
+position = Vector2( 241.988, 135.665 )
+
+[node name="Scrapbox4" parent="Scrapboxes" instance=ExtResource( 18 )]
+position = Vector2( 149.634, 285.219 )
+
+[node name="Scrapbox5" parent="Scrapboxes" instance=ExtResource( 18 )]
+position = Vector2( 174.063, 389.489 )
+
+[node name="Scrapbox6" parent="Scrapboxes" instance=ExtResource( 18 )]
+position = Vector2( 346.258, 491.376 )
+
+[node name="Scrapbox7" parent="Scrapboxes" instance=ExtResource( 18 )]
+position = Vector2( 345.662, 339.44 )
+
+[node name="Scrapbox8" parent="Scrapboxes" instance=ExtResource( 18 )]
+position = Vector2( 536.924, 456.818 )
+
+[node name="Scrapbox9" parent="Scrapboxes" instance=ExtResource( 18 )]
+position = Vector2( 716.865, 373.402 )
+
+[node name="Scrapbox10" parent="Scrapboxes" instance=ExtResource( 18 )]
+position = Vector2( 896.806, 305.477 )
+
+[node name="Scrapbox11" parent="Scrapboxes" instance=ExtResource( 18 )]
+position = Vector2( 883.102, 475.289 )
+
+[node name="Scrapbox12" parent="Scrapboxes" instance=ExtResource( 18 )]
+position = Vector2( 75.7512, 596.838 )
+
+[node name="Scrapbox13" parent="Scrapboxes" instance=ExtResource( 18 )]
+position = Vector2( 1017.76, 104.682 )
+
+[node name="Scrapbox14" parent="Scrapboxes" instance=ExtResource( 18 )]
+position = Vector2( 34.0432, 148.774 )
 [connection signal="pressed" from="UI/VBoxContainer2/TextureButton" to="UI/VBoxContainer2/TextureButton" method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer3/TextureButton" to="UI/VBoxContainer3/TextureButton" method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer4/TextureButton" to="UI/VBoxContainer4/TextureButton" method="_on_TextureButton_pressed"]

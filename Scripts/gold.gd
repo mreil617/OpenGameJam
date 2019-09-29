@@ -1,14 +1,14 @@
 extends Label
 
-var current_gold = 1000
+var current_resources = 0
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	text = str(current_gold) + "g"
+	text = str(current_resources)
 
-func add_gold(amount):
-	current_gold = current_gold + amount
-	text = str(current_gold) + "g"
+func add_resources(amount):
+	current_resources = current_resources + amount
+	text = str(current_resources)
