@@ -60,5 +60,5 @@ func takeDamageEnemy(amount):
 	if healthbar != null:
 		healthbar.set_value(health)
 		if health <= 0:
-			get_node("../../UI/VBoxContainer/HBoxContainer/Gold").add_gold(gold_worth)
+			get_node("../../UI/ResouceContainer/HBoxContainer/ResourceLabel").add_resources(gold_worth)
 			get_parent().remove_child(self)

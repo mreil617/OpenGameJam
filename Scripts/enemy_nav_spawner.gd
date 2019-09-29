@@ -19,6 +19,6 @@ func spawn():
 	
 func _process(delta):
 	time_till_spawn -= delta
-	if time_till_spawn <= 0 and can_spawn :
+	if time_till_spawn <= 0 and can_spawn:
 		time_till_spawn = spawn_interval
 		spawn()
