@@ -3,6 +3,7 @@ extends Node
 const spawn_interval = 0.5 #seconds
 var time_till_spawn = 0
 
+
 const astronaut_one = preload("res://Prefabs/astronaut_one.tscn")
 const astronaut_two = preload("res://Prefabs/astronaut_two.tscn")
 const astronaut_three = preload("res://Prefabs/astronaut_three.tscn")
