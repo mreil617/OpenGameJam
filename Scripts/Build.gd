@@ -21,9 +21,8 @@ func overlapping():
 	return overlap
 	
 func onPath():
-	print(get_node("../../BuildTool").can_build)
 	return not get_node("../../BuildTool").can_build
-	
+  
 func _process(delta):
 	if(building):
 		if(Input.is_action_just_pressed("exitMenu")):

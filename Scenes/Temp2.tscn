@@ -73,6 +73,7 @@ position = Vector2( 84.707, 41.6189 )
 script = ExtResource( 7 )
 
 [node name="UI" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="ResouceContainer" type="VBoxContainer" parent="UI"]
 margin_left = 861.425
