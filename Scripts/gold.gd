@@ -1,6 +1,6 @@
 extends Label
 
-var current_resources = 15
+var current_resources = 1500
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"

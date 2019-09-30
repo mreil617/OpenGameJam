@@ -102,6 +102,7 @@ func takeDamage(amount):
 		if health <= 0:
 			get_node("../../../UI/VBoxContainer/HBoxContainer/Gold").add_gold(gold_worth)
 			get_parent().remove_child(self)
+			
 		
 func say_something(text, delay = 0, style = 0):
 	if delay != 0:
