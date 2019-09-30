@@ -40,13 +40,15 @@ func _process(delta):
 	#queued text
 	if remaining_text_time > 0:
 		remaining_text_time -= delta
-		current_text_bubble.set_position(Vector2(body.get_global_position().x,body.get_global_position().y))
+		if get_parent().name != "TimeMachine":
+			current_text_bubble.set_position(Vector2(body.get_global_position().x,body.get_global_position().y))
+		else:
+			current_text_bubble.set_global_position(Vector2(100,100))
 	
 	if remaining_text_time <= 0 and current_text_bubble != null:
 		if queued_text.size() > 0:
 			var text = queued_text.pop_front()
 			say_something(text[0], text[1], text[2])
-			print("said queued text")
 		else:
 			remove_child(current_text_bubble) #changed to use get child
 			current_text_bubble = null
@@ -54,7 +56,7 @@ func _process(delta):
 
 func hide():
 	get_child(0).can_move = false
-	get_child(0).visible = false
+	#get_child(0).visible = false
 	get_child(1).visible = false
 	
 func takeDamage(amount):

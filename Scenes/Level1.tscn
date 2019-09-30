@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Scripts/level_one.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tiles/test_tiles.tres" type="TileSet" id=2]
@@ -14,13 +14,11 @@
 [ext_resource path="res://Assets/Towers/spaceShips_002.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Scrap.png" type="Texture" id=13]
 [ext_resource path="res://Scripts/gold.gd" type="Script" id=14]
-[ext_resource path="res://Scripts/enemy_follower.gd" type="Script" id=15]
-[ext_resource path="res://Assets/Characters/spaceAstronauts_004.png" type="Texture" id=16]
-[ext_resource path="res://Scripts/scrapboxes.gd" type="Script" id=17]
-[ext_resource path="res://Prefabs/scrapbox_one.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Scenes/flying_help_text.gd" type="Script" id=19]
-[ext_resource path="res://Scripts/time_machine.gd" type="Script" id=20]
-[ext_resource path="res://Assets/ufoYellow.png" type="Texture" id=21]
+[ext_resource path="res://Scripts/scrapboxes.gd" type="Script" id=15]
+[ext_resource path="res://Prefabs/scrapbox_one.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/flying_help_text.gd" type="Script" id=17]
+[ext_resource path="res://Scripts/time_machine.gd" type="Script" id=18]
+[ext_resource path="res://Assets/ufoYellow.png" type="Texture" id=19]
 
 [sub_resource type="DynamicFont" id=1]
 size = 27
@@ -42,9 +40,6 @@ font_data = ExtResource( 10 )
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 880.852, 25.5585, 0, 0, 0, 0, 844.378, 87.9703, 0, 0, 0, 0, 614.183, 79.0543, 0, 0, 0, 0, 546.908, 136.603, 0, 0, 0, 0, 545.287, 257.374 )
 }
-
-[sub_resource type="CapsuleShape2D" id=6]
-radius = 10.08
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 55.46, 58.98 )
@@ -211,76 +206,56 @@ custom_fonts/font = SubResource( 4 )
 text = "Scrap"
 
 [node name="RalphPath" type="Path2D" parent="."]
-editor/display_folded = true
 curve = SubResource( 5 )
-
-[node name="PathFollow2D" type="PathFollow2D" parent="RalphPath"]
-position = Vector2( 545.287, 257.373 )
-offset = 510.9
-rotate = false
-loop = false
-script = ExtResource( 15 )
-
-[node name="KinematicBody2D" type="KinematicBody2D" parent="RalphPath/PathFollow2D"]
-scale = Vector2( 0.305689, 0.305689 )
-collision_layer = 524289
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RalphPath/PathFollow2D/KinematicBody2D"]
-scale = Vector2( 6.08, 3.08 )
-shape = SubResource( 6 )
-
-[node name="Sprite" type="Sprite" parent="RalphPath/PathFollow2D/KinematicBody2D"]
-scale = Vector2( 2.65371, 2.65371 )
-texture = ExtResource( 16 )
 
 [node name="Scrapboxes" type="Node" parent="."]
 editor/display_folded = true
-script = ExtResource( 17 )
+script = ExtResource( 15 )
 
-[node name="Scrapbox" parent="Scrapboxes" instance=ExtResource( 18 )]
+[node name="Scrapbox" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 602.42, 138.95 )
 
-[node name="Scrapbox2" parent="Scrapboxes" instance=ExtResource( 18 )]
+[node name="Scrapbox2" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 491.641, 254.236 )
 
-[node name="Scrapbox3" parent="Scrapboxes" instance=ExtResource( 18 )]
+[node name="Scrapbox3" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 241.988, 135.665 )
 
-[node name="Scrapbox4" parent="Scrapboxes" instance=ExtResource( 18 )]
+[node name="Scrapbox4" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 149.634, 285.219 )
 
-[node name="Scrapbox5" parent="Scrapboxes" instance=ExtResource( 18 )]
+[node name="Scrapbox5" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 174.063, 389.489 )
 
-[node name="Scrapbox6" parent="Scrapboxes" instance=ExtResource( 18 )]
+[node name="Scrapbox6" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 346.258, 491.376 )
 
-[node name="Scrapbox7" parent="Scrapboxes" instance=ExtResource( 18 )]
+[node name="Scrapbox7" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 345.662, 339.44 )
 
-[node name="Scrapbox8" parent="Scrapboxes" instance=ExtResource( 18 )]
+[node name="Scrapbox8" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 536.924, 456.818 )
 
-[node name="Scrapbox9" parent="Scrapboxes" instance=ExtResource( 18 )]
+[node name="Scrapbox9" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 716.865, 373.402 )
 
-[node name="Scrapbox10" parent="Scrapboxes" instance=ExtResource( 18 )]
+[node name="Scrapbox10" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 896.806, 305.477 )
 
-[node name="Scrapbox11" parent="Scrapboxes" instance=ExtResource( 18 )]
+[node name="Scrapbox11" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 883.102, 475.289 )
 
-[node name="Scrapbox12" parent="Scrapboxes" instance=ExtResource( 18 )]
+[node name="Scrapbox12" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 75.7512, 596.838 )
 
-[node name="Scrapbox13" parent="Scrapboxes" instance=ExtResource( 18 )]
+[node name="Scrapbox13" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 1017.76, 104.682 )
 
-[node name="Scrapbox14" parent="Scrapboxes" instance=ExtResource( 18 )]
+[node name="Scrapbox14" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 34.0432, 148.774 )
 
 [node name="FlyingHelpText" type="Node" parent="."]
-script = ExtResource( 19 )
+script = ExtResource( 17 )
 
 [node name="TimeMachinePoints" type="Node" parent="."]
 editor/display_folded = true
@@ -303,11 +278,10 @@ position = Vector2( 409.653, 525.927 )
 [node name="Drops" type="Node" parent="."]
 
 [node name="TimeMachine" type="KinematicBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( 516.316, 339.617 )
 collision_layer = 0
 collision_mask = 0
-script = ExtResource( 20 )
+script = ExtResource( 18 )
 
 [node name="Area2D" type="Area2D" parent="TimeMachine"]
 editor/display_folded = true
@@ -318,7 +292,7 @@ collision_mask = 2
 shape = SubResource( 7 )
 
 [node name="Sprite" type="Sprite" parent="TimeMachine"]
-texture = ExtResource( 21 )
+texture = ExtResource( 19 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TimeMachine"]
 shape = SubResource( 8 )
