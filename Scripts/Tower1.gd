@@ -37,47 +37,48 @@ func _process(delta):
 		turretBody.rotate(275 * PI / 180) #adjusts rotation from lookat to be slightly in-front
 		##enemies_in_range.front().get_parent().takeDamage(damage)
 		var iam = self.get_node("Label").text
-		if iam == "Turret1":
+		if iam == "Lil Pew":
+			print("this")
 			laser = single_laser.instance()
 			laser.name = "laser"
 			var damage = 20
 			var cooldown = 2
-		elif iam == "Turret2":
+		elif iam == "Dual Pew":
 			laser = duel_laser.instance()
 			laser.name = "laser"
 			var damage = 30
 			var cooldown = 2
-		elif iam == "Turret3":
+		elif iam == "Mega Pew":
 			laser = duel_big_laser.instance()
 			laser.name = "laser"
 			var damage = 50
 			var cooldown = 3
-		elif iam == "Turret4":
+		elif iam == "  T-95":
 			laser = small_tank.instance()
 			laser.name = "laser"
 			var damage = 20
 			var cooldown = 2
-		elif iam == "Turret5":
+		elif iam == "Big Red":
 			laser = medium_tank.instance()
 			laser.name = "laser"
 			var damage = 30
 			var cooldown = 2
-		elif iam == "Turret6":
+		elif iam == "T-2000":
 			laser = big_tank.instance()
 			laser.name = "laser"
 			var damage = 50
 			var cooldown = 3
-		elif iam == "Turret7":
+		elif iam == "Cannon":
 			laser = small_cannon.instance()
 			laser.name = "laser"
 			var damage = 20
 			var cooldown = 2
-		elif iam == "Turret8":
+		elif iam == "Crossy":
 			laser = crossbow.instance()
 			laser.name = "laser"
 			var damage = 30
 			var cooldown = 2
-		elif iam == "Turret9":
+		elif iam == "Buster":
 			laser = big_cannon.instance()
 			laser.name = "laser"
 			var damage = 50

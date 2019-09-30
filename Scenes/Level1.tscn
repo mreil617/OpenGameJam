@@ -21,7 +21,7 @@
 [ext_resource path="res://Assets/ufoYellow.png" type="Texture" id=19]
 
 [sub_resource type="DynamicFont" id=1]
-size = 27
+size = 24
 font_data = ExtResource( 10 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -82,13 +82,12 @@ position = Vector2( 84.707, 41.6189 )
 script = ExtResource( 7 )
 
 [node name="UI" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="UI"]
 margin_left = 791.191
-margin_top = 510.587
+margin_top = 509.449
 margin_right = 917.191
-margin_bottom = 722.587
+margin_bottom = 721.449
 rect_scale = Vector2( 0.5, 0.5 )
 
 [node name="TextureButton" type="TextureButton" parent="UI/VBoxContainer2"]
@@ -100,43 +99,43 @@ script = ExtResource( 9 )
 [node name="Label" type="Label" parent="UI/VBoxContainer2"]
 margin_top = 112.0
 margin_right = 126.0
-margin_bottom = 143.0
+margin_bottom = 140.0
 custom_fonts/font = SubResource( 1 )
-text = "Turret3"
+text = "Mega Pew"
 
 [node name="Label2" type="Label" parent="UI/VBoxContainer2"]
-margin_top = 147.0
+margin_top = 144.0
 margin_right = 126.0
-margin_bottom = 212.0
+margin_bottom = 209.0
 custom_fonts/font = SubResource( 2 )
 text = "30
 "
 align = 1
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="UI"]
-margin_left = 731.738
+margin_left = 729.644
 margin_top = 517.342
-margin_right = 840.738
-margin_bottom = 647.341
+margin_right = 856.644
+margin_bottom = 703.342
 rect_scale = Vector2( 0.5, 0.5 )
 
 [node name="TextureButton" type="TextureButton" parent="UI/VBoxContainer3"]
-margin_right = 109.0
+margin_right = 127.0
 margin_bottom = 82.0
 texture_normal = ExtResource( 11 )
 script = ExtResource( 9 )
 
 [node name="Label" type="Label" parent="UI/VBoxContainer3"]
 margin_top = 86.0
-margin_right = 109.0
-margin_bottom = 117.0
+margin_right = 127.0
+margin_bottom = 114.0
 custom_fonts/font = SubResource( 1 )
-text = "Turret2"
+text = "Dual Pew"
 
 [node name="Label2" type="Label" parent="UI/VBoxContainer3"]
-margin_top = 121.0
-margin_right = 109.0
-margin_bottom = 186.0
+margin_top = 118.0
+margin_right = 127.0
+margin_bottom = 183.0
 custom_fonts/font = SubResource( 2 )
 text = "20
 "
@@ -158,14 +157,14 @@ script = ExtResource( 9 )
 [node name="Label" type="Label" parent="UI/VBoxContainer4"]
 margin_top = 78.0
 margin_right = 109.0
-margin_bottom = 109.0
+margin_bottom = 106.0
 custom_fonts/font = SubResource( 1 )
-text = "Turret1"
+text = "Lil Pew"
 
 [node name="Label2" type="Label" parent="UI/VBoxContainer4"]
-margin_top = 113.0
+margin_top = 110.0
 margin_right = 109.0
-margin_bottom = 144.0
+margin_bottom = 141.0
 custom_fonts/font = SubResource( 2 )
 text = "10"
 align = 1
