@@ -30,14 +30,20 @@ func _physics_process(delta):
 			var velocity = (target - transform.origin).normalized() * speed 
 			self.move_and_slide(velocity)
 		else:
-			get_tree().change_scene("res://Scenes/Level2.tscn")
+			var level = get_tree().get_root().get_node("Root").level
+			if level == 1:
+				get_tree().change_scene("res://Scenes/Level2.tscn")
+			elif level == 2:
+				get_tree().change_scene("res://Scenes/Level3.tscn")
+			elif level == 3:
+				get_tree().change_scene("res://Scenes/intro_scene.tscn")
+			else:
+				print("ERROR: time machine doesnt know what level we're on")
 		
 	
 func _on_TimeMachineArea_body_entered(body):
-	print("enter")
 	if body.get_parent().name == "Player":
 		if get_parent().has_key == false:
-			print("false")
 			body.get_parent().say_something("It's locked...", 0, 1)
 			get_node("../RalphPath/Ralph").say_something("Key has to be here somewhere", 1, 1)
 			get_node("../RalphPath/Ralph").say_something("Check those orange barrels", 1, 1)

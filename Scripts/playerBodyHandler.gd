@@ -9,8 +9,6 @@ const text_time = 2
 var remaining_text_time = 0
 
 func say_something(text, delay = 0, style = 0):
-	print("say " + text)
-	
 	if delay != 0:
 		delayed_text.append([text, delay, style])
 		return

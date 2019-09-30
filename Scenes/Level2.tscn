@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/level_two.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tiles/test_tiles.tres" type="TileSet" id=2]
@@ -17,9 +17,9 @@
 [ext_resource path="res://Scripts/scrapboxes.gd" type="Script" id=15]
 [ext_resource path="res://Prefabs/scrapbox_two.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/flying_help_text.gd" type="Script" id=17]
-[ext_resource path="res://Assets/Characters/manOld_stand.png" type="Texture" id=18]
-[ext_resource path="res://Scripts/time_machine.gd" type="Script" id=19]
-[ext_resource path="res://Assets/ufoYellow.png" type="Texture" id=20]
+[ext_resource path="res://Scripts/time_machine.gd" type="Script" id=18]
+[ext_resource path="res://Assets/ufoYellow.png" type="Texture" id=19]
+[ext_resource path="res://Prefabs/NPC_oldguy.tscn" type="PackedScene" id=20]
 
 [sub_resource type="DynamicFont" id=1]
 size = 27
@@ -39,11 +39,8 @@ font_data = ExtResource( 8 )
 
 [sub_resource type="Curve2D" id=5]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 777.826, 338.416, 0, 0, 0, 0, 711.365, 414.757, 0, 0, 0, 0, 568.564, 381.526, 0, 0, 0, 0, 65.6163, 390.507 )
+"points": PoolVector2Array( 0, 0, 0, 0, 931.14, 300.253, 0, 0, 0, 0, 900.762, 179.788, 0, 0, 0, 0, 766.679, 102.271, 0, 0, 0, 0, 452.422, 94.9387 )
 }
-
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 27.86, 32.82 )
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 55.46, 58.98 )
@@ -240,21 +237,6 @@ script = ExtResource( 17 )
 [node name="RalphPath" type="Path2D" parent="."]
 curve = SubResource( 5 )
 
-[node name="NPC" type="Node2D" parent="."]
-editor/display_folded = true
-position = Vector2( 28.5295, 414.043 )
-
-[node name="Area2D" type="Area2D" parent="NPC"]
-editor/display_folded = true
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Area2D"]
-shape = SubResource( 6 )
-
-[node name="Sprite" type="Sprite" parent="NPC"]
-texture = ExtResource( 18 )
-
 [node name="TimeMachinePoints" type="Node" parent="."]
 editor/display_folded = true
 
@@ -280,7 +262,7 @@ editor/display_folded = true
 position = Vector2( 835.149, 315.368 )
 collision_layer = 0
 collision_mask = 0
-script = ExtResource( 19 )
+script = ExtResource( 18 )
 
 [node name="Area2D" type="Area2D" parent="TimeMachine"]
 editor/display_folded = true
@@ -291,10 +273,13 @@ collision_mask = 2
 shape = SubResource( 7 )
 
 [node name="Sprite" type="Sprite" parent="TimeMachine"]
-texture = ExtResource( 20 )
+texture = ExtResource( 19 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TimeMachine"]
 shape = SubResource( 8 )
+
+[node name="NPC" parent="." instance=ExtResource( 20 )]
+position = Vector2( 26.9435, 414.032 )
 [connection signal="pressed" from="UI/VBoxContainer2/TextureButton" to="UI/VBoxContainer2/TextureButton" method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer3/TextureButton" to="UI/VBoxContainer3/TextureButton" method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer4/TextureButton" to="UI/VBoxContainer4/TextureButton" method="_on_TextureButton_pressed"]

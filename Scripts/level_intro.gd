@@ -2,6 +2,7 @@ extends Node2D
 
 const player = preload("res://Prefabs/Player.tscn")
 
+const level = 0
 var player_has_control = false
 var players_spawned = false
 	

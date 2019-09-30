@@ -1,3 +1,4 @@
 extends Node2D
 
-var has_key = false
+const level = 2
+var has_key = true
