@@ -36,7 +36,7 @@ func _physics_process(delta):
 			elif level == 2:
 				get_tree().change_scene("res://Scenes/Level3.tscn")
 			elif level == 3:
-				get_tree().change_scene("res://Scenes/intro_scene.tscn")
+				get_tree().change_scene("res://Scenes/Winning.tscn")
 			else:
 				print("ERROR: time machine doesnt know what level we're on")
 		

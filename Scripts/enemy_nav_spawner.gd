@@ -6,6 +6,8 @@ const enemy_redalien= preload("res://Prefabs/enemy_redalien_nav.tscn")
 const enemy_bluealien = preload("res://Prefabs/enemy_bluealien_nav.tscn")
 const enemy_blackalien = preload("res://Prefabs/enemy_blackalien_nav.tscn")
 const enemy_boss_one = preload("res://Prefabs/Boss1.tscn")
+const enemy_boss_two = preload("res://Prefabs/Boss2.tscn")
+const enemy_boss_three = preload("res://Prefabs/Boss3.tscn")
 const enemies = [enemy_yellowship,enemy_greenalien, enemy_redalien, enemy_bluealien, enemy_blackalien]
 
 var can_spawn = false
@@ -16,16 +18,22 @@ var enemies_killed = 0
 var kills_for_boss = 10
 var randNum = 0
 var keep_spawning = true
+var newEnemy = null
 
 func spawn():
 	if(!spawnBoss and keep_spawning):
-		var newEnemy = enemies[randi() % enemies.size()].instance()
+		newEnemy = enemies[randi() % enemies.size()].instance()
 		newEnemy.name = "enemy"
 		newEnemy.transform.origin = self.transform.origin
 		get_parent().get_parent().add_child(newEnemy)
 	else:
 		keep_spawning = false
-		var newEnemy = enemy_boss_one.instance()
+		if(get_tree().get_root().get_node("Root").level == 1):
+			newEnemy = enemy_boss_one.instance()
+		elif(get_tree().get_root().get_node("Root").level == 2):
+			newEnemy = enemy_boss_two.instance()
+		elif(get_tree().get_root().get_node("Root").level == 3):
+			newEnemy = enemy_boss_three.instance()
 		newEnemy.name = "enemy"
 		newEnemy.transform.origin = self.transform.origin
 		get_parent().get_parent().add_child(newEnemy)

@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/test_pathing.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Characters/armor__0035_fire_1.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Enemies/Boss2_stats.gd" type="Script" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 12.8953
+height = 82.6515
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.705882, 0.113725, 0.113725, 1 )
+
+[node name="EnemyBody" type="KinematicBody2D"]
+scale = Vector2( 0.305689, 0.305689 )
+collision_layer = 524291
+collision_mask = 3
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1.11408, 36.7646 )
+scale = Vector2( 6.08, 3.08 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0.876825, 178.946 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 2 )
+offset = Vector2( -1.1691, -239.665 )
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -73.9264
+margin_top = -199.702
+margin_right = 35.0736
+margin_bottom = -179.702
+rect_scale = Vector2( 1.5, 1.5 )
+custom_styles/fg = SubResource( 2 )
+value = 100.0
+
+[node name="Stats" type="Node" parent="."]
+script = ExtResource( 3 )
