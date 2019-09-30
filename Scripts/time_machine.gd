@@ -68,6 +68,7 @@ func _on_TimeMachineArea_body_entered(body):
 		
 	if body.get_parent().name == "Player" and not active:
 		if get_parent().has_key == false:
+			print(get_parent().has_key)
 			if get_parent().level == 1:
 				body.get_parent().say_something("It's locked...", 0, 1)
 				var ralph = get_node("../RalphPath/Ralph")

@@ -58,61 +58,61 @@ func _process(delta):
 			build.set_modulate(Color(1,1,1,1))
 			canBuild = true
 		else:
-			build.set_modulate(Color(1,1,1,.5))
+			build.set_modulate(Color(1,1,1,.3))
 			canBuild = false
 		if(canBuild && !overlapping()):
 			if(Input.is_action_just_pressed("Lmouse")):
 				if(!onPath()):
 					if(get_node("../../../UI/HBoxContainer/ResourceLabel").current_resources - TowerCost >= 0):
-						if(get_parent().get_child(1).text == "Turret1"):
+						if(get_parent().get_child(1).text == "Lil Pew"):
 							tempTower = Tower.instance()
 							tempTower.set_position(get_global_mouse_position())
 							tempTower.set_name("Turret1")
 							get_node("../../../TowerHandler").add_child(tempTower)
 							get_node("../../../UI/HBoxContainer/ResourceLabel").add_resources(-TowerCost)
-						if(get_parent().get_child(1).text == "Turret2"):
+						if(get_parent().get_child(1).text == "Dual Pew"):
 							tempTower = Tower2.instance()
 							tempTower.set_position(get_global_mouse_position())
 							tempTower.set_name("Turret2")
 							get_node("../../../TowerHandler").add_child(tempTower)
 							get_node("../../../UI/HBoxContainer/ResourceLabel").add_resources(-TowerCost)
-						if(get_parent().get_child(1).text == "Turret3"):
+						if(get_parent().get_child(1).text == "Mega Pew"):
 							tempTower = Tower3.instance()
 							tempTower.set_position(get_global_mouse_position())
 							tempTower.set_name("Turret3")
 							get_node("../../../TowerHandler").add_child(tempTower)
 							get_node("../../../UI/HBoxContainer/ResourceLabel").add_resources(-TowerCost)
-						if(get_parent().get_child(1).text == "Turret4"):
+						if(get_parent().get_child(1).text == "  T-95"):
 							tempTower = Tower4.instance()
 							tempTower.set_position(get_global_mouse_position())
 							tempTower.set_name("Turret4")
 							get_node("../../../TowerHandler").add_child(tempTower)
 							get_node("../../../UI/HBoxContainer/ResourceLabel").add_resources(-TowerCost)
-						if(get_parent().get_child(1).text == "Turret5"):
+						if(get_parent().get_child(1).text == "Big Red"):
 							tempTower = Tower5.instance()
 							tempTower.set_position(get_global_mouse_position())
 							tempTower.set_name("Turret5")
 							get_node("../../../TowerHandler").add_child(tempTower)
 							get_node("../../../UI/HBoxContainer/ResourceLabel").add_resources(-TowerCost)
-						if(get_parent().get_child(1).text == "Turret6"):
+						if(get_parent().get_child(1).text == "T-2000"):
 							tempTower = Tower6.instance()
 							tempTower.set_position(get_global_mouse_position())
 							tempTower.set_name("Turret6")
 							get_node("../../../TowerHandler").add_child(tempTower)
 							get_node("../../../UI/HBoxContainer/ResourceLabel").add_resources(-TowerCost)
-						if(get_parent().get_child(1).text == "Turret7"):
+						if(get_parent().get_child(1).text == "Cannon"):
 							tempTower = Tower7.instance()
 							tempTower.set_position(get_global_mouse_position())
 							tempTower.set_name("Turret7")
 							get_node("../../../TowerHandler").add_child(tempTower)
 							get_node("../../../UI/HBoxContainer/ResourceLabel").add_resources(-TowerCost)
-						if(get_parent().get_child(1).text == "Turret8"):
+						if(get_parent().get_child(1).text == "Crossy"):
 							tempTower = Tower8.instance()
 							tempTower.set_position(get_global_mouse_position())
 							tempTower.set_name("Turret8")
 							get_node("../../../TowerHandler").add_child(tempTower)
 							get_node("../../../UI/HBoxContainer/ResourceLabel").add_resources(-TowerCost)
-						if(get_parent().get_child(1).text == "Turret9"):
+						if(get_parent().get_child(1).text == "Buster"):
 							tempTower = Tower9.instance()
 							tempTower.set_position(get_global_mouse_position())
 							tempTower.set_name("Turret9")
