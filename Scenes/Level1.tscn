@@ -1,6 +1,6 @@
 [gd_scene load_steps=30 format=2]
 
-[ext_resource path="res://Scripts/sceen_one.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/level_one.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tiles/test_tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://Prefabs/TowerHandler.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/PSpawn.gd" type="Script" id=4]
@@ -87,6 +87,7 @@ position = Vector2( 84.707, 41.6189 )
 script = ExtResource( 7 )
 
 [node name="UI" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="UI"]
 margin_left = 791.191

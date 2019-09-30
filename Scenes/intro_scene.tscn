@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://Scripts/intro_scene.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/level_intro.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tiles/test_tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://Scripts/intro_spawner.gd" type="Script" id=3]
 [ext_resource path="res://Prefabs/alien_staic_green_right.tscn" type="PackedScene" id=4]
@@ -182,6 +182,7 @@ margin_bottom = 77.8889
 text = "OK"
 
 [node name="Exit" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( 881.274, 629.652 )
 
 [node name="Area2D" type="Area2D" parent="Exit"]

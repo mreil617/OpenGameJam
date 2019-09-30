@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Scripts/intro_scene.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/level_intro.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tiles/test_tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://Prefabs/alien_static_red_right.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Prefabs/alien_staic_green_right.tscn" type="PackedScene" id=4]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Prefabs/alien_staic_green_Left.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/intro_user_interface.gd" type="Script" id=7]
 [ext_resource path="res://Prefabs/Jailed.tscn" type="PackedScene" id=8]
+
 
 [node name="Root" type="Node2D"]
 script = ExtResource( 1 )

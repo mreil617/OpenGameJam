@@ -1,81 +1,93 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=29 format=2]
 
-[ext_resource path="res://Assets/Tiles/test_tiles.tres" type="TileSet" id=1]
-[ext_resource path="res://Prefabs/TowerHandler.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scripts/PSpawn.gd" type="Script" id=3]
-[ext_resource path="res://Scripts/PowerUpSpawner.gd" type="Script" id=4]
-[ext_resource path="res://Scripts/enemy_nav_mover.gd" type="Script" id=5]
-[ext_resource path="res://Scripts/enemy_nav_spawner.gd" type="Script" id=6]
-[ext_resource path="res://Assets/Comfortaa-Bold.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://Assets/Towers/tank3.png" type="Texture" id=8]
-[ext_resource path="res://Scripts/Build.gd" type="Script" id=9]
-[ext_resource path="res://Assets/Towers/tank1.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Towers/tank2.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Scrap.png" type="Texture" id=12]
-[ext_resource path="res://Scripts/gold.gd" type="Script" id=13]
-[ext_resource path="res://Scripts/scrapboxes.gd" type="Script" id=14]
-[ext_resource path="res://Prefabs/scrapbox_two.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Scenes/flying_help_text.gd" type="Script" id=16]
-[ext_resource path="res://Scripts/enemy_follower.gd" type="Script" id=17]
-[ext_resource path="res://Assets/Characters/spaceAstronauts_004.png" type="Texture" id=18]
+[ext_resource path="res://Scripts/level_two.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Tiles/test_tiles.tres" type="TileSet" id=2]
+[ext_resource path="res://Prefabs/TowerHandler.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/PSpawn.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/PowerUpSpawner.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/enemy_nav_mover.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/enemy_nav_spawner.gd" type="Script" id=7]
+[ext_resource path="res://Assets/Comfortaa-Bold.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Assets/Towers/tank3.png" type="Texture" id=9]
+[ext_resource path="res://Scripts/Build.gd" type="Script" id=10]
+[ext_resource path="res://Assets/Towers/tank1.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Towers/tank2.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Scrap.png" type="Texture" id=13]
+[ext_resource path="res://Scripts/gold.gd" type="Script" id=14]
+[ext_resource path="res://Scripts/scrapboxes.gd" type="Script" id=15]
+[ext_resource path="res://Prefabs/scrapbox_two.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/flying_help_text.gd" type="Script" id=17]
+[ext_resource path="res://Assets/Characters/manOld_stand.png" type="Texture" id=18]
+[ext_resource path="res://Scripts/time_machine.gd" type="Script" id=19]
+[ext_resource path="res://Assets/ufoYellow.png" type="Texture" id=20]
 
 [sub_resource type="DynamicFont" id=1]
 size = 27
-font_data = ExtResource( 7 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 27
-font_data = ExtResource( 7 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 27
-font_data = ExtResource( 7 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 40
-font_data = ExtResource( 7 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="Curve2D" id=5]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 880.852, 25.5585, 0, 0, 0, 0, 844.378, 87.9703, 0, 0, 0, 0, 614.183, 79.0543, 0, 0, 0, 0, 546.908, 136.603, 0, 0, 0, 0, 545.287, 257.374 )
+"points": PoolVector2Array( 0, 0, 0, 0, 777.826, 338.416, 0, 0, 0, 0, 711.365, 414.757, 0, 0, 0, 0, 568.564, 381.526, 0, 0, 0, 0, 65.6163, 390.507 )
 }
 
-[sub_resource type="CapsuleShape2D" id=6]
-radius = 10.08
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 27.86, 32.82 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 55.46, 58.98 )
+
+[sub_resource type="CircleShape2D" id=8]
+radius = 40.0
 
 [node name="Root" type="Node2D"]
 position = Vector2( 0, -0.857361 )
+script = ExtResource( 1 )
 
 [node name="NavNode" type="Navigation2D" parent="."]
+editor/display_folded = true
 
 [node name="TileMap" type="TileMap" parent="NavNode"]
 scale = Vector2( 0.5, 0.5 )
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 84, 84 )
 collision_layer = 514
 collision_mask = 514
 format = 1
 tile_data = PoolIntArray( 0, 5, 0, 1, 5, 0, 2, -1610612724, 0, 3, -1610612724, 0, 4, 5, 0, 5, 5, 0, 6, 5, 0, 7, 5, 0, 8, 5, 0, 9, 5, 0, 10, 5, 0, 11, 5, 0, 12, 5, 0, 13, 5, 0, 14, 5, 0, 15, 5, 0, 16, 5, 0, 17, 5, 0, 18, 5, 0, 19, 5, 0, 20, 5, 0, 21, 5, 0, 22, 5, 0, 23, 5, 0, 24, 5, 0, 65536, 5, 0, 65537, 12, 0, 65538, -1610612724, 0, 65539, -1610612724, 0, 65540, 12, 0, 65541, 12, 0, 65542, 12, 0, 65543, 12, 0, 65544, 12, 0, 65545, 12, 0, 65546, 12, 0, 65547, 5, 0, 65548, 5, 0, 65549, 5, 0, 65550, -1073741815, 0, 65551, -1610612728, 0, 65552, -1610612728, 0, 65553, -1610612728, 0, 65554, -1610612728, 0, 65555, -1610612728, 0, 65556, -1610612728, 0, 65557, -1610612728, 0, 65558, 9, 0, 65559, 7, 0, 65560, 5, 0, 131072, 5, 0, 131073, -1073741815, 0, 131074, -1610612728, 0, 131075, -1610612728, 0, 131076, -1610612728, 0, 131077, -1610612728, 0, 131078, -1610612728, 0, 131079, -1610612728, 0, 131080, -1610612728, 0, 131081, -1610612728, 0, 131082, -1610612728, 0, 131083, -1610612728, 0, 131084, -1610612728, 0, 131085, -1610612728, 0, 131086, 1610612750, 0, 131087, -1073741816, 0, 131088, -1073741816, 0, 131089, -1610612723, 0, 131090, 13, 0, 131091, -1073741816, 0, 131092, -1073741816, 0, 131093, -1610612723, 0, 131094, 1610612744, 0, 131095, 7, 0, 131096, 5, 0, 196608, 5, 0, 196609, 8, 0, 196610, 13, 0, 196611, -1073741816, 0, 196612, -1073741816, 0, 196613, -1073741816, 0, 196614, -1073741816, 0, 196615, -1073741816, 0, 196616, -1073741816, 0, 196617, -1610612723, 0, 196618, 13, 0, 196619, -1073741816, 0, 196620, -1073741816, 0, 196621, -1610612723, 0, 196622, 1610612744, 0, 196623, -1610612729, 0, 196624, -1610612729, 0, 196625, 8, 0, 196626, 1610612744, 0, 196627, -1610612729, 0, 196628, -1610612729, 0, 196629, 8, 0, 196630, 1610612744, 0, 196631, 7, 0, 196632, 5, 0, 262144, -1073741817, 0, 262145, 8, 0, 262146, 1610612744, 0, 262147, -1610612725, 0, 262148, -1610612724, 0, 262149, -1610612725, 0, 262150, 12, 0, 262151, 12, 0, 262152, 7, 0, 262153, 8, 0, 262154, 1610612744, 0, 262155, 7, 0, 262156, 5, 0, 262157, 8, 0, 262158, 1610612744, 0, 262159, 7, 0, 262160, 12, 0, 262161, 8, 0, 262162, 1610612744, 0, 262163, 12, 0, 262164, 12, 0, 262165, 8, 0, 262166, 1610612744, 0, 262167, 7, 0, 262168, 5, 0, 327680, -1610612728, 0, 327681, 1610612749, 0, 327682, 1610612744, 0, 327683, -1610612725, 0, 327684, -1610612725, 0, 327685, -1610612725, 0, 327686, 12, 0, 327687, 12, 0, 327688, 7, 0, 327689, 8, 0, 327690, 1610612744, 0, 327691, 12, 0, 327692, 12, 0, 327693, 8, 0, 327694, -1073741811, 0, 327695, -1610612728, 0, 327696, -1610612728, 0, 327697, 1610612749, 0, 327698, -1073741811, 0, 327699, -1610612728, 0, 327700, -1610612728, 0, 327701, 1610612749, 0, 327702, -1073741811, 0, 327703, -1610612728, 0, 327704, -1610612728, 0, 393216, -1073741816, 0, 393217, -1073741816, 0, 393218, -1610612727, 0, 393219, -1610612725, 0, 393220, -1610612729, 0, 393221, -1610612729, 0, 393222, 7, 0, 393223, 7, 0, 393224, 7, 0, 393225, 8, 0, 393226, 1610612744, 0, 393227, 5, 0, 393228, 5, 0, 393229, 8, 0, 393230, 13, 0, 393231, -1073741816, 0, 393232, -1073741816, 0, 393233, -1610612723, 0, 393234, 13, 0, 393235, -1073741816, 0, 393236, -1073741816, 0, 393237, -1610612723, 0, 393238, 13, 0, 393239, -1073741816, 0, 393240, -1073741816, 0, 458752, 5, 0, 458753, 5, 0, 458754, -1610612724, 0, 458755, -1610612725, 0, 458756, -1610612725, 0, 458757, -1610612725, 0, 458758, -1610612725, 0, 458759, -1610612725, 0, 458760, -1610612725, 0, 458761, 8, 0, 458762, 1610612744, 0, 458763, -1610612725, 0, 458764, -1610612725, 0, 458765, 8, 0, 458766, 1610612744, 0, 458767, 7, 0, 458768, 5, 0, 458769, 8, 0, 458770, 1610612744, 0, 458771, 5, 0, 458772, 5, 0, 458773, 8, 0, 458774, 1610612744, 0, 458775, 12, 0, 458776, 5, 0, 524288, 5, 0, 524289, -1073741815, 0, 524290, -1610612728, 0, 524291, -1610612728, 0, 524292, -1610612728, 0, 524293, -1610612728, 0, 524294, -1610612728, 0, 524295, -1610612728, 0, 524296, -1610612728, 0, 524297, 1610612749, 0, 524298, -1073741811, 0, 524299, -1610612728, 0, 524300, -1610612728, 0, 524301, 1610612749, 0, 524302, 1610612744, 0, 524303, 7, 0, 524304, 5, 0, 524305, 8, 0, 524306, 1610612744, 0, 524307, 5, 0, 524308, 5, 0, 524309, 8, 0, 524310, 1610612744, 0, 524311, 12, 0, 524312, 5, 0, 589824, 5, 0, 589825, 8, 0, 589826, 13, 0, 589827, -1073741816, 0, 589828, -1073741816, 0, 589829, -1073741816, 0, 589830, -1073741816, 0, 589831, -1073741816, 0, 589832, -1073741816, 0, 589833, -1073741816, 0, 589834, -1073741816, 0, 589835, -1073741816, 0, 589836, -1073741816, 0, 589837, -1610612723, 0, 589838, -1073741811, 0, 589839, -1610612728, 0, 589840, -1610612728, 0, 589841, 1610612749, 0, 589842, -1073741811, 0, 589843, -1610612728, 0, 589844, -1610612728, 0, 589845, 1610612749, 0, 589846, 1610612744, 0, 589847, 12, 0, 589848, 5, 0, 655360, 5, 0, 655361, 8, 0, 655362, 1610612744, 0, 655363, -1610612725, 0, 655364, -1610612725, 0, 655365, 12, 0, 655366, 7, 0, 655367, 7, 0, 655368, 5, 0, 655369, 5, 0, 655370, 5, 0, 655371, 7, 0, 655372, 7, 0, 655373, 8, 0, 655374, 13, 0, 655375, -1073741816, 0, 655376, -1073741816, 0, 655377, -1073741816, 0, 655378, -1073741816, 0, 655379, -1073741816, 0, 655380, -1073741816, 0, 655381, -1073741816, 0, 655382, -1610612727, 0, 655383, 12, 0, 655384, 5, 0, 720896, 5, 0, 720897, 8, 0, 720898, 1610612744, 0, 720899, -1610612724, 0, 720900, 12, 0, 720901, 12, 0, 720902, 12, 0, 720903, 7, 0, 720904, 7, 0, 720905, 7, 0, 720906, 12, 0, 720907, 12, 0, 720908, 7, 0, 720909, 8, 0, 720910, 1610612744, 0, 720911, 5, 0, 720912, 5, 0, 720913, 5, 0, 720914, 5, 0, 720915, 5, 0, 720916, 5, 0, 720917, 5, 0, 720918, 5, 0, 720919, 5, 0, 720920, 5, 0, 786432, 5, 0, 786433, 8, 0, 786434, -1073741811, 0, 786435, -1610612728, 0, 786436, -1610612728, 0, 786437, -1610612728, 0, 786438, -1610612728, 0, 786439, -1610612728, 0, 786440, -1610612728, 0, 786441, -1610612728, 0, 786442, -1610612728, 0, 786443, -1610612728, 0, 786444, -1610612728, 0, 786445, 1610612749, 0, 786446, 1610612744, 0, 786447, 5, 0, 851968, 5, 0, 851969, 1610612745, 0, 851970, -1073741816, 0, 851971, -1073741816, 0, 851972, -1073741816, 0, 851973, -1073741816, 0, 851974, -1073741816, 0, 851975, -1073741816, 0, 851976, -1073741816, 0, 851977, -1073741816, 0, 851978, -1073741816, 0, 851979, -1073741816, 0, 851980, -1073741816, 0, 851981, -1073741816, 0, 851982, -1610612727, 0, 851983, 5, 0, 917504, 5, 0, 917505, 5, 0, 917506, 5, 0, 917507, 5, 0, 917508, 5, 0, 917509, 5, 0, 917510, 5, 0, 917511, 5, 0, 917512, 5, 0, 917513, 5, 0, 917514, 5, 0, 917515, 5, 0, 917516, 5, 0, 917517, 5, 0, 917518, 5, 0, 917519, 5, 0 )
 
-[node name="TowerHandler" parent="." instance=ExtResource( 2 )]
+[node name="TowerHandler" parent="." instance=ExtResource( 3 )]
 
 [node name="PSpawn" type="Node2D" parent="."]
 position = Vector2( 1000.3, 251.911 )
-script = ExtResource( 3 )
-
-[node name="PowerUpSpawner" type="Node" parent="."]
 script = ExtResource( 4 )
 
-[node name="Enemies" type="Node" parent="."]
+[node name="PowerUpSpawner" type="Node" parent="."]
 script = ExtResource( 5 )
+
+[node name="Enemies" type="Node" parent="."]
+editor/display_folded = true
+script = ExtResource( 6 )
 
 [node name="Spawners" type="Node" parent="Enemies"]
 
 [node name="Spawner" type="Node2D" parent="Enemies/Spawners"]
 position = Vector2( 16.1821, 234.317 )
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
 [node name="UI" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Label" type="Label" parent="UI"]
 margin_left = 930.016
@@ -95,8 +107,8 @@ rect_scale = Vector2( 0.5, 0.5 )
 [node name="TextureButton" type="TextureButton" parent="UI/VBoxContainer2"]
 margin_right = 109.0
 margin_bottom = 84.0
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+texture_normal = ExtResource( 9 )
+script = ExtResource( 10 )
 
 [node name="Label" type="Label" parent="UI/VBoxContainer2"]
 margin_top = 88.0
@@ -123,8 +135,8 @@ rect_scale = Vector2( 0.5, 0.5 )
 [node name="TextureButton" type="TextureButton" parent="UI/VBoxContainer3"]
 margin_right = 109.0
 margin_bottom = 84.0
-texture_normal = ExtResource( 10 )
-script = ExtResource( 9 )
+texture_normal = ExtResource( 11 )
+script = ExtResource( 10 )
 
 [node name="Label" type="Label" parent="UI/VBoxContainer3"]
 margin_top = 88.0
@@ -151,8 +163,8 @@ rect_scale = Vector2( 0.5, 0.5 )
 [node name="TextureButton" type="TextureButton" parent="UI/VBoxContainer4"]
 margin_right = 109.0
 margin_bottom = 84.0
-texture_normal = ExtResource( 11 )
-script = ExtResource( 9 )
+texture_normal = ExtResource( 12 )
+script = ExtResource( 10 )
 
 [node name="Label" type="Label" parent="UI/VBoxContainer4"]
 margin_top = 88.0
@@ -185,7 +197,7 @@ margin_bottom = 589.86
 [node name="TextureRect" type="TextureRect" parent="UI/HBoxContainer"]
 margin_right = 84.0
 margin_bottom = 84.0
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 
 [node name="ResourceLabel" type="Label" parent="UI/HBoxContainer"]
 margin_left = 88.0
@@ -195,58 +207,95 @@ margin_bottom = 65.0
 custom_fonts/font = SubResource( 4 )
 text = "1000"
 align = 2
-script = ExtResource( 13 )
+script = ExtResource( 14 )
 
 [node name="Scrapboxes" type="Node" parent="."]
 editor/display_folded = true
-script = ExtResource( 14 )
+script = ExtResource( 15 )
 
-[node name="Scrapbox" parent="Scrapboxes" instance=ExtResource( 15 )]
+[node name="Scrapbox" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 41.3551, 72.9392 )
 
-[node name="Scrapbox2" parent="Scrapboxes" instance=ExtResource( 15 )]
+[node name="Scrapbox2" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 343.727, 174.61 )
 
-[node name="Scrapbox3" parent="Scrapboxes" instance=ExtResource( 15 )]
+[node name="Scrapbox3" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 492.932, 329.757 )
 
-[node name="Scrapbox4" parent="Scrapboxes" instance=ExtResource( 15 )]
+[node name="Scrapbox4" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 132.463, 467.079 )
 
-[node name="Scrapbox5" parent="Scrapboxes" instance=ExtResource( 15 )]
+[node name="Scrapbox5" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 434.174, 599.119 )
 
-[node name="Scrapbox6" parent="Scrapboxes" instance=ExtResource( 15 )]
+[node name="Scrapbox6" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 807.847, 198.377 )
 
-[node name="Scrapbox7" parent="Scrapboxes" instance=ExtResource( 15 )]
+[node name="Scrapbox7" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 926.683, 30.0261 )
 
 [node name="FlyingHelpText" type="Node" parent="."]
-script = ExtResource( 16 )
-
-[node name="RalphPath" type="Path2D" parent="."]
-editor/display_folded = true
-curve = SubResource( 5 )
-
-[node name="PathFollow2D" type="PathFollow2D" parent="RalphPath"]
-position = Vector2( 545.287, 257.373 )
-offset = 510.9
-rotate = false
-loop = false
 script = ExtResource( 17 )
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="RalphPath/PathFollow2D"]
-scale = Vector2( 0.305689, 0.305689 )
-collision_layer = 524289
+[node name="RalphPath" type="Path2D" parent="."]
+curve = SubResource( 5 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RalphPath/PathFollow2D/KinematicBody2D"]
-scale = Vector2( 6.08, 3.08 )
+[node name="NPC" type="Node2D" parent="."]
+editor/display_folded = true
+position = Vector2( 28.5295, 414.043 )
+
+[node name="Area2D" type="Area2D" parent="NPC"]
+editor/display_folded = true
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Area2D"]
 shape = SubResource( 6 )
 
-[node name="Sprite" type="Sprite" parent="RalphPath/PathFollow2D/KinematicBody2D"]
-scale = Vector2( 2.65371, 2.65371 )
+[node name="Sprite" type="Sprite" parent="NPC"]
 texture = ExtResource( 18 )
+
+[node name="TimeMachinePoints" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="Exit" type="Node2D" parent="TimeMachinePoints"]
+position = Vector2( 80.8526, 3.08009 )
+
+[node name="Exit2" type="Node2D" parent="TimeMachinePoints"]
+position = Vector2( 713.043, 145.535 )
+
+[node name="Exit3" type="Node2D" parent="TimeMachinePoints"]
+position = Vector2( 74.6924, 230.237 )
+
+[node name="Exit4" type="Node2D" parent="TimeMachinePoints"]
+position = Vector2( 883.989, 6.93019 )
+
+[node name="Exit5" type="Node2D" parent="TimeMachinePoints"]
+position = Vector2( 409.653, 525.927 )
+
+[node name="Drops" type="Node" parent="."]
+
+[node name="TimeMachine" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 835.149, 315.368 )
+collision_layer = 0
+collision_mask = 0
+script = ExtResource( 19 )
+
+[node name="Area2D" type="Area2D" parent="TimeMachine"]
+editor/display_folded = true
+collision_layer = 3
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TimeMachine/Area2D"]
+shape = SubResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="TimeMachine"]
+texture = ExtResource( 20 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TimeMachine"]
+shape = SubResource( 8 )
 [connection signal="pressed" from="UI/VBoxContainer2/TextureButton" to="UI/VBoxContainer2/TextureButton" method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer3/TextureButton" to="UI/VBoxContainer3/TextureButton" method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer4/TextureButton" to="UI/VBoxContainer4/TextureButton" method="_on_TextureButton_pressed"]
+[connection signal="body_entered" from="TimeMachine/Area2D" to="TimeMachine" method="_on_TimeMachineArea_body_entered"]
