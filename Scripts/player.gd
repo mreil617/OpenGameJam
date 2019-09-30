@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 export (int) var speed = 200
 
+var can_move = true
 var velocity = Vector2()
 var health = 100
 var max_health = 100
@@ -17,6 +18,9 @@ func _process(delta):
 		respawn()
 	
 func get_input():
+	if not can_move:
+		return
+		
 	look_at(get_global_mouse_position())
 	velocity = Vector2()
 	if Input.is_action_pressed('right'):
@@ -42,9 +46,10 @@ func respawn():
 	globals.ted_died = true
 	
 func update_health(amount):
-	health += amount
-	if health > max_health:
-		health = max_health
-	elif health < 0:
-		health = 0
-	get_node("../PlayerHealth").set_value(health)
+	if can_move:
+		health += amount
+		if health > max_health:
+			health = max_health
+		elif health < 0:
+			health = 0
+		get_node("../PlayerHealth").set_value(health)

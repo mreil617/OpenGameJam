@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/sceen_one.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tiles/test_tiles.tres" type="TileSet" id=2]
@@ -12,40 +12,43 @@
 [ext_resource path="res://Assets/Comfortaa-Bold.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://Assets/Scrap.png" type="Texture" id=11]
 [ext_resource path="res://Scripts/gold.gd" type="Script" id=12]
-[ext_resource path="res://Scripts/time_machine.gd" type="Script" id=13]
-[ext_resource path="res://Assets/ufoYellow.png" type="Texture" id=14]
-[ext_resource path="res://Scripts/enemy_follower.gd" type="Script" id=15]
-[ext_resource path="res://Assets/spaceAstronauts_004.png" type="Texture" id=16]
-[ext_resource path="res://Scripts/scrapboxes.gd" type="Script" id=17]
-[ext_resource path="res://Prefabs/scrapbox.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Scenes/flying_help_text.gd" type="Script" id=19]
+[ext_resource path="res://Scripts/enemy_follower.gd" type="Script" id=13]
+[ext_resource path="res://Assets/spaceAstronauts_004.png" type="Texture" id=14]
+[ext_resource path="res://Scripts/scrapboxes.gd" type="Script" id=15]
+[ext_resource path="res://Prefabs/scrapbox.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/flying_help_text.gd" type="Script" id=17]
+[ext_resource path="res://Scripts/time_machine.gd" type="Script" id=18]
+[ext_resource path="res://Assets/ufoYellow.png" type="Texture" id=19]
+
+[sub_resource type="DynamicFont" id=1]
+size = 27
+font_data = ExtResource( 10 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 27
 font_data = ExtResource( 10 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 27
-font_data = ExtResource( 10 )
-
-[sub_resource type="DynamicFont" id=4]
 size = 40
 font_data = ExtResource( 10 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=4]
 size = 27
 font_data = ExtResource( 10 )
 
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 52.61, 54.19 )
-
-[sub_resource type="Curve2D" id=5]
+[sub_resource type="Curve2D" id=6]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 880.852, 25.5585, 0, 0, 0, 0, 844.378, 87.9703, 0, 0, 0, 0, 614.183, 79.0543, 0, 0, 0, 0, 546.908, 136.603, 0, 0, 0, 0, 545.287, 257.374 )
 }
 
-[sub_resource type="CapsuleShape2D" id=6]
+[sub_resource type="CapsuleShape2D" id=7]
 radius = 10.08
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 55.46, 58.98 )
+
+[sub_resource type="CircleShape2D" id=8]
+radius = 40.0
 
 [node name="Root" type="Node2D"]
 script = ExtResource( 1 )
@@ -101,19 +104,20 @@ script = ExtResource( 9 )
 margin_top = 86.0
 margin_right = 109.0
 margin_bottom = 117.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Turret3"
 
 [node name="Label2" type="Label" parent="UI/VBoxContainer2"]
 margin_top = 121.0
 margin_right = 109.0
 margin_bottom = 186.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "30
 "
 align = 1
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="UI"]
+editor/display_folded = true
 margin_left = 731.738
 margin_top = 517.342
 margin_right = 840.738
@@ -130,14 +134,14 @@ script = ExtResource( 9 )
 margin_top = 86.0
 margin_right = 109.0
 margin_bottom = 117.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Turret1"
 
 [node name="Label2" type="Label" parent="UI/VBoxContainer3"]
 margin_top = 121.0
 margin_right = 109.0
 margin_bottom = 186.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "20
 "
 align = 1
@@ -160,14 +164,14 @@ script = ExtResource( 9 )
 margin_top = 86.0
 margin_right = 109.0
 margin_bottom = 117.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Turret1"
 
 [node name="Label2" type="Label" parent="UI/VBoxContainer4"]
 margin_top = 121.0
 margin_right = 109.0
 margin_bottom = 152.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "10"
 align = 1
 
@@ -193,7 +197,7 @@ margin_left = 88.0
 margin_top = 19.0
 margin_right = 173.0
 margin_bottom = 65.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "1000"
 align = 2
 script = ExtResource( 12 )
@@ -203,34 +207,18 @@ margin_left = 930.016
 margin_top = 565.343
 margin_right = 1015.02
 margin_bottom = 596.343
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 text = "Scrap"
 
-[node name="TimeMachine" type="Node2D" parent="."]
-editor/display_folded = true
-position = Vector2( 516.316, 339.617 )
-script = ExtResource( 13 )
-
-[node name="Sprite" type="Sprite" parent="TimeMachine"]
-texture = ExtResource( 14 )
-
-[node name="Area2D" type="Area2D" parent="TimeMachine"]
-collision_layer = 3
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TimeMachine/Area2D"]
-shape = SubResource( 7 )
-
 [node name="RalphPath" type="Path2D" parent="."]
-editor/display_folded = true
-curve = SubResource( 5 )
+curve = SubResource( 6 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="RalphPath"]
 position = Vector2( 545.287, 257.373 )
 offset = 510.9
 rotate = false
 loop = false
-script = ExtResource( 15 )
+script = ExtResource( 13 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="RalphPath/PathFollow2D"]
 scale = Vector2( 0.305689, 0.305689 )
@@ -238,60 +226,101 @@ collision_layer = 524289
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RalphPath/PathFollow2D/KinematicBody2D"]
 scale = Vector2( 6.08, 3.08 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="Sprite" type="Sprite" parent="RalphPath/PathFollow2D/KinematicBody2D"]
 scale = Vector2( 2.65371, 2.65371 )
-texture = ExtResource( 16 )
+texture = ExtResource( 14 )
 
 [node name="Scrapboxes" type="Node" parent="."]
 editor/display_folded = true
-script = ExtResource( 17 )
+script = ExtResource( 15 )
 
-[node name="Scrapbox" parent="Scrapboxes" instance=ExtResource( 18 )]
+[node name="Scrapbox" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 602.42, 138.95 )
 
-[node name="Scrapbox2" parent="Scrapboxes" instance=ExtResource( 18 )]
+[node name="Scrapbox2" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 491.641, 254.236 )
 
-[node name="Scrapbox3" parent="Scrapboxes" instance=ExtResource( 18 )]
+[node name="Scrapbox3" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 241.988, 135.665 )
 
-[node name="Scrapbox4" parent="Scrapboxes" instance=ExtResource( 18 )]
+[node name="Scrapbox4" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 149.634, 285.219 )
 
-[node name="Scrapbox5" parent="Scrapboxes" instance=ExtResource( 18 )]
+[node name="Scrapbox5" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 174.063, 389.489 )
 
-[node name="Scrapbox6" parent="Scrapboxes" instance=ExtResource( 18 )]
+[node name="Scrapbox6" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 346.258, 491.376 )
 
-[node name="Scrapbox7" parent="Scrapboxes" instance=ExtResource( 18 )]
+[node name="Scrapbox7" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 345.662, 339.44 )
 
-[node name="Scrapbox8" parent="Scrapboxes" instance=ExtResource( 18 )]
+[node name="Scrapbox8" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 536.924, 456.818 )
 
-[node name="Scrapbox9" parent="Scrapboxes" instance=ExtResource( 18 )]
+[node name="Scrapbox9" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 716.865, 373.402 )
 
-[node name="Scrapbox10" parent="Scrapboxes" instance=ExtResource( 18 )]
+[node name="Scrapbox10" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 896.806, 305.477 )
 
-[node name="Scrapbox11" parent="Scrapboxes" instance=ExtResource( 18 )]
+[node name="Scrapbox11" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 883.102, 475.289 )
 
-[node name="Scrapbox12" parent="Scrapboxes" instance=ExtResource( 18 )]
+[node name="Scrapbox12" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 75.7512, 596.838 )
 
-[node name="Scrapbox13" parent="Scrapboxes" instance=ExtResource( 18 )]
+[node name="Scrapbox13" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 1017.76, 104.682 )
 
-[node name="Scrapbox14" parent="Scrapboxes" instance=ExtResource( 18 )]
+[node name="Scrapbox14" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 34.0432, 148.774 )
 
 [node name="FlyingHelpText" type="Node" parent="."]
-script = ExtResource( 19 )
+script = ExtResource( 17 )
+
+[node name="TimeMachinePoints" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="Exit" type="Node2D" parent="TimeMachinePoints"]
+position = Vector2( 80.8526, 3.08009 )
+
+[node name="Exit2" type="Node2D" parent="TimeMachinePoints"]
+position = Vector2( 713.043, 145.535 )
+
+[node name="Exit3" type="Node2D" parent="TimeMachinePoints"]
+position = Vector2( 74.6924, 230.237 )
+
+[node name="Exit4" type="Node2D" parent="TimeMachinePoints"]
+position = Vector2( 883.989, 6.93019 )
+
+[node name="Exit5" type="Node2D" parent="TimeMachinePoints"]
+position = Vector2( 409.653, 525.927 )
+
+[node name="Drops" type="Node" parent="."]
+
+[node name="TimeMachine" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 516.316, 339.617 )
+collision_layer = 0
+collision_mask = 0
+script = ExtResource( 18 )
+
+[node name="Area2D" type="Area2D" parent="TimeMachine"]
+editor/display_folded = true
+collision_layer = 3
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TimeMachine/Area2D"]
+shape = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="TimeMachine"]
+texture = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TimeMachine"]
+shape = SubResource( 8 )
 [connection signal="pressed" from="UI/VBoxContainer2/TextureButton" to="UI/VBoxContainer2/TextureButton" method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer3/TextureButton" to="UI/VBoxContainer3/TextureButton" method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer4/TextureButton" to="UI/VBoxContainer4/TextureButton" method="_on_TextureButton_pressed"]

@@ -10,6 +10,8 @@ var speed = null
 var attack_distance = null
 var damage = null
 var attack_cooldown = null
+var drop = null
+var drop_chance = null
 
 var attack_cooldown_remaining = 0
 
@@ -21,6 +23,8 @@ func _ready():
 	attack_distance = stats.attack_distance
 	damage = stats.damage
 	attack_cooldown = stats.attack_cooldown
+	drop = stats.drop
+	drop_chance = stats.drop_chance
 	
 	var healthbar = get_node("HealthBar")
 	healthbar.max_value = health
@@ -80,7 +84,14 @@ func takeDamageEnemy(amount):
 			flying_text.get_node("TextNode").show_text(str(gold_worth), 1)
 			flying_text.transform.origin = transform.origin
 			get_node("../../FlyingHelpText").add_child(flying_text)
-				
+			
+			if drop != null:
+				var roll = randi() % 100
+				if 100 - drop_chance <= roll:
+					var new_drop = drop.instance()
+					new_drop.transform.origin = self.transform.origin
+					get_node("../../Drops").add_child(new_drop)
+					
 			get_node("../../UI/HBoxContainer/ResourceLabel").add_resources(gold_worth)
 			get_node("../../Enemies/Spawners/Spawner").enemies_killed += 1
 			get_parent().remove_child(self)
