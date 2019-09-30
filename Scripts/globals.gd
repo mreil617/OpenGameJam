@@ -1,3 +1,3 @@
 extends Node
 
-var ted_died = true
+var ted_died = false

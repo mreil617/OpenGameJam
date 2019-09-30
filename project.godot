@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="OpenGameJam 2019"
-run/main_scene="res://intro_scene.tscn"
+run/main_scene="res://Scenes/intro_scene.tscn"
 config/icon="res://Assets/spaceAstronauts_002.png"
 
 [display]
