@@ -210,7 +210,6 @@ scale = Vector2( 2.65371, 2.65371 )
 texture = ExtResource( 16 )
 
 [node name="Scrapboxes" type="Node" parent="."]
-editor/display_folded = true
 script = ExtResource( 17 )
 
 [node name="Scrapbox" parent="Scrapboxes" instance=ExtResource( 18 )]

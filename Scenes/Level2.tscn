@@ -157,7 +157,6 @@ position = Vector2( 129.134, 24.1654 )
 script = ExtResource( 11 )
 
 [node name="Scrapboxes" type="Node" parent="."]
-editor/display_folded = true
 script = ExtResource( 12 )
 
 [node name="Scrapbox" parent="Scrapboxes" instance=ExtResource( 13 )]

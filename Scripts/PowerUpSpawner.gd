@@ -20,6 +20,7 @@ func spawn_hp():
 	var randPosition = Vector2(rand_range(0,1000),rand_range(0,500))
 	powerupsOut += 1
 	var pack = HealthPackPre.instance()
+	pack.visible = false
 	pack.set_position(randPosition)
 	self.add_child(pack)
 	
