@@ -11,9 +11,15 @@ var current_text_bubble = null
 const text_time = 2
 var remaining_text_time = 0
 
+var ralph_can_progress = true
+
 #level one phrases
-var ralph_phrases = ["There it is!", "Hurry", "There coming for us!"]
-var ralph_phrases_timeline = [0.0, 0.44, 0.8]
+var ralph_phrases = []
+var ralph_phrases_timeline = []
+const ralph_phrases_one = ["There it is!", "Hurry", "There coming for us!"]
+const ralph_phrases_one_timeline = [0.0, 0.44, 0.8]
+const ralph_phrases_two = ["Dad!", "Where is he?!", "This can't be right", "Ahhhhh!!!", "Ted HELP", "I'll wait here", "Destroy those beasts!", "Have to find Dad", "Where is he!?", "Dad!" ]
+const ralph_phrases_two_timeline = [0.01, 0.11, 0.3, 0.45, 0.45, 0.6, 0.68, 0.69, 0.74, 0.86]
 
 const random_word_chance = 2 #percent out of 100
 const random_words = ["Where did we go wrong", "Welcome to the future", "I want to go home", "I miss Earth", "Another day another dolla", "This is life"]
@@ -29,7 +35,16 @@ func clear_text():
 	if current_text_bubble != null:
 		remove_child(current_text_bubble)
 		current_text_bubble = null
-	
+
+func _ready():
+	var level = get_tree().get_root().get_node("Root").level
+	if level == 1:
+		ralph_phrases = ralph_phrases_one
+		ralph_phrases_timeline = ralph_phrases_one_timeline
+	elif level == 2:
+		ralph_phrases = ralph_phrases_two
+		ralph_phrases_timeline = ralph_phrases_two_timeline
+		
 func _process(delta):
 	if globals.paused:
 		return
@@ -79,20 +94,25 @@ func _process(delta):
 		var text = ralph_phrases.pop_front()
 		say_something(text, 0, 1)
 		if text == "There coming for us!":
-			print("toggling")
 			get_node("../../Enemies/Spawners/Spawner").can_spawn = true
+		elif text == "Ahhhhh!!!":
+			get_node("../../Enemies/Spawners/Spawner").can_spawn = true
+		elif text == "Destroy those beasts!":
+			ralph_can_progress = false
+		elif text == "Where is he?!":
+			get_node("../../PSpawn/Player").say_something("What are you talking about Ralph", 0, 1)
 		
 		
 	#movement
 	if name == "player_two" and unit_offset >= 0.7:
 		offset += 1.5
-	elif name == "Ralph":
+	elif name == "Ralph" and ralph_can_progress:
 		offset += 1.5
-	else:
+	elif name != "Ralph":
 		offset += 0.5 * speed
 		
 	if current_text_bubble != null:
-		if get_parent().name != "TimeMachine":
+		if get_parent() != null and get_parent().name != "TimeMachine":
 			current_text_bubble.set_position(get_child(0).get_position())
 		else:
 			current_text_bubble.set_global_position(Vector2(100,100))

@@ -44,17 +44,20 @@ func _physics_process(delta):
 func _on_TimeMachineArea_body_entered(body):
 	if body.get_parent().name == "Player" and not active:
 		if get_parent().has_key == false:
-			body.get_parent().say_something("It's locked...", 0, 1)
-			var ralph = get_node("../RalphPath/Ralph")
-			ralph.say_something("Key has to be here somewhere", 1, 1)
-			ralph.say_something("Check those orange barrels", 1, 1)
+			if get_parent().level == 1:
+				body.get_parent().say_something("It's locked...", 0, 1)
+				var ralph = get_node("../RalphPath/Ralph")
+				ralph.say_something("Key has to be here somewhere", 1, 1)
+				ralph.say_something("Check those orange barrels", 1, 1)
+			elif get_parent().level == 2:
+				body.get_parent().say_something("I have to wait for Ralph", 0, 1)
 		else:
 			active = true
 			body.global_position = Vector2(0,0)
 			var playerRoot = body.get_parent()
-			playerRoot.say_something("Get in Ralph!",0,1)
-			playerRoot.say_something("Where are we headed anyway?",2,1)
-			playerRoot.say_something("Really??????",4,1)
+			playerRoot.say_something("TED: Get in Ralph!",0,1)
+			playerRoot.say_something("TED: Where are we headed anyway?",2,1)
+			playerRoot.say_something("TED: Really??????",4,1)
 			body.get_node("../../../PSpawn").remove_child(playerRoot)
 			self.add_child(playerRoot)
 			
@@ -63,6 +66,6 @@ func _on_TimeMachineArea_body_entered(body):
 			ralph.get_parent().remove_child(ralph)
 			self.add_child(ralph)
 			
-			ralph.say_something("Theres someone I need you to meet", 3, 1)
-			ralph.say_something("Almost there!", 3, 1)
+			ralph.say_something("RALPH: Theres someone I need you to meet", 3, 1)
+			ralph.say_something("RALPH: Almost there!", 3, 1)
 			playerRoot.hide()

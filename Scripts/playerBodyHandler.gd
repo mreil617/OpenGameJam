@@ -10,6 +10,7 @@ var remaining_text_time = 0
 
 func say_something(text, delay = 0, style = 0):
 	if delay != 0:
+		print("delayed")
 		delayed_text.append([text, delay, style])
 		return
 		
@@ -19,7 +20,9 @@ func say_something(text, delay = 0, style = 0):
 			current_text_bubble = text_bubble.instance()
 			current_text_bubble.transform.origin.y -= 10
 			self.add_child(current_text_bubble) #attached to child instead of parent
+			print("created bubble")
 		current_text_bubble.show_text(text, style)
+		print("said something: " + text)
 		if text == "This way Ted":
 			say_something(text, 5, style)
 	else:
@@ -32,8 +35,10 @@ func _process(delta):
 	for i in delayed_text.size():
 		delayed_text[i][1] -= delta
 		if delayed_text[i][1] <= 0:
+			print("say delay")
 			say_something(delayed_text[i][0], 0, delayed_text[i][2])
 		else:
+			print("continue delay")
 			continued_delays.append(delayed_text[i])
 	delayed_text = continued_delays
 	
@@ -41,7 +46,7 @@ func _process(delta):
 	if remaining_text_time > 0:
 		remaining_text_time -= delta
 		if get_parent().name != "TimeMachine":
-			current_text_bubble.set_position(Vector2(body.get_global_position().x,body.get_global_position().y))
+			current_text_bubble.set_position(body.get_global_position())
 		else:
 			current_text_bubble.set_global_position(Vector2(100,100))
 	
