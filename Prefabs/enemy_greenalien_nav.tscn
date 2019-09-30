@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/test_pathing.gd" type="Script" id=1]
 [ext_resource path="res://Assets/green__0000_idle_1.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Enemies/greenalien_stats.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 10.08
@@ -34,3 +35,6 @@ margin_right = 57.8073
 margin_bottom = -62.1617
 custom_styles/fg = SubResource( 2 )
 value = 100.0
+
+[node name="Stats" type="Node" parent="."]
+script = ExtResource( 3 )

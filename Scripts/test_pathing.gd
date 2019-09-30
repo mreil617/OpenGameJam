@@ -3,16 +3,28 @@ extends KinematicBody2D
 const flying_text_prefab = preload("res://Prefabs/text_bubble_flying.tscn")
 
 var path : = PoolVector2Array() setget set_path
-const speed = 100
-const attack_distance = 40
-const damage = 10
-const attack_cooldown = 2
+
+var health = null
+var gold_worth = null
+var speed = null
+var attack_distance = null
+var damage = null
+var attack_cooldown = null
+
 var attack_cooldown_remaining = 0
 
-var health = 100
-var gold_worth = 10
-
 func _ready():
+	var stats = get_node("Stats")
+	health = stats.health
+	gold_worth = stats.value
+	speed = stats.speed
+	attack_distance = stats.attack_distance
+	damage = stats.damage
+	attack_cooldown = stats.attack_cooldown
+	
+	var healthbar = get_node("HealthBar")
+	healthbar.max_value = health
+	
 	set_process(false)
 
 func _process(delta):

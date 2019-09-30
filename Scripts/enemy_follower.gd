@@ -19,6 +19,14 @@ const ted_died_random_words = ["Did you hear someone tried to escape?", "Poor Te
 const random_word_time = 2 #will decide to say random word every this time
 var remaining_random_word_time = 0
 
+func clear_text():
+	delayed_text = []
+	queued_text = []
+	remaining_text_time = 0
+	
+	if current_text_bubble != null:
+		remove_child(current_text_bubble)
+		current_text_bubble = null
 	
 func _process(delta):
 	if get_tree().get_root().get_node("Root").paused:
@@ -74,9 +82,9 @@ func _process(delta):
 		
 	#movement
 	if name == "player_two" and unit_offset >= 0.7:
-		offset += 1
+		offset += 1.5
 	elif name == "Ralph":
-		offset += 1
+		offset += 1.5
 	else:
 		offset += 0.5 * speed
 		

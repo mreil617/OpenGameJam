@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/test_pathing.gd" type="Script" id=1]
 [ext_resource path="res://Assets/red__0000_idle_1.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Enemies/redalien_stats.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 10.08
@@ -10,6 +11,7 @@ radius = 10.08
 bg_color = Color( 0.705882, 0.113725, 0.113725, 1 )
 
 [node name="EnemyBody" type="KinematicBody2D"]
+position = Vector2( 0, -1 )
 scale = Vector2( 0.305689, 0.305689 )
 collision_layer = 524291
 collision_mask = 3
@@ -34,3 +36,6 @@ margin_right = 57.8073
 margin_bottom = -62.1617
 custom_styles/fg = SubResource( 2 )
 value = 100.0
+
+[node name="Stats" type="Node" parent="."]
+script = ExtResource( 3 )

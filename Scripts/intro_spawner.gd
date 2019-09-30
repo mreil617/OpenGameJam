@@ -1,6 +1,6 @@
 extends Node
 
-const spawn_interval = 0.5 #seconds
+const spawn_interval = 1.2 #seconds
 var time_till_spawn = 0
 var total_spawns = 0
 
@@ -67,6 +67,9 @@ func spawn():
 		
 		if get_parent().get_child(2).has_node("player_two_ted_dead"):
 			get_parent().get_child(2).remove_child(get_parent().get_child(2).get_node("player_two_ted_dead"))
+		
+		if globals.ted_died:
+			get_node("../../UI/SkipButton").visible = true
 			
 	else:
 		if remaining_path_reset_time <= 0:
