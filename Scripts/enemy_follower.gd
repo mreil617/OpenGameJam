@@ -74,7 +74,6 @@ func _process(delta):
 		
 	#movement
 	if name == "player_two" and unit_offset >= 0.7:
-		
 		offset += 1
 	elif name == "Ralph":
 		offset += 1
