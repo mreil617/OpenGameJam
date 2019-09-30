@@ -29,7 +29,7 @@ func clear_text():
 		current_text_bubble = null
 	
 func _process(delta):
-	if get_tree().get_root().get_node("Root").paused:
+	if globals.paused:
 		return
 		
 	#delayed text

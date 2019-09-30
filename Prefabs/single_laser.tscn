@@ -3,6 +3,7 @@
 [ext_resource path="res://Assets/beams.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 2.72678, 7.95528 )
 
 [node name="bullet" type="Node"]
 
@@ -11,19 +12,12 @@ collision_layer = 0
 collision_mask = 524288
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+position = Vector2( 1.3986, -0.349647 )
 scale = Vector2( 1.61557, 0.908067 )
 shape = SubResource( 1 )
 
 [node name="right" type="Sprite" parent="KinematicBody2D"]
-position = Vector2( -10.9366, -0.329351 )
 texture = ExtResource( 1 )
 offset = Vector2( 1.11, 0 )
 region_enabled = true
-region_rect = Rect2( 174.79, 147.45, 11.48, 17.78 )
-
-[node name="left" type="Sprite" parent="KinematicBody2D"]
-position = Vector2( 8.54316, -0.126432 )
-texture = ExtResource( 1 )
-offset = Vector2( 1.11, 0 )
-region_enabled = true
-region_rect = Rect2( 174.79, 147.45, 11.48, 17.78 )
+region_rect = Rect2( 9.47366, 41.6278, 9.47368, 14.7368 )

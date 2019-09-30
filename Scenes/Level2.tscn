@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Assets/Tiles/test_tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Prefabs/TowerHandler.tscn" type="PackedScene" id=2]
@@ -7,13 +7,17 @@
 [ext_resource path="res://Scripts/enemy_nav_mover.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/enemy_nav_spawner.gd" type="Script" id=6]
 [ext_resource path="res://Assets/Comfortaa-Bold.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://Assets/spaceShips_008.png" type="Texture" id=8]
+[ext_resource path="res://Assets/tank3.png" type="Texture" id=8]
 [ext_resource path="res://Scripts/Build.gd" type="Script" id=9]
-[ext_resource path="res://Assets/Scrap.png" type="Texture" id=10]
-[ext_resource path="res://Scripts/gold.gd" type="Script" id=11]
-[ext_resource path="res://Scripts/scrapboxes.gd" type="Script" id=12]
-[ext_resource path="res://Prefabs/scrapbox_two.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scenes/flying_help_text.gd" type="Script" id=14]
+[ext_resource path="res://Assets/tank1.png" type="Texture" id=10]
+[ext_resource path="res://Assets/tank2.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Scrap.png" type="Texture" id=12]
+[ext_resource path="res://Scripts/gold.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/scrapboxes.gd" type="Script" id=14]
+[ext_resource path="res://Prefabs/scrapbox_two.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/flying_help_text.gd" type="Script" id=16]
+[ext_resource path="res://Scripts/enemy_follower.gd" type="Script" id=17]
+[ext_resource path="res://Assets/spaceAstronauts_004.png" type="Texture" id=18]
 
 [sub_resource type="DynamicFont" id=1]
 size = 27
@@ -31,7 +35,16 @@ font_data = ExtResource( 7 )
 size = 40
 font_data = ExtResource( 7 )
 
+[sub_resource type="Curve2D" id=5]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 880.852, 25.5585, 0, 0, 0, 0, 844.378, 87.9703, 0, 0, 0, 0, 614.183, 79.0543, 0, 0, 0, 0, 546.908, 136.603, 0, 0, 0, 0, 545.287, 257.374 )
+}
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 10.08
+
 [node name="Root" type="Node2D"]
+position = Vector2( 0, -0.857361 )
 
 [node name="NavNode" type="Navigation2D" parent="."]
 
@@ -81,21 +94,21 @@ rect_scale = Vector2( 0.5, 0.5 )
 
 [node name="TextureButton" type="TextureButton" parent="UI/VBoxContainer2"]
 margin_right = 109.0
-margin_bottom = 82.0
+margin_bottom = 84.0
 texture_normal = ExtResource( 8 )
 script = ExtResource( 9 )
 
 [node name="Label" type="Label" parent="UI/VBoxContainer2"]
-margin_top = 86.0
+margin_top = 88.0
 margin_right = 109.0
-margin_bottom = 117.0
+margin_bottom = 119.0
 custom_fonts/font = SubResource( 2 )
-text = "Turret3"
+text = "Turret6"
 
 [node name="Label2" type="Label" parent="UI/VBoxContainer2"]
-margin_top = 121.0
+margin_top = 123.0
 margin_right = 109.0
-margin_bottom = 152.0
+margin_bottom = 154.0
 custom_fonts/font = SubResource( 3 )
 text = "30"
 align = 1
@@ -109,27 +122,26 @@ rect_scale = Vector2( 0.5, 0.5 )
 
 [node name="TextureButton" type="TextureButton" parent="UI/VBoxContainer3"]
 margin_right = 109.0
-margin_bottom = 82.0
-texture_normal = ExtResource( 8 )
+margin_bottom = 84.0
+texture_normal = ExtResource( 10 )
 script = ExtResource( 9 )
 
 [node name="Label" type="Label" parent="UI/VBoxContainer3"]
-margin_top = 86.0
+margin_top = 88.0
 margin_right = 109.0
-margin_bottom = 117.0
+margin_bottom = 119.0
 custom_fonts/font = SubResource( 2 )
-text = "Turret2"
+text = "Turret5"
 
 [node name="Label2" type="Label" parent="UI/VBoxContainer3"]
-margin_top = 121.0
+margin_top = 123.0
 margin_right = 109.0
-margin_bottom = 152.0
+margin_bottom = 154.0
 custom_fonts/font = SubResource( 3 )
 text = "20"
 align = 1
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="UI"]
-editor/display_folded = true
 margin_left = 675.135
 margin_top = 516.874
 margin_right = 784.135
@@ -138,21 +150,21 @@ rect_scale = Vector2( 0.5, 0.5 )
 
 [node name="TextureButton" type="TextureButton" parent="UI/VBoxContainer4"]
 margin_right = 109.0
-margin_bottom = 82.0
-texture_normal = ExtResource( 8 )
+margin_bottom = 84.0
+texture_normal = ExtResource( 11 )
 script = ExtResource( 9 )
 
 [node name="Label" type="Label" parent="UI/VBoxContainer4"]
-margin_top = 86.0
+margin_top = 88.0
 margin_right = 109.0
-margin_bottom = 117.0
+margin_bottom = 119.0
 custom_fonts/font = SubResource( 2 )
-text = "Turret1"
+text = "Turret4"
 
 [node name="Label2" type="Label" parent="UI/VBoxContainer4"]
-margin_top = 121.0
+margin_top = 123.0
 margin_right = 109.0
-margin_bottom = 186.0
+margin_bottom = 188.0
 custom_fonts/font = SubResource( 3 )
 text = "10
 "
@@ -173,7 +185,7 @@ margin_bottom = 589.86
 [node name="TextureRect" type="TextureRect" parent="UI/HBoxContainer"]
 margin_right = 84.0
 margin_bottom = 84.0
-texture = ExtResource( 10 )
+texture = ExtResource( 12 )
 
 [node name="ResourceLabel" type="Label" parent="UI/HBoxContainer"]
 margin_left = 88.0
@@ -183,35 +195,58 @@ margin_bottom = 65.0
 custom_fonts/font = SubResource( 4 )
 text = "1000"
 align = 2
-script = ExtResource( 11 )
+script = ExtResource( 13 )
 
 [node name="Scrapboxes" type="Node" parent="."]
 editor/display_folded = true
-script = ExtResource( 12 )
+script = ExtResource( 14 )
 
-[node name="Scrapbox" parent="Scrapboxes" instance=ExtResource( 13 )]
+[node name="Scrapbox" parent="Scrapboxes" instance=ExtResource( 15 )]
 position = Vector2( 41.3551, 72.9392 )
 
-[node name="Scrapbox2" parent="Scrapboxes" instance=ExtResource( 13 )]
+[node name="Scrapbox2" parent="Scrapboxes" instance=ExtResource( 15 )]
 position = Vector2( 343.727, 174.61 )
 
-[node name="Scrapbox3" parent="Scrapboxes" instance=ExtResource( 13 )]
+[node name="Scrapbox3" parent="Scrapboxes" instance=ExtResource( 15 )]
 position = Vector2( 492.932, 329.757 )
 
-[node name="Scrapbox4" parent="Scrapboxes" instance=ExtResource( 13 )]
+[node name="Scrapbox4" parent="Scrapboxes" instance=ExtResource( 15 )]
 position = Vector2( 132.463, 467.079 )
 
-[node name="Scrapbox5" parent="Scrapboxes" instance=ExtResource( 13 )]
+[node name="Scrapbox5" parent="Scrapboxes" instance=ExtResource( 15 )]
 position = Vector2( 434.174, 599.119 )
 
-[node name="Scrapbox6" parent="Scrapboxes" instance=ExtResource( 13 )]
+[node name="Scrapbox6" parent="Scrapboxes" instance=ExtResource( 15 )]
 position = Vector2( 807.847, 198.377 )
 
-[node name="Scrapbox7" parent="Scrapboxes" instance=ExtResource( 13 )]
+[node name="Scrapbox7" parent="Scrapboxes" instance=ExtResource( 15 )]
 position = Vector2( 926.683, 30.0261 )
 
 [node name="FlyingHelpText" type="Node" parent="."]
-script = ExtResource( 14 )
+script = ExtResource( 16 )
+
+[node name="RalphPath" type="Path2D" parent="."]
+editor/display_folded = true
+curve = SubResource( 5 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="RalphPath"]
+position = Vector2( 545.287, 257.373 )
+offset = 510.9
+rotate = false
+loop = false
+script = ExtResource( 17 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="RalphPath/PathFollow2D"]
+scale = Vector2( 0.305689, 0.305689 )
+collision_layer = 524289
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RalphPath/PathFollow2D/KinematicBody2D"]
+scale = Vector2( 6.08, 3.08 )
+shape = SubResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="RalphPath/PathFollow2D/KinematicBody2D"]
+scale = Vector2( 2.65371, 2.65371 )
+texture = ExtResource( 18 )
 [connection signal="pressed" from="UI/VBoxContainer2/TextureButton" to="UI/VBoxContainer2/TextureButton" method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer3/TextureButton" to="UI/VBoxContainer3/TextureButton" method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer4/TextureButton" to="UI/VBoxContainer4/TextureButton" method="_on_TextureButton_pressed"]

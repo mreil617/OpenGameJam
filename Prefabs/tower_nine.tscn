@@ -37,11 +37,6 @@ position = Vector2( -1.51703, -1.974 )
 scale = Vector2( 0.349644, 0.349644 )
 texture = ExtResource( 3 )
 
-[node name="Sprite2" type="Sprite" parent="KinematicBody2D"]
-position = Vector2( -1.51703, -1.974 )
-scale = Vector2( 0.349644, 0.349644 )
-texture = ExtResource( 3 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
 position = Vector2( -1.64819, 0 )
 scale = Vector2( 1.16, 1.16 )
@@ -58,7 +53,7 @@ shape = SubResource( 3 )
 visible = false
 margin_right = 40.0
 margin_bottom = 14.0
-text = "Turret1"
+text = "Turret9"
 [connection signal="body_entered" from="RangeArea" to="." method="_on_RangeArea_body_entered"]
 [connection signal="body_exited" from="RangeArea" to="." method="_on_RangeArea_body_exited"]
 [connection signal="mouse_entered" from="HoverArea" to="." method="_on_HoverArea_mouse_entered"]
