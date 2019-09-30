@@ -13,7 +13,7 @@
 [ext_resource path="res://Assets/Towers/spaceShips_008.png" type="Texture" id=11]
 [ext_resource path="res://Scripts/Build.gd" type="Script" id=12]
 [ext_resource path="res://Scripts/scrapboxes.gd" type="Script" id=13]
-[ext_resource path="res://Prefabs/scrapbox_two.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Prefabs/scrapbox_three.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/flying_help_text.gd" type="Script" id=15]
 [ext_resource path="res://Prefabs/NPC_women.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scripts/time_machine.gd" type="Script" id=17]
@@ -212,29 +212,28 @@ margin_right = 695.491
 margin_bottom = 577.689
 
 [node name="Scrapboxes" type="Node" parent="."]
-editor/display_folded = true
 script = ExtResource( 13 )
 
-[node name="Scrapbox" parent="Scrapboxes" instance=ExtResource( 14 )]
-position = Vector2( 41.3551, 72.9392 )
+[node name="Scrapbox8" parent="Scrapboxes" instance=ExtResource( 14 )]
+position = Vector2( 41.0019, 72.2745 )
 
-[node name="Scrapbox2" parent="Scrapboxes" instance=ExtResource( 14 )]
-position = Vector2( 353.727, 136.61 )
+[node name="Scrapbox9" parent="Scrapboxes" instance=ExtResource( 14 )]
+position = Vector2( 353.033, 136.905 )
 
-[node name="Scrapbox3" parent="Scrapboxes" instance=ExtResource( 14 )]
-position = Vector2( 447.932, 276.757 )
+[node name="Scrapbox10" parent="Scrapboxes" instance=ExtResource( 14 )]
+position = Vector2( 448.936, 275.199 )
 
-[node name="Scrapbox4" parent="Scrapboxes" instance=ExtResource( 14 )]
-position = Vector2( 144.463, 446.079 )
+[node name="Scrapbox11" parent="Scrapboxes" instance=ExtResource( 14 )]
+position = Vector2( 143.854, 446.851 )
 
-[node name="Scrapbox5" parent="Scrapboxes" instance=ExtResource( 14 )]
-position = Vector2( 428.174, 559.119 )
+[node name="Scrapbox12" parent="Scrapboxes" instance=ExtResource( 14 )]
+position = Vector2( 428.783, 559.433 )
 
-[node name="Scrapbox6" parent="Scrapboxes" instance=ExtResource( 14 )]
-position = Vector2( 751.847, 219.377 )
+[node name="Scrapbox13" parent="Scrapboxes" instance=ExtResource( 14 )]
+position = Vector2( 752.628, 218.908 )
 
-[node name="Scrapbox7" parent="Scrapboxes" instance=ExtResource( 14 )]
-position = Vector2( 857.683, 109.026 )
+[node name="Scrapbox14" parent="Scrapboxes" instance=ExtResource( 14 )]
+position = Vector2( 854.785, 106.327 )
 
 [node name="FlyingHelpText" type="Node" parent="."]
 script = ExtResource( 15 )
