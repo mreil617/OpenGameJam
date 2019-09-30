@@ -98,7 +98,6 @@ rect_scale = Vector2( 0.5, 0.5 )
 [node name="TextureButton" type="TextureButton" parent="UI/VBoxContainer2"]
 margin_right = 126.0
 margin_bottom = 108.0
-rect_scale = Vector2( 0.9, 0.9 )
 texture_normal = ExtResource( 8 )
 script = ExtResource( 9 )
 
@@ -126,21 +125,21 @@ margin_bottom = 647.341
 rect_scale = Vector2( 0.5, 0.5 )
 
 [node name="TextureButton" type="TextureButton" parent="UI/VBoxContainer3"]
-margin_right = 117.0
+margin_right = 109.0
 margin_bottom = 82.0
 texture_normal = ExtResource( 11 )
 script = ExtResource( 9 )
 
 [node name="Label" type="Label" parent="UI/VBoxContainer3"]
 margin_top = 86.0
-margin_right = 117.0
+margin_right = 109.0
 margin_bottom = 117.0
 custom_fonts/font = SubResource( 1 )
 text = "Turret2"
 
 [node name="Label2" type="Label" parent="UI/VBoxContainer3"]
 margin_top = 121.0
-margin_right = 117.0
+margin_right = 109.0
 margin_bottom = 186.0
 custom_fonts/font = SubResource( 2 )
 text = "20
