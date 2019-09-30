@@ -125,6 +125,7 @@ position = Vector2( 224.785, 111.098 )
 scale = Vector2( 1.88, 1.88 )
 
 [node name="UI" type="Node" parent="."]
+editor/display_folded = true
 script = ExtResource( 8 )
 
 [node name="PlayButton" type="Button" parent="UI"]

@@ -18,8 +18,13 @@ var ralph_phrases = []
 var ralph_phrases_timeline = []
 var ralph_phrases_one = ["There it is!", "Hurry", "There coming for us!"]
 var ralph_phrases_one_timeline = [0.0, 0.44, 0.8]
+
 var ralph_phrases_two = ["Dad!", "Where is he?!", "This can't be right", "Ahhhhh!!!", "Ted HELP", "I'll wait here", "Destroy those beasts!", "Gotta look for Dad", "Have to find Dad", "Where is he!?", "Dad!", "Ted get over here!"]
 var ralph_phrases_two_timeline = [0.01, 0.18, 0.3, 0.3673, 0.45, 0.4965, 0.52, 0.63, 0.69, 0.74, 0.86, .98]
+
+var ralph_phrases_three = ["Hope she's here", "Sally!", "Here we go again", "Ahhhhh!!!", "Ted HELP", "Sally look out!", "You got this Ted", "Keep us safe", "Sally!", "Thank you!", "Let's get out of here", "Get in Ted!"]
+var ralph_phrases_three_timeline = [0.01, 0.08, 0.17, 0.36, 0.36, 0.46, 0.56, 0.65, 0.79, 0.83, 0.89, 0.96]
+
 
 const random_word_chance = 2 #percent out of 100
 const random_words = ["Where did we go wrong", "Welcome to the future", "I want to go home", "I miss Earth", "Another day another dolla", "This is life"]
@@ -40,17 +45,26 @@ func clear_text():
 func _ready():
 	ralph_phrases_one = ["There it is!", "Hurry", "There coming for us!"]
 	ralph_phrases_one_timeline = [0.0, 0.44, 0.8]
+
 	ralph_phrases_two = ["Dad!", "Where is he?!", "This can't be right", "Ahhhhh!!!", "Ted HELP", "I'll wait here", "Destroy those beasts!","Gotta look for Dad", "Have to find Dad", "Where is he!?", "Dad!" , "Ted get over here!"]
 	ralph_phrases_two_timeline = [0.01, 0.18, 0.3, 0.3673, 0.45, 0.4965, 0.4965, 0.52, 0.63, 0.74, 0.86, .98]
+
+	ralph_phrases_three = ["Hope she's here", "Sally!", "Here we go again Ted", "Ahhhhh!!!", "Ted HELP", "Sally look out!", "You got this Ted", "Keep us safe", "Sally!", "Thank you!", "Let's get out of here", "Get in Ted!"]
+	ralph_phrases_three_timeline = [0.01, 0.08, 0.17, 0.36, 0.36, 0.46, 0.56, 0.65, 0.79, 0.83, 0.89, 0.96]
+
 	
 	var level = get_tree().get_root().get_node("Root").level
 	if level == 1:
-		print("this")
 		ralph_phrases = ralph_phrases_one
 		ralph_phrases_timeline = ralph_phrases_one_timeline
 	elif level == 2:
 		ralph_phrases = ralph_phrases_two
 		ralph_phrases_timeline = ralph_phrases_two_timeline
+	elif level == 3:
+		ralph_phrases = ralph_phrases_three
+		ralph_phrases_timeline = ralph_phrases_three_timeline
+	elif level != 0:
+		print("WARNING unknown level")
 		
 func _process(delta):
 	if globals.paused:
@@ -91,10 +105,10 @@ func _process(delta):
 			globals.paused = true
 			get_tree().get_root().get_node("Root/UI/HintPanel").visible = true
 			return
-	
+	var level = get_tree().get_root().get_node("Root").level
 	if unit_offset >= 1 and name != "player_two" and name != "Ralph":
 		get_parent().remove_child(self)		
-	elif unit_offset >= 1 and name == "Ralph":
+	elif unit_offset >= 1 and name == "Ralph" and (level == 2 or level == 3):
 		if get_node("../../TimeMachine").player_present:
 			get_node("../../TimeMachine").begin_takeoff()
 	elif name == "player_two" and unit_offset >= 1:
@@ -111,7 +125,9 @@ func _process(delta):
 			ralph_can_progress = false
 		elif text == "Where is he?!":
 			get_node("../../PSpawn/Player").say_something("Why are we looking for your Dad?", 0, 1)
-		
+		elif text == "Keep us safe":
+			pass
+			#ralph_can_progress = false
 		
 	#movement
 	if name == "player_two" and unit_offset >= 0.7:
