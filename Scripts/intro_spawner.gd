@@ -43,9 +43,9 @@ func spawn():
 		playertwo.name = "player_two"
 		get_parent().get_child(6).add_child(playertwo)
 		playertwo.say_something("Hey Ted", 2, 1)
-		playertwo.say_something("I found a way out", 6, 1)
-		playertwo.say_something("No, really", 8, 1)
-		playertwo.say_something("These... things...", 8.5, 1)
+		playertwo.say_something("I'm ready to get out of here!", 6.5, 1)
+		playertwo.say_something("No, really", 8.5, 1)
+		playertwo.say_something("These... things.", 8.5, 1)
 		playertwo.say_something("They have a time machine", 8.5, 1)
 		playertwo.say_something("...", 18, 1)
 		playertwo.say_something("I know where they keep it", 18, 1)
@@ -59,6 +59,7 @@ func spawn():
 		playerone.say_something("Your crazy", 7, 1)
 		playerone.say_something("A what??", 15, 1)
 		playerone.say_something("This isn't a movie Ralph", 15, 1)
+		playerone.say_something("Where...", 21, 1)
 		
 		should_spawn_player = false
 		spawned_player = true
