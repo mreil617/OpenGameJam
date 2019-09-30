@@ -43,4 +43,8 @@ func respawn():
 	
 func update_health(amount):
 	health += amount
+	if health > max_health:
+		health = max_health
+	elif health < 0:
+		health = 0
 	get_node("../PlayerHealth").set_value(health)

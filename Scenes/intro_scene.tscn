@@ -111,9 +111,11 @@ position = Vector2( 186.529, 108.302 )
 scale = Vector2( 1.88018, 1.88018 )
 
 [node name="UI" type="Node" parent="."]
+editor/display_folded = true
 script = ExtResource( 6 )
 
-[node name="Button" type="Button" parent="UI"]
+[node name="PlayButton" type="Button" parent="UI"]
+editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -123,7 +125,7 @@ margin_top = -68.9927
 margin_right = 60.7739
 margin_bottom = -38.0527
 
-[node name="Label" type="Label" parent="UI/Button"]
+[node name="Label" type="Label" parent="UI/PlayButton"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -135,7 +137,20 @@ margin_bottom = 7.0
 text = "Play"
 align = 1
 
+[node name="SkipButton" type="Button" parent="UI"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -30.1561
+margin_top = -68.9927
+margin_right = 60.7739
+margin_bottom = -38.0527
+text = "Skip"
+
 [node name="HintPanel" type="Panel" parent="UI"]
+editor/display_folded = true
 visible = false
 anchor_left = 0.5
 anchor_top = 1.0
@@ -166,6 +181,7 @@ margin_bottom = 77.8889
 text = "OK"
 
 [node name="Exit" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( 881.274, 629.652 )
 
 [node name="Area2D" type="Area2D" parent="Exit"]
@@ -174,6 +190,7 @@ collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit/Area2D"]
 shape = SubResource( 7 )
-[connection signal="pressed" from="UI/Button" to="UI" method="_on_Play_pressed"]
+[connection signal="pressed" from="UI/PlayButton" to="UI" method="_on_Play_pressed"]
+[connection signal="pressed" from="UI/SkipButton" to="UI" method="_on_SkipButton_pressed"]
 [connection signal="pressed" from="UI/HintPanel/Button" to="UI" method="_on_WASDHint_pressed"]
 [connection signal="body_entered" from="Exit/Area2D" to="." method="_on_ExitArea_body_entered"]
