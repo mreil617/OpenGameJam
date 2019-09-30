@@ -33,7 +33,7 @@ func _process(delta):
 	
 	TowerCost = int(get_parent().get_child(2).text)
 	
-	if(get_node("../../../UI/ResouceContainer/HBoxContainer/ResourceLabel").current_resources - TowerCost >= 0):
+	if(get_node("../../../UI/HBoxContainer/ResourceLabel").current_resources - TowerCost >= 0):
 		self.set_modulate(Color(1,1,1,1))
 	else:
 		self.set_modulate(Color(1,1,1,.5))
@@ -48,7 +48,7 @@ func _process(delta):
 		build.set_position(get_global_mouse_position())
 		
 		if(get_global_mouse_position().distance_to(get_node("../../../PSpawn/Player/KinematicBody2D").get_global_position()) < 100 and 
-			get_node("../../../UI/ResouceContainer/HBoxContainer/ResourceLabel").current_resources - TowerCost >= 0):
+			get_node("../../../UI/HBoxContainer/ResourceLabel").current_resources - TowerCost >= 0):
 			build.set_modulate(Color(1,1,1,1))
 			canBuild = true
 		else:
@@ -57,22 +57,25 @@ func _process(delta):
 		if(canBuild && !overlapping()):
 			if(Input.is_action_just_pressed("Lmouse")):
 				if(!onPath()):
-					if(get_node("../../../UI/ResouceContainer/HBoxContainer/ResourceLabel").current_resources - TowerCost >= 0):
+					if(get_node("../../../UI/HBoxContainer/ResourceLabel").current_resources - TowerCost >= 0):
 						if(get_parent().get_child(1).text == "Turret1"):
+							print("this")
 							tempTower = Tower.instance()
 							tempTower.set_position(get_global_mouse_position())
 							get_node("../../../TowerHandler").add_child(tempTower)
-							get_node("../../../UI/ResouceContainer/HBoxContainer/ResourceLabel").add_resources(-TowerCost)
+							get_node("../../../UI/HBoxContainer/ResourceLabel").add_resources(-TowerCost)
 						if(get_parent().get_child(1).text == "Turret2"):
+							print("thiss")
 							tempTower = Tower2.instance()
 							tempTower.set_position(get_global_mouse_position())
 							get_node("../../../TowerHandler").add_child(tempTower)
-							get_node("../../../UI/ResouceContainer/HBoxContainer/ResourceLabel").add_resources(-TowerCost)
+							get_node("../../../UI/HBoxContainer/ResourceLabel").add_resources(-TowerCost)
 						if(get_parent().get_child(1).text == "Turret3"):
+							print("thisss")
 							tempTower = Tower3.instance()
 							tempTower.set_position(get_global_mouse_position())
 							get_node("../../../TowerHandler").add_child(tempTower)
-							get_node("../../../UI/ResouceContainer/HBoxContainer/ResourceLabel").add_resources(-TowerCost)
+							get_node("../../../UI/HBoxContainer/ResourceLabel").add_resources(-TowerCost)
 
 func _on_TextureButton_pressed():
 	if(building):

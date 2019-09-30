@@ -1,7 +1,9 @@
 extends Label
 
+
 var total_collected_resources = 0
 var current_resources = 0
+
 func _ready():
 	text = str(current_resources)
 

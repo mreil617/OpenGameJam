@@ -67,6 +67,7 @@ func set_path(value: PoolVector2Array):
 	if value.size() == 0:
 		return
 	set_process(true)
+	#get_tree().get_root().get_node("Root/Line2D").path = value
 	
 func takeDamageEnemy(amount):
 	health -= amount
@@ -81,4 +82,5 @@ func takeDamageEnemy(amount):
 			get_node("../../FlyingHelpText").add_child(flying_text)
 				
 			get_node("../../UI/ResouceContainer/HBoxContainer/ResourceLabel").add_resources(gold_worth)
+			get_node("../../Enemies/Spawners/Spawner").enemies_killed += 1
 			get_parent().remove_child(self)
