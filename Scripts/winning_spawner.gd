@@ -7,14 +7,19 @@ var total_spawns = 0
 var spawned_player = false
 var should_spawn_player = false
 
-const player_one = preload("res://Prefabs/player_one.tscn")
-const player_two = preload("res://Prefabs/player_two.tscn")
+#const player_one = preload("res://Prefabs/player_one.tscn")
+#const player_two = preload("res://Prefabs/player_two.tscn")
 
-const astronaut_one = preload("res://Prefabs/astronaut_one.tscn")
-const astronaut_two = preload("res://Prefabs/astronaut_two.tscn")
-const astronaut_three = preload("res://Prefabs/astronaut_three.tscn")
+#const astronaut_one = preload("res://Prefabs/astronaut_one.tscn")
+#const astronaut_two = preload("res://Prefabs/astronaut_two.tscn")
+#const astronaut_three = preload("res://Prefabs/astronaut_three.tscn")
 
-const astronauts = [astronaut_one, astronaut_two, astronaut_three]
+const alien_one = preload("res://Prefabs/alien_staic_green_right_nav.tscn")
+const alien_two = preload("res://Prefabs/alien_static_red_right_nav.tscn")
+#const alien_three = preload("res://Prefabs/Boss1.tscn")
+
+#const astronauts = [alien_one, alien_two, alien_three]
+const astronauts = [alien_one, alien_two]
 
 const path_reset_time = spawn_interval * 2.5
 var remaining_path_reset_time = path_reset_time
@@ -30,37 +35,37 @@ func start_game():
 func spawn():
 	
 	if globals.ted_died and total_spawns % 75 == 0 and not spawned_player:
-		var playertwo = player_two.instance()
-		playertwo.name = "player_two_ted_dead"
-		get_parent().get_child(2).add_child(playertwo)
-		playertwo.say_something("We shouldn't of tried that", 2, 1)
-		playertwo.say_something("I got my best friend killed", 6, 1)
-		playertwo.say_something("TEDDDDDDDDDDDDDDDDDD", 8.5, 1)
-		playertwo.say_something("This can't be real", 12, 1)
-		playertwo.say_something("Stuck here forever", 18, 1)
+#		var playertwo = player_two.instance()
+#		playertwo.name = "player_two_ted_dead"
+#		get_parent().get_child(2).add_child(playertwo)
+#		playertwo.say_something("We shouldn't of tried that", 2, 1)
+#		playertwo.say_something("I got my best friend killed", 6, 1)
+#		playertwo.say_something("TEDDDDDDDDDDDDDDDDDD", 8.5, 1)
+#		playertwo.say_something("This can't be real", 12, 1)
+#		playertwo.say_something("Stuck here forever", 18, 1)
 		
-	if should_spawn_player and not spawned_player:
-		var playertwo = player_two.instance()
-		playertwo.name = "player_two"
-		get_parent().get_child(6).add_child(playertwo)
-		playertwo.say_something("Hey Ted", 2, 1)
-		playertwo.say_something("I'm ready to get out of here!", 6.5, 1)
-		playertwo.say_something("No, really", 8.5, 1)
-		playertwo.say_something("These... things.", 8.5, 1)
-		playertwo.say_something("They have a time machine", 8.5, 1)
-		playertwo.say_something("...", 18, 1)
-		playertwo.say_something("I know where they keep it", 18, 1)
-		playertwo.say_something("Folow me!", 25, 1)
+#	if should_spawn_player and not spawned_player:
+#		var playertwo = player_two.instance()
+#		playertwo.name = "player_two"
+#		get_parent().get_child(6).add_child(playertwo)
+#		playertwo.say_something("Hey Ted", 2, 1)
+#		playertwo.say_something("I'm ready to get out of here!", 6.5, 1)
+#		playertwo.say_something("No, really", 8.5, 1)
+#		playertwo.say_something("These... things.", 8.5, 1)
+#		playertwo.say_something("They have a time machine", 8.5, 1)
+#		playertwo.say_something("...", 18, 1)
+#		playertwo.say_something("I know where they keep it", 18, 1)
+#		playertwo.say_something("Folow me!", 25, 1)
 		
-		var playerone = player_one.instance()
-		playerone.name = "player_one"
-		get_parent().get_child(3).add_child(playerone)
-		playerone.say_something("How are you Ralph", 3, 1)
-		playerone.say_something("Ready for another day?", 3, 1)
-		playerone.say_something("Your crazy", 7.5, 1)
-		playerone.say_something("A what??", 15, 1)
-		playerone.say_something("This isn't a movie Ralph", 15, 1)
-		playerone.say_something("Where...", 21, 1)
+#		var playerone = player_one.instance()
+#		playerone.name = "player_one"
+#		get_parent().get_child(3).add_child(playerone)
+#		playerone.say_something("How are you Ralph", 3, 1)
+#		playerone.say_something("Ready for another day?", 3, 1)
+#		playerone.say_something("Your crazy", 7.5, 1)
+#		playerone.say_something("A what??", 15, 1)
+#		playerone.say_something("This isn't a movie Ralph", 15, 1)
+#		playerone.say_something("Where...", 21, 1)
 		
 		should_spawn_player = false
 		spawned_player = true

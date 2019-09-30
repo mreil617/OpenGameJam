@@ -1,11 +1,17 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scripts/Winning.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tiles/test_tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://Scripts/winning_spawner.gd" type="Script" id=3]
-[ext_resource path="res://Prefabs/alien_staic_green_right.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Prefabs/alien_static_red_right.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scripts/intro_user_interface.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Characters/JailedRalph.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Characters/spaceAstronauts_001.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Characters/spaceAstronauts_004.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Characters/spaceAstronauts_005.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Characters/spaceAstronauts_007.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Characters/womanGreen_stand.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Characters/manOld_stand.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/intro_user_interface.gd" type="Script" id=11]
+[ext_resource path="res://Assets/Comfortaa-Bold.ttf" type="DynamicFontData" id=12]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -40,6 +46,12 @@ _data = {
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 32.2, 38.45 )
 
+[sub_resource type="DynamicFont" id=8]
+size = 28
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 12 )
+
 [node name="Root" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -53,6 +65,7 @@ format = 1
 tile_data = PoolIntArray( -1, 24, 0, -65536, 24, 0, -65535, 24, 0, -65534, 24, 0, -65533, 24, 0, -65532, 24, 0, -65531, 24, 0, -65530, 24, 0, -65529, 24, 0, -65528, 24, 0, -65527, 24, 0, -65526, 24, 0, -65525, 24, 0, -65524, 24, 0, 65535, 24, 0, 0, 1073741825, 0, 1, 1073741825, 0, 2, 1, 0, 3, 1073741825, 0, 4, 1073741825, 0, 5, 1073741825, 0, 6, 1073741825, 0, 7, 1073741825, 0, 8, 1073741825, 0, 9, 1073741825, 0, 10, 1073741825, 0, 11, 1073741825, 0, 12, 24, 0, 131071, 24, 0, 65536, 2, 0, 65537, 2, 0, 65538, 2, 0, 65539, 2, 0, 65540, 2, 0, 65541, 2, 0, 65542, 2, 0, 65543, 2, 0, 65544, 2, 0, 65545, 2, 0, 65546, 2, 0, 65547, 2, 0, 65548, 24, 0, 196607, 26, 0, 131072, 26, 0, 131073, 26, 0, 131074, 26, 0, 131075, 26, 0, 131076, 26, 0, 131077, 26, 0, 131078, 26, 0, 131079, 26, 0, 131080, 26, 0, 131081, 26, 0, 131082, 26, 0, 131083, 26, 0, 131084, 26, 0, 262143, 26, 0, 196608, 26, 0, 196609, 26, 0, 196610, 26, 0, 196611, 26, 0, 196612, 26, 0, 196613, 26, 0, 196614, 26, 0, 196615, 26, 0, 196616, 26, 0, 196617, 26, 0, 196618, 26, 0, 196619, 26, 0, 196620, 26, 0, 327679, 26, 0, 262144, 26, 0, 262145, 26, 0, 262146, 26, 0, 262147, 26, 0, 262148, 26, 0, 262149, 26, 0, 262150, 26, 0, 262151, 26, 0, 262152, 26, 0, 262153, 26, 0, 262154, 26, 0, 262155, 26, 0, 262156, 26, 0, 393215, 24, 0, 327680, 1073741825, 0, 327681, 1073741825, 0, 327682, 1073741825, 0, 327683, 1073741825, 0, 327684, 1073741825, 0, 327685, 1073741825, 0, 327686, 1073741825, 0, 327687, 1073741825, 0, 327688, 1, 0, 327689, 1073741825, 0, 327690, -1610612710, 0, 327691, 1073741825, 0, 327692, 24, 0, 458751, 24, 0, 393216, 1073741825, 0, 393217, 1073741825, 0, 393218, 1073741825, 0, 393219, 1073741825, 0, 393220, 1073741825, 0, 393221, 1073741825, 0, 393222, 1073741825, 0, 393223, 1073741825, 0, 393224, 1, 0, 393225, 1073741825, 0, 393226, -1610612710, 0, 393227, 1073741825, 0, 393228, 24, 0, 524287, 24, 0, 458752, 24, 0, 458753, 24, 0, 458754, 24, 0, 458755, 24, 0, 458756, 24, 0, 458757, 24, 0, 458758, 24, 0, 458759, 24, 0, 458760, 24, 0, 458761, 24, 0, 458762, -1610612710, 0, 458763, 24, 0, 458764, 24, 0 )
 
 [node name="Paths" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Spawner" type="Node" parent="Paths"]
 script = ExtResource( 3 )
@@ -75,44 +88,57 @@ curve = SubResource( 5 )
 [node name="RalphPath" type="Path2D" parent="Paths"]
 curve = SubResource( 6 )
 
-[node name="Aliens" type="Node" parent="."]
+[node name="Astro" type="Node" parent="."]
 editor/display_folded = true
 
-[node name="Node2D2" parent="Aliens" instance=ExtResource( 4 )]
-position = Vector2( 67.0793, 108.302 )
-scale = Vector2( 1.88018, 1.88018 )
+[node name="JailedRalph" type="Sprite" parent="Astro"]
+position = Vector2( 752.219, 118.287 )
+rotation = 0.872665
+texture = ExtResource( 4 )
 
-[node name="Node2D4" parent="Aliens" instance=ExtResource( 4 )]
-position = Vector2( 401.813, 99.1381 )
-scale = Vector2( 1.88018, 1.88018 )
+[node name="spaceAstronauts_001" type="Sprite" parent="Astro"]
+position = Vector2( 597.742, 130.962 )
+rotation = -3.80482
+texture = ExtResource( 5 )
 
-[node name="Node2D5" parent="Aliens" instance=ExtResource( 5 )]
-position = Vector2( 540.462, 95.7003 )
-scale = Vector2( 1.88018, 1.88018 )
+[node name="spaceAstronauts_004" type="Sprite" parent="Astro"]
+position = Vector2( 488.249, 126.384 )
+rotation = 0.527089
+texture = ExtResource( 6 )
 
-[node name="Node2D6" parent="Aliens" instance=ExtResource( 5 )]
-position = Vector2( 759.813, 113.996 )
-scale = Vector2( 1.88018, 1.88018 )
+[node name="Exit" type="Node2D" parent="."]
+editor/display_folded = true
+position = Vector2( 881.274, 629.652 )
 
-[node name="Node2D7" parent="Aliens" instance=ExtResource( 4 )]
-position = Vector2( 868.625, 91.534 )
-scale = Vector2( 1.88018, 1.88018 )
+[node name="Area2D" type="Area2D" parent="Exit"]
+collision_layer = 3
+collision_mask = 3
 
-[node name="Node2D8" parent="Aliens" instance=ExtResource( 5 )]
-position = Vector2( 1051.79, 114.203 )
-scale = Vector2( 1.88018, 1.88018 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit/Area2D"]
+shape = SubResource( 7 )
 
-[node name="Node2D9" parent="Aliens" instance=ExtResource( 4 )]
-position = Vector2( 305.135, 110.888 )
-scale = Vector2( 1.88018, 1.88018 )
+[node name="spaceAstronauts_005" type="Sprite" parent="."]
+position = Vector2( 112.871, 125.992 )
+rotation = 0.527089
+texture = ExtResource( 7 )
 
-[node name="Node2D" parent="Aliens" instance=ExtResource( 5 )]
-position = Vector2( 186.529, 108.302 )
-scale = Vector2( 1.88018, 1.88018 )
+[node name="spaceAstronauts_007" type="Sprite" parent="."]
+position = Vector2( 338.775, 128.146 )
+rotation = 1.50098
+texture = ExtResource( 8 )
+
+[node name="womanGreen_stand" type="Sprite" parent="."]
+position = Vector2( 829.774, 119.579 )
+rotation = -4.08407
+texture = ExtResource( 9 )
+
+[node name="manOld_stand" type="Sprite" parent="."]
+position = Vector2( 210.669, 124.46 )
+rotation = -3.95492
+texture = ExtResource( 10 )
 
 [node name="UI" type="Node" parent="."]
-editor/display_folded = true
-script = ExtResource( 6 )
+script = ExtResource( 11 )
 
 [node name="PlayButton" type="Button" parent="UI"]
 editor/display_folded = true
@@ -180,17 +206,14 @@ margin_right = 196.775
 margin_bottom = 77.8889
 text = "OK"
 
-[node name="Exit" type="Node2D" parent="."]
-editor/display_folded = true
-position = Vector2( 881.274, 629.652 )
-
-[node name="Area2D" type="Area2D" parent="Exit"]
-collision_layer = 3
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit/Area2D"]
-shape = SubResource( 7 )
+[node name="Title2" type="Label" parent="UI"]
+margin_left = 369.079
+margin_top = 22.1607
+margin_right = 719.079
+margin_bottom = 54.1607
+custom_fonts/font = SubResource( 8 )
+text = "Ralph's Amazing Fix"
+[connection signal="body_entered" from="Exit/Area2D" to="." method="_on_ExitArea_body_entered"]
 [connection signal="pressed" from="UI/PlayButton" to="UI" method="_on_Play_pressed"]
 [connection signal="pressed" from="UI/SkipButton" to="UI" method="_on_SkipButton_pressed"]
 [connection signal="pressed" from="UI/HintPanel/Button" to="UI" method="_on_WASDHint_pressed"]
-[connection signal="body_entered" from="Exit/Area2D" to="." method="_on_ExitArea_body_entered"]

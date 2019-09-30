@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cannon3.png-c5c7ebd438c8badcb17c11911c73b1eb.stex"
+path="res://.import/red__0019_hurt_2.png-c85be10824897ac7190bd4193e502960.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Towers/cannon3.png"
-dest_files=[ "res://.import/cannon3.png-c5c7ebd438c8badcb17c11911c73b1eb.stex" ]
+source_file="res://Assets/Characters/red__0019_hurt_2.png"
+dest_files=[ "res://.import/red__0019_hurt_2.png-c85be10824897ac7190bd4193e502960.stex" ]
 
 [params]
 

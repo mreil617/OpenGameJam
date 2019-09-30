@@ -1,5 +1,5 @@
 extends Node
 
-var game_won = false
+var game_won = true
 var ted_died = false
 var paused = false
