@@ -2,9 +2,7 @@ extends Node2D
 
 const player = preload("res://Prefabs/Player.tscn")
 
-var paused = false
 var player_has_control = false
-var ted_died = false
 var players_spawned = false
 	
 func _ready():
@@ -20,7 +18,7 @@ func give_player_control():
 	new_player.get_child(0).transform.origin = cur_player.transform.origin
 	cur_player.queue_free()
 	player_has_control = true
-	paused = false
+	globals.paused = false
 	
 func _on_ExitArea_body_entered(body):
 	get_tree().change_scene("res://Scenes/Level1.tscn")

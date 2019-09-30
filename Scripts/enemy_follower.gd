@@ -11,12 +11,14 @@ var current_text_bubble = null
 const text_time = 2
 var remaining_text_time = 0
 
-var ralph_phrases = ["There it is!", "This way Ted", "Hurry", "There coming for us!"]
-var ralph_phrases_timeline = [0.0, 0.22, 0.6, 0.6]
+#level one phrases
+var ralph_phrases = ["There it is!", "Hurry", "There coming for us!"]
+var ralph_phrases_timeline = [0.0, 0.44, 0.44]
 
-const random_words = ["Where did we go wrong", "This place sucks!", "I want to go home", "Another day another dolla", "This is life"]
+const random_word_chance = 2 #percent out of 100
+const random_words = ["Where did we go wrong", "Welcome to the future", "I want to go home", "I miss Earth", "Another day another dolla", "This is life"]
 const ted_died_random_words = ["Did you hear someone tried to escape?", "Poor Ted", "At least someone is trying", "Who's next?", "We need more Teds"]
-const random_word_time = 2 #will decide to say random word every this time
+const random_word_time = 3 #each person will not say a work more frequently then this
 var remaining_random_word_time = 0
 
 func clear_text():
@@ -57,14 +59,14 @@ func _process(delta):
 	#random words
 	if remaining_random_word_time > 0:
 		remaining_random_word_time -= delta
-	else:
+	elif name != "Ralph":
 		remaining_random_word_time = random_word_time
 		random_words()
 			
 	#events
 	if name == "player_two" and unit_offset >= 0.7:
 		if not get_tree().get_root().get_node("Root").player_has_control:
-			get_tree().get_root().get_node("Root").paused = true
+			globals.paused = true
 			get_tree().get_root().get_node("Root/UI/HintPanel").visible = true
 			return
 	
@@ -94,7 +96,7 @@ func _process(delta):
 
 func random_words():
 	var random = randi() % 100 + 1
-	if random == 100:
+	if 100 - random_word_chance <= random:
 		var word = ""
 		if globals.ted_died:
 			word = ted_died_random_words[randi() % ted_died_random_words.size()]

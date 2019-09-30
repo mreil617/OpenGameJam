@@ -36,6 +36,7 @@ func spawn():
 		playertwo.say_something("We shouldn't of tried that", 2, 1)
 		playertwo.say_something("I got my best friend killed", 6, 1)
 		playertwo.say_something("TEDDDDDDDDDDDDDDDDDD", 8.5, 1)
+		playertwo.say_something("This can't be real", 12, 1)
 		playertwo.say_something("Stuck here forever", 18, 1)
 		
 	if should_spawn_player and not spawned_player:
@@ -56,7 +57,7 @@ func spawn():
 		get_parent().get_child(3).add_child(playerone)
 		playerone.say_something("How are you Ralph", 3, 1)
 		playerone.say_something("Ready for another day?", 3, 1)
-		playerone.say_something("Your crazy", 7, 1)
+		playerone.say_something("Your crazy", 7.5, 1)
 		playerone.say_something("A what??", 15, 1)
 		playerone.say_something("This isn't a movie Ralph", 15, 1)
 		playerone.say_something("Where...", 21, 1)
