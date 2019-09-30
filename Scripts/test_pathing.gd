@@ -81,6 +81,6 @@ func takeDamageEnemy(amount):
 			flying_text.transform.origin = transform.origin
 			get_node("../../FlyingHelpText").add_child(flying_text)
 				
-			get_node("../../UI/ResouceContainer/HBoxContainer/ResourceLabel").add_resources(gold_worth)
+			get_node("../../UI/HBoxContainer/ResourceLabel").add_resources(gold_worth)
 			get_node("../../Enemies/Spawners/Spawner").enemies_killed += 1
 			get_parent().remove_child(self)

@@ -37,11 +37,11 @@ points = PoolVector2Array( 0, 0, 84, 0, 84, 84, 0, 84 )
 [sub_resource type="ConvexPolygonShape2D" id=4]
 points = PoolVector2Array( 0, 0, 85, 0, 85, 86, 0, 86 )
 
-[sub_resource type="NavigationPolygon" id=23]
+[sub_resource type="NavigationPolygon" id=5]
 vertices = PoolVector2Array( 0, 0, 84, 0, 84, 84, 0, 84 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
-[sub_resource type="NavigationPolygon" id=24]
+[sub_resource type="NavigationPolygon" id=6]
 vertices = PoolVector2Array( 0, 0, 84, 0, 84, 84, 0, 84 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
@@ -96,11 +96,11 @@ points = PoolVector2Array( 0, 0, 84, 0, 84, 84, 0, 84 )
 [sub_resource type="ConvexPolygonShape2D" id=22]
 points = PoolVector2Array( 0, 0, 84, 0, 84, 84, 0, 84 )
 
-[sub_resource type="NavigationPolygon" id=25]
+[sub_resource type="NavigationPolygon" id=23]
 vertices = PoolVector2Array( 0, 0, 84, 0, 84, 84, 0, 84 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
-[sub_resource type="NavigationPolygon" id=26]
+[sub_resource type="NavigationPolygon" id=24]
 vertices = PoolVector2Array( 0, 0, 84, 0, 84, 84, 0, 84 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
@@ -220,7 +220,7 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 8/tile_mode = 0
 8/occluder_offset = Vector2( 0, 0 )
 8/navigation_offset = Vector2( 0, 0 )
-8/navigation = SubResource( 25 )
+8/navigation = SubResource( 23 )
 8/shapes = [  ]
 8/z_index = 0
 9/name = "tile_41.png 9"
@@ -231,7 +231,7 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 9/tile_mode = 0
 9/occluder_offset = Vector2( 0, 0 )
 9/navigation_offset = Vector2( 0, 0 )
-9/navigation = SubResource( 26 )
+9/navigation = SubResource( 24 )
 9/shapes = [  ]
 9/z_index = 0
 11/name = "tile_03.png 11"
@@ -274,7 +274,7 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 13/tile_mode = 0
 13/occluder_offset = Vector2( 0, 0 )
 13/navigation_offset = Vector2( 0, 0 )
-13/navigation = SubResource( 23 )
+13/navigation = SubResource( 5 )
 13/shapes = [  ]
 13/z_index = 0
 14/name = "tile_38v2.png 14"
@@ -285,7 +285,7 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 14/tile_mode = 0
 14/occluder_offset = Vector2( 0, 0 )
 14/navigation_offset = Vector2( 0, 0 )
-14/navigation = SubResource( 24 )
+14/navigation = SubResource( 6 )
 14/shapes = [  ]
 14/z_index = 0
 15/name = "tile_36.png 15"

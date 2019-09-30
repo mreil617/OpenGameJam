@@ -5,7 +5,7 @@ export (int) var speed = 1000
 var target = Vector2()
 
 func _ready():
-	target = get_node("../UI/ResouceContainer").get_global_position()
+	target = get_node("../UI/HBoxContainer").get_global_position()
 
 func _physics_process(delta):
 	var velocity = null

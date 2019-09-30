@@ -13,6 +13,6 @@ func _process(delta):
 				flying_text.transform.origin = get_child(child).transform.origin
 				get_node("../FlyingHelpText").add_child(flying_text)
 				
-				self.get_node("../UI/ResouceContainer/HBoxContainer/ResourceLabel").add_resources(get_child(child).value)
+				self.get_node("../UI/HBoxContainer/ResourceLabel").add_resources(get_child(child).value)
 				self.remove_child(get_child(child))
 				return

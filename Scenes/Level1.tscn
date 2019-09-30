@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Scripts/sceen_one.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tiles/test_tiles.tres" type="TileSet" id=2]
@@ -7,11 +7,11 @@
 [ext_resource path="res://Scripts/PowerUpSpawner.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/enemy_nav_mover.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/enemy_nav_spawner.gd" type="Script" id=7]
-[ext_resource path="res://Assets/coin_11.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Comfortaa-Bold.ttf" type="DynamicFontData" id=9]
-[ext_resource path="res://Scripts/gold.gd" type="Script" id=10]
-[ext_resource path="res://Assets/spaceShips_008.png" type="Texture" id=11]
-[ext_resource path="res://Scripts/Build.gd" type="Script" id=12]
+[ext_resource path="res://Assets/spaceShips_008.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/Build.gd" type="Script" id=9]
+[ext_resource path="res://Assets/Comfortaa-Bold.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://Assets/Scrap.png" type="Texture" id=11]
+[ext_resource path="res://Scripts/gold.gd" type="Script" id=12]
 [ext_resource path="res://Scripts/time_machine.gd" type="Script" id=13]
 [ext_resource path="res://Assets/ufoYellow.png" type="Texture" id=14]
 [ext_resource path="res://Scripts/enemy_follower.gd" type="Script" id=15]
@@ -20,19 +20,23 @@
 [ext_resource path="res://Prefabs/scrapbox.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/flying_help_text.gd" type="Script" id=19]
 
-[sub_resource type="DynamicFont" id=1]
-size = 50
-font_data = ExtResource( 9 )
-
 [sub_resource type="DynamicFont" id=2]
 size = 27
-font_data = ExtResource( 9 )
+font_data = ExtResource( 10 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 27
-font_data = ExtResource( 9 )
+font_data = ExtResource( 10 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="DynamicFont" id=4]
+size = 40
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 27
+font_data = ExtResource( 10 )
+
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 52.61, 54.19 )
 
 [sub_resource type="Curve2D" id=5]
@@ -78,42 +82,9 @@ position = Vector2( 84.707, 41.6189 )
 script = ExtResource( 7 )
 
 [node name="UI" type="Node" parent="."]
-editor/display_folded = true
-
-[node name="ResouceContainer" type="VBoxContainer" parent="UI"]
-
-editor/display_folded = true
-
-margin_left = 861.425
-margin_top = 514.961
-margin_right = 1134.43
-margin_bottom = 642.961
-rect_scale = Vector2( 0.5, 0.5 )
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/ResouceContainer"]
-margin_right = 273.0
-margin_bottom = 128.0
-
-[node name="TextureRect" type="TextureRect" parent="UI/ResouceContainer/HBoxContainer"]
-margin_right = 128.0
-margin_bottom = 128.0
-texture = ExtResource( 8 )
-
-[node name="ResourceLabel" type="Label" parent="UI/ResouceContainer/HBoxContainer"]
-margin_left = 132.0
-margin_top = 35.0
-margin_right = 273.0
-margin_bottom = 92.0
-custom_fonts/font = SubResource( 1 )
-text = "1000g"
-align = 2
-valign = 1
-script = ExtResource( 10 )
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="UI"]
-
 editor/display_folded = true
-
 margin_left = 791.168
 margin_top = 516.882
 margin_right = 900.168
@@ -123,17 +94,15 @@ rect_scale = Vector2( 0.5, 0.5 )
 [node name="TextureButton" type="TextureButton" parent="UI/VBoxContainer2"]
 margin_right = 109.0
 margin_bottom = 82.0
-texture_normal = ExtResource( 11 )
-script = ExtResource( 12 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
 
 [node name="Label" type="Label" parent="UI/VBoxContainer2"]
 margin_top = 86.0
 margin_right = 109.0
 margin_bottom = 117.0
 custom_fonts/font = SubResource( 2 )
-
 text = "Turret3"
-
 
 [node name="Label2" type="Label" parent="UI/VBoxContainer2"]
 margin_top = 121.0
@@ -154,19 +123,15 @@ rect_scale = Vector2( 0.5, 0.5 )
 [node name="TextureButton" type="TextureButton" parent="UI/VBoxContainer3"]
 margin_right = 109.0
 margin_bottom = 82.0
-texture_normal = ExtResource( 11 )
-script = ExtResource( 12 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
 
 [node name="Label" type="Label" parent="UI/VBoxContainer3"]
 margin_top = 86.0
 margin_right = 109.0
 margin_bottom = 117.0
 custom_fonts/font = SubResource( 2 )
-
-text = "Turret2"
-
 text = "Turret1"
-
 
 [node name="Label2" type="Label" parent="UI/VBoxContainer3"]
 margin_top = 121.0
@@ -178,9 +143,7 @@ text = "20
 align = 1
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="UI"]
-
 editor/display_folded = true
-
 margin_left = 675.135
 margin_top = 516.874
 margin_right = 784.135
@@ -190,8 +153,8 @@ rect_scale = Vector2( 0.5, 0.5 )
 [node name="TextureButton" type="TextureButton" parent="UI/VBoxContainer4"]
 margin_right = 109.0
 margin_bottom = 82.0
-texture_normal = ExtResource( 11 )
-script = ExtResource( 12 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
 
 [node name="Label" type="Label" parent="UI/VBoxContainer4"]
 margin_top = 86.0
@@ -214,6 +177,35 @@ margin_top = 537.689
 margin_right = 695.491
 margin_bottom = 577.689
 
+[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
+margin_left = 838.673
+margin_top = 505.86
+margin_right = 1033.67
+margin_bottom = 589.86
+
+[node name="TextureRect" type="TextureRect" parent="UI/HBoxContainer"]
+margin_right = 84.0
+margin_bottom = 84.0
+texture = ExtResource( 11 )
+
+[node name="ResourceLabel" type="Label" parent="UI/HBoxContainer"]
+margin_left = 88.0
+margin_top = 19.0
+margin_right = 173.0
+margin_bottom = 65.0
+custom_fonts/font = SubResource( 4 )
+text = "1000"
+align = 2
+script = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="UI"]
+margin_left = 930.016
+margin_top = 565.343
+margin_right = 1015.02
+margin_bottom = 596.343
+custom_fonts/font = SubResource( 1 )
+text = "Scrap"
+
 [node name="TimeMachine" type="Node2D" parent="."]
 editor/display_folded = true
 position = Vector2( 516.316, 339.617 )
@@ -227,7 +219,7 @@ collision_layer = 3
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TimeMachine/Area2D"]
-shape = SubResource( 4 )
+shape = SubResource( 7 )
 
 [node name="RalphPath" type="Path2D" parent="."]
 editor/display_folded = true

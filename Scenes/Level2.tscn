@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/Tiles/test_tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Prefabs/TowerHandler.tscn" type="PackedScene" id=2]
@@ -6,26 +6,30 @@
 [ext_resource path="res://Scripts/PowerUpSpawner.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/enemy_nav_mover.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/enemy_nav_spawner.gd" type="Script" id=6]
-[ext_resource path="res://Assets/coin_11.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Comfortaa-Bold.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://Scripts/gold.gd" type="Script" id=9]
-[ext_resource path="res://Assets/spaceShips_008.png" type="Texture" id=10]
-[ext_resource path="res://Scripts/Build.gd" type="Script" id=11]
+[ext_resource path="res://Assets/Comfortaa-Bold.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Assets/spaceShips_008.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/Build.gd" type="Script" id=9]
+[ext_resource path="res://Assets/Scrap.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/gold.gd" type="Script" id=11]
 [ext_resource path="res://Scripts/scrapboxes.gd" type="Script" id=12]
 [ext_resource path="res://Prefabs/scrapbox_two.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/flying_help_text.gd" type="Script" id=14]
 
 [sub_resource type="DynamicFont" id=1]
-size = 50
-font_data = ExtResource( 8 )
+size = 27
+font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 27
-font_data = ExtResource( 8 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 27
-font_data = ExtResource( 8 )
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 40
+font_data = ExtResource( 7 )
 
 [node name="Root" type="Node2D"]
 
@@ -59,35 +63,14 @@ position = Vector2( 16.1821, 234.317 )
 script = ExtResource( 6 )
 
 [node name="UI" type="Node" parent="."]
-editor/display_folded = true
 
-[node name="ResouceContainer" type="VBoxContainer" parent="UI"]
-editor/display_folded = true
-margin_left = 861.425
-margin_top = 514.961
-margin_right = 1134.43
-margin_bottom = 642.961
-rect_scale = Vector2( 0.5, 0.5 )
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/ResouceContainer"]
-margin_right = 273.0
-margin_bottom = 128.0
-
-[node name="TextureRect" type="TextureRect" parent="UI/ResouceContainer/HBoxContainer"]
-margin_right = 128.0
-margin_bottom = 128.0
-texture = ExtResource( 7 )
-
-[node name="ResourceLabel" type="Label" parent="UI/ResouceContainer/HBoxContainer"]
-margin_left = 132.0
-margin_top = 35.0
-margin_right = 273.0
-margin_bottom = 92.0
+[node name="Label" type="Label" parent="UI"]
+margin_left = 930.016
+margin_top = 565.343
+margin_right = 1015.02
+margin_bottom = 596.343
 custom_fonts/font = SubResource( 1 )
-text = "1000g"
-align = 2
-valign = 1
-script = ExtResource( 9 )
+text = "Scrap"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="UI"]
 margin_left = 791.168
@@ -99,8 +82,8 @@ rect_scale = Vector2( 0.5, 0.5 )
 [node name="TextureButton" type="TextureButton" parent="UI/VBoxContainer2"]
 margin_right = 109.0
 margin_bottom = 82.0
-texture_normal = ExtResource( 10 )
-script = ExtResource( 11 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
 
 [node name="Label" type="Label" parent="UI/VBoxContainer2"]
 margin_top = 86.0
@@ -127,8 +110,8 @@ rect_scale = Vector2( 0.5, 0.5 )
 [node name="TextureButton" type="TextureButton" parent="UI/VBoxContainer3"]
 margin_right = 109.0
 margin_bottom = 82.0
-texture_normal = ExtResource( 10 )
-script = ExtResource( 11 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
 
 [node name="Label" type="Label" parent="UI/VBoxContainer3"]
 margin_top = 86.0
@@ -156,8 +139,8 @@ rect_scale = Vector2( 0.5, 0.5 )
 [node name="TextureButton" type="TextureButton" parent="UI/VBoxContainer4"]
 margin_right = 109.0
 margin_bottom = 82.0
-texture_normal = ExtResource( 10 )
-script = ExtResource( 11 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
 
 [node name="Label" type="Label" parent="UI/VBoxContainer4"]
 margin_top = 86.0
@@ -180,6 +163,27 @@ margin_left = 655.491
 margin_top = 537.689
 margin_right = 695.491
 margin_bottom = 577.689
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
+margin_left = 838.673
+margin_top = 505.86
+margin_right = 1033.67
+margin_bottom = 589.86
+
+[node name="TextureRect" type="TextureRect" parent="UI/HBoxContainer"]
+margin_right = 84.0
+margin_bottom = 84.0
+texture = ExtResource( 10 )
+
+[node name="ResourceLabel" type="Label" parent="UI/HBoxContainer"]
+margin_left = 88.0
+margin_top = 19.0
+margin_right = 173.0
+margin_bottom = 65.0
+custom_fonts/font = SubResource( 4 )
+text = "1000"
+align = 2
+script = ExtResource( 11 )
 
 [node name="Scrapboxes" type="Node" parent="."]
 editor/display_folded = true
