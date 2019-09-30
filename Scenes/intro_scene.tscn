@@ -165,16 +165,15 @@ margin_right = 196.775
 margin_bottom = 77.8889
 text = "OK"
 
-[node name="Node2D" type="Node2D" parent="."]
-editor/display_folded = true
+[node name="Exit" type="Node2D" parent="."]
 position = Vector2( 881.274, 629.652 )
 
-[node name="Area2D" type="Area2D" parent="Node2D"]
+[node name="Area2D" type="Area2D" parent="Exit"]
 collision_layer = 3
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit/Area2D"]
 shape = SubResource( 7 )
 [connection signal="pressed" from="UI/Button" to="UI" method="_on_Play_pressed"]
 [connection signal="pressed" from="UI/HintPanel/Button" to="UI" method="_on_WASDHint_pressed"]
-[connection signal="body_entered" from="Node2D/Area2D" to="." method="_on_ExitArea_body_entered"]
+[connection signal="body_entered" from="Exit/Area2D" to="." method="_on_ExitArea_body_entered"]

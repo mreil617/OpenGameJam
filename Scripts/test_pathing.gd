@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+const flying_text_prefab = preload("res://Prefabs/text_bubble_flying.tscn")
+
 var path : = PoolVector2Array() setget set_path
 const speed = 100
 const attack_distance = 40
@@ -60,5 +62,11 @@ func takeDamageEnemy(amount):
 	if healthbar != null:
 		healthbar.set_value(health)
 		if health <= 0:
+			
+			var flying_text = flying_text_prefab.instance()
+			flying_text.get_node("TextNode").show_text(str(gold_worth), 1)
+			flying_text.transform.origin = transform.origin
+			get_node("../../FlyingHelpText").add_child(flying_text)
+				
 			get_node("../../UI/ResouceContainer/HBoxContainer/ResourceLabel").add_resources(gold_worth)
 			get_parent().remove_child(self)

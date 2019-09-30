@@ -21,4 +21,4 @@ func give_player_control():
 	paused = false
 	
 func _on_ExitArea_body_entered(body):
-	get_tree().change_scene("res://Scenes/Temp2.tscn")
+	get_tree().change_scene("res://Scenes/Level1.tscn")
