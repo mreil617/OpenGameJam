@@ -1,7 +1,7 @@
 extends Node
 
 const health = 40
-const value = 10
+const value = 3
 const speed = 60
 const attack_distance = 40
 const damage = 10

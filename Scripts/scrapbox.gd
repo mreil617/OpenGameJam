@@ -1,11 +1,14 @@
 extends Node2D
 
+const min_scrap = 3
+const max_scrap = 7
+
 var nearby_player = false
 var mouse_within = false
 var value
 
 func _ready():
-	value = randi() % 8 + 2
+	value = randi() % (max_scrap - min_scrap) + min_scrap
 	
 func can_open() -> bool:
 	if nearby_player and mouse_within:

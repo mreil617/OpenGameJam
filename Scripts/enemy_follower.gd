@@ -13,7 +13,7 @@ var remaining_text_time = 0
 
 #level one phrases
 var ralph_phrases = ["There it is!", "Hurry", "There coming for us!"]
-var ralph_phrases_timeline = [0.0, 0.44, 0.44]
+var ralph_phrases_timeline = [0.0, 0.44, 0.8]
 
 const random_word_chance = 2 #percent out of 100
 const random_words = ["Where did we go wrong", "Welcome to the future", "I want to go home", "I miss Earth", "Another day another dolla", "This is life"]
@@ -79,6 +79,7 @@ func _process(delta):
 		var text = ralph_phrases.pop_front()
 		say_something(text, 0, 1)
 		if text == "There coming for us!":
+			print("toggling")
 			get_node("../../Enemies/Spawners/Spawner").can_spawn = true
 		
 		

@@ -8,7 +8,7 @@ const enemy_blackalien = preload("res://Prefabs/enemy_blackalien_nav.tscn")
 const enemy_boss_one = preload("res://Prefabs/Boss1.tscn")
 const enemies = [enemy_yellowship,enemy_greenalien, enemy_redalien, enemy_bluealien, enemy_blackalien]
 
-var can_spawn = true
+var can_spawn = false
 const spawn_interval = 2.5
 var time_till_spawn = spawn_interval
 var spawnBoss = false
