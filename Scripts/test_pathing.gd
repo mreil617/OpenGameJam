@@ -98,7 +98,7 @@ func takeDamageEnemy(amount):
 					if get_tree().get_root().get_node("Root").level == 1:
 						get_node("../../RalphPath/Ralph").say_something("Grab the key!", 0, 1)
 			
-			if type == "boss" and get_tree().get_root().get_node("Root").level == 2:
+			if type == "boss" and (get_tree().get_root().get_node("Root").level == 2 or get_tree().get_root().get_node("Root").level == 3):
 				get_tree().get_root().get_node("Root").has_key = true
 				get_node("../../RalphPath/Ralph").ralph_can_progress = true
 				

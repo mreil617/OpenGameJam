@@ -3,7 +3,6 @@ extends Node2D
 var move_off_screen = false
 
 func _on_NPCArea_body_entered(body):
-	print("npc area entered: " + body.get_parent().name)
 	if body.get_parent().name == "Ralph":
 		body.get_parent().ralph_can_progress = false
 		body.get_parent().say_something("Hello?", 0, 1)

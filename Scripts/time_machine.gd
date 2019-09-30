@@ -73,7 +73,7 @@ func _on_TimeMachineArea_body_entered(body):
 				var ralph = get_node("../RalphPath/Ralph")
 				ralph.say_something("Key has to be here somewhere", 1, 1)
 				ralph.say_something("Check those orange barrels", 1, 1)
-			elif get_parent().level == 2:
+			elif get_parent().level == 2 or get_parent().level == 3:
 				body.get_parent().say_something("I have to wait for Ralph", 0, 1)
 		else:
 			begin_takeoff()

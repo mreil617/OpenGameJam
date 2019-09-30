@@ -3,7 +3,7 @@
 [ext_resource path="res://Scripts/enemy_follower.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Characters/spaceAstronauts_005.png" type="Texture" id=2]
 
-[sub_resource type="CapsuleShape2D" id=8]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 10.08
 
 [node name="PathFollow2D" type="PathFollow2D"]
@@ -17,7 +17,7 @@ collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
 scale = Vector2( 6.08, 3.08 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="KinematicBody2D"]
 scale = Vector2( 2.78659, 2.78659 )
