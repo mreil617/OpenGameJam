@@ -1,6 +1,7 @@
 extends Node
 
 func _on_Play_pressed():
+	globals.game_won = false
 	if get_tree().get_root().get_node("Root").level == 4:
 		get_tree().change_scene("res://Scenes/intro_scene.tscn")
 		get_node("PlayButton").visible = false

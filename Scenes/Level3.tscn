@@ -79,6 +79,7 @@ position = Vector2( 15.134, 239.165 )
 script = ExtResource( 6 )
 
 [node name="UI" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Label" type="Label" parent="UI"]
 margin_left = 930.016
@@ -134,7 +135,7 @@ margin_top = 88.0
 margin_right = 109.0
 margin_bottom = 119.0
 custom_fonts/font = SubResource( 3 )
-text = "Buster"
+text = "Turret9"
 
 [node name="Label2" type="Label" parent="UI/VBoxContainer2"]
 margin_top = 123.0
@@ -145,10 +146,10 @@ text = "30"
 align = 1
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="UI"]
-margin_left = 736.251
+margin_left = 731.738
 margin_top = 517.342
-margin_right = 845.251
-margin_bottom = 705.342
+margin_right = 840.738
+margin_bottom = 647.341
 rect_scale = Vector2( 0.5, 0.5 )
 
 [node name="TextureButton" type="TextureButton" parent="UI/VBoxContainer3"]
@@ -162,7 +163,7 @@ margin_top = 88.0
 margin_right = 109.0
 margin_bottom = 119.0
 custom_fonts/font = SubResource( 3 )
-text = "Crossy"
+text = "Turret8"
 
 [node name="Label2" type="Label" parent="UI/VBoxContainer3"]
 margin_top = 123.0
@@ -181,21 +182,21 @@ margin_bottom = 646.873
 rect_scale = Vector2( 0.5, 0.5 )
 
 [node name="TextureButton" type="TextureButton" parent="UI/VBoxContainer4"]
-margin_right = 111.0
+margin_right = 109.0
 margin_bottom = 84.0
 texture_normal = ExtResource( 13 )
 script = ExtResource( 11 )
 
 [node name="Label" type="Label" parent="UI/VBoxContainer4"]
 margin_top = 88.0
-margin_right = 111.0
+margin_right = 109.0
 margin_bottom = 119.0
 custom_fonts/font = SubResource( 3 )
-text = "Cannon"
+text = "Turret7"
 
 [node name="Label2" type="Label" parent="UI/VBoxContainer4"]
 margin_top = 123.0
-margin_right = 111.0
+margin_right = 109.0
 margin_bottom = 188.0
 custom_fonts/font = SubResource( 4 )
 text = "10

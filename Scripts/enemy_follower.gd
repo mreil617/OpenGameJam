@@ -95,7 +95,7 @@ func _process(delta):
 	#random words
 	if remaining_random_word_time > 0:
 		remaining_random_word_time -= delta
-	elif name != "Ralph":
+	elif name != "Ralph" and name != "player_one" and name != "player_two":
 		remaining_random_word_time = random_word_time
 		random_words()
 			
