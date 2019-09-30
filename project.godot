@@ -19,6 +19,10 @@ config/name="OpenGameJam 2019"
 run/main_scene="res://Scenes/intro_scene.tscn"
 config/icon="res://Assets/spaceAstronauts_002.png"
 
+[autoload]
+
+globals="*res://Scripts/globals.gd"
+
 [display]
 
 window/stretch/mode="2d"
