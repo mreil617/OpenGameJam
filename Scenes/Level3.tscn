@@ -9,11 +9,12 @@
 [ext_resource path="res://Assets/Comfortaa-Bold.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://Assets/Scrap.png" type="Texture" id=8]
 [ext_resource path="res://Scripts/gold.gd" type="Script" id=9]
-[ext_resource path="res://Assets/spaceShips_008.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Towers/spaceShips_008.png" type="Texture" id=10]
 [ext_resource path="res://Scripts/Build.gd" type="Script" id=11]
 [ext_resource path="res://Scripts/scrapboxes.gd" type="Script" id=12]
 [ext_resource path="res://Prefabs/scrapbox_two.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/flying_help_text.gd" type="Script" id=14]
+
 
 [sub_resource type="DynamicFont" id=1]
 size = 27

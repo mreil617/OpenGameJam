@@ -2,8 +2,9 @@
 
 [ext_resource path="res://Scripts/playerBodyHandler.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/player.gd" type="Script" id=2]
-[ext_resource path="res://Assets/spaceAstronauts_002.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Characters/spaceAstronauts_002.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Player_Health.gd" type="Script" id=4]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 

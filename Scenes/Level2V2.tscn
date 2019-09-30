@@ -6,11 +6,12 @@
 [ext_resource path="res://Assets/coin_11.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Comfortaa-Bold.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Scripts/gold.gd" type="Script" id=6]
-[ext_resource path="res://Assets/spaceShips_008.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Towers/spaceShips_008.png" type="Texture" id=7]
 [ext_resource path="res://Scripts/Build.gd" type="Script" id=8]
 [ext_resource path="res://Assets/Tiles/test_tiles.tres" type="TileSet" id=9]
 [ext_resource path="res://Scripts/enemy_nav_mover.gd" type="Script" id=10]
 [ext_resource path="res://Scripts/enemy_nav_spawner.gd" type="Script" id=11]
+
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
