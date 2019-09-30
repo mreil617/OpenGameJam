@@ -4,7 +4,12 @@ const player = preload("res://Prefabs/Player.tscn")
 
 var paused = false
 var player_has_control = false
-
+var ted_died = false
+	
+func _ready():
+	if globals.ted_died:
+		get_node("UI/Button/Label").text = "Replay"
+		
 func give_player_control():
 	var cur_player = get_node("Paths/Path3/player_one")
 	var new_player = player.instance()
@@ -15,6 +20,5 @@ func give_player_control():
 	player_has_control = true
 	paused = false
 	
-
 func _on_ExitArea_body_entered(body):
 	get_tree().change_scene("res://Scenes/Temp2.tscn")

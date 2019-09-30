@@ -46,6 +46,10 @@ func _process(delta):
 				collision.collider.takeDamageEnemy(damage)
 				remove_child(lsr)
 				lasers.remove(lasers.find(lsr))
+	else:
+		for lsr in lasers:
+			remove_child(lsr)
+		lasers.clear()
 		
 
 func _on_HoverArea_mouse_entered():

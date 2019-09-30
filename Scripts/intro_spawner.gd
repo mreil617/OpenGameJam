@@ -2,6 +2,7 @@ extends Node
 
 const spawn_interval = 0.5 #seconds
 var time_till_spawn = 0
+var total_spawns = 0
 
 var spawned_player = false
 var should_spawn_player = false
@@ -27,6 +28,16 @@ func start_game():
 	should_spawn_player = true
 	
 func spawn():
+	
+	if globals.ted_died and total_spawns % 75 == 0 and not spawned_player:
+		var playertwo = player_two.instance()
+		playertwo.name = "player_two_ted_dead"
+		get_parent().get_child(2).add_child(playertwo)
+		playertwo.say_something("We shouldn't of tried that", 2, 1)
+		playertwo.say_something("I got my best friend killed", 6, 1)
+		playertwo.say_something("TEDDDDDDDDDDDDDDDDDD", 8.5, 1)
+		playertwo.say_something("Stuck here forever", 18, 1)
+		
 	if should_spawn_player and not spawned_player:
 		var playertwo = player_two.instance()
 		playertwo.name = "player_two"
@@ -52,6 +63,10 @@ func spawn():
 		should_spawn_player = false
 		spawned_player = true
 		time_till_spawn = spawn_interval * 2
+		
+		if get_parent().get_child(2).has_node("player_two_ted_dead"):
+			get_parent().get_child(2).remove_child(get_parent().get_child(2).get_node("player_two_ted_dead"))
+			
 	else:
 		if remaining_path_reset_time <= 0:
 			for i in unavaliable_paths.size() - 1:
@@ -68,7 +83,9 @@ func spawn():
 			
 		unavaliable_paths.append(available_paths[path_idx])
 		available_paths.remove(path_idx)
-			
+	
+	total_spawns += 1
+	
 func _process(delta):
 	remaining_path_reset_time -= delta
 	

@@ -35,9 +35,11 @@ func _physics_process(delta):
 	
 func respawn():
 	dead = false
-	self.set_position(get_node("../../../PSpawn").get_global_position())
+	#self.set_position(get_node("../../../PSpawn").get_global_position())
 	health = 0
 	update_health(max_health)
+	get_tree().change_scene("res://Scenes/intro_scene.tscn")
+	globals.ted_died = true
 	
 func update_health(amount):
 	health += amount
