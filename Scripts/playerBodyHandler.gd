@@ -9,6 +9,8 @@ const text_time = 2
 var remaining_text_time = 0
 
 func say_something(text, delay = 0, style = 0):
+	print("say " + text)
+	
 	if delay != 0:
 		delayed_text.append([text, delay, style])
 		return
@@ -46,11 +48,17 @@ func _process(delta):
 		if queued_text.size() > 0:
 			var text = queued_text.pop_front()
 			say_something(text[0], text[1], text[2])
+			print("said queued text")
 		else:
 			remove_child(current_text_bubble) #changed to use get child
 			current_text_bubble = null
 #end copyed code
 
+func hide():
+	get_child(0).can_move = false
+	get_child(0).visible = false
+	get_child(1).visible = false
+	
 func takeDamage(amount):
 	get_child(0).update_health(-amount)
 	
