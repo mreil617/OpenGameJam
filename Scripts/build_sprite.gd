@@ -8,4 +8,4 @@ func _on_Area2D_body_entered(body):
 
 func _on_Area2D_body_exited(body):
 	can_build = false
-	print("cannot build")
+	print("cant build")

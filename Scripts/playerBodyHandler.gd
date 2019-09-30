@@ -18,7 +18,7 @@ func say_something(text, delay = 0, style = 0):
 		if current_text_bubble == null:
 			current_text_bubble = text_bubble.instance()
 			current_text_bubble.transform.origin.y -= 10
-			self.get_child(0).add_child(current_text_bubble) #attached to child instead of parent
+			self.add_child(current_text_bubble) #attached to child instead of parent
 		current_text_bubble.show_text(text, style)
 		if text == "This way Ted":
 			say_something(text, 5, style)
@@ -26,6 +26,7 @@ func say_something(text, delay = 0, style = 0):
 		queued_text.append([text, delay, style])
 
 func _process(delta):
+	var body = get_child(0)
 	#delayed text
 	var continued_delays = []
 	for i in delayed_text.size():
@@ -39,13 +40,14 @@ func _process(delta):
 	#queued text
 	if remaining_text_time > 0:
 		remaining_text_time -= delta
+		current_text_bubble.set_position(Vector2(body.get_global_position().x,body.get_global_position().y))
 	
 	if remaining_text_time <= 0 and current_text_bubble != null:
 		if queued_text.size() > 0:
 			var text = queued_text.pop_front()
 			say_something(text[0], text[1], text[2])
 		else:
-			get_child(0).remove_child(current_text_bubble) #changed to use get child
+			remove_child(current_text_bubble) #changed to use get child
 			current_text_bubble = null
 #end copyed code
 

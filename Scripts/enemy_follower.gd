@@ -79,6 +79,10 @@ func _process(delta):
 		offset += 1
 	else:
 		offset += 0.5 * speed
+		
+	if current_text_bubble != null:
+		current_text_bubble.set_position(get_child(0).get_position())
+		current_text_bubble.set_global_rotation(0)
 
 func random_words():
 	var random = randi() % 100 + 1

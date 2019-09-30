@@ -4,10 +4,15 @@ var building = false
 var cursorSprite = preload("res://Prefabs/BuildSprite.tscn")
 var build
 var canBuild = false
+var tempTower = null
 
-const TowerCost = 10
+var TowerCost = 10
+var TowerCost2 = 20
+var TowerCost3 = 30
 
 var Tower = preload("res://Prefabs/tower_one.tscn")
+var Tower2 = preload("res://Prefabs/tower_two.tscn")
+var Tower3 = preload("res://Prefabs/tower_three.tscn")
 
 func overlapping():
 	var overlap = false
@@ -21,14 +26,25 @@ func overlapping():
 	return overlap
 	
 func onPath():
-	return not get_node("../../BuildTool").can_build
+	if(get_node("../../BuildTool") != null):
+		return not get_node("../../BuildTool").can_build
   
 func _process(delta):
+	
+	TowerCost = int(get_parent().get_child(2).text)
+	
+	if(get_node("../../../UI/ResouceContainer/HBoxContainer/ResourceLabel").current_resources - TowerCost >= 0):
+		self.set_modulate(Color(1,1,1,1))
+	else:
+		self.set_modulate(Color(1,1,1,.5))
+				
 	if(building):
 		if(Input.is_action_just_pressed("exitMenu")):
 			building = false
-			build.visible = false
-			build.get_parent().remove_child(self)
+			canBuild = false
+			get_node("../../../UI/BuildTool").remove_child(build)
+			build.queue_free()
+			#build.get_parent().remove_child(self)
 		build.set_position(get_global_mouse_position())
 		
 		if(get_global_mouse_position().distance_to(get_node("../../../PSpawn/Player/KinematicBody2D").get_global_position()) < 100 and 
@@ -38,20 +54,33 @@ func _process(delta):
 		else:
 			build.set_modulate(Color(1,1,1,.5))
 			canBuild = false
-	if(canBuild && !overlapping()):
-		if(Input.is_action_just_pressed("Lmouse")):
-			if(!onPath()):
-				if(get_node("../../../UI/ResouceContainer/HBoxContainer/ResourceLabel").current_resources - TowerCost >= 0):
-					var tempTower = Tower.instance()
-					tempTower.set_position(get_global_mouse_position())
-					get_node("../../../TowerHandler").add_child(tempTower)
-					get_node("../../../UI/ResouceContainer/HBoxContainer/ResourceLabel").add_resources(-TowerCost)
+		if(canBuild && !overlapping()):
+			if(Input.is_action_just_pressed("Lmouse")):
+				if(!onPath()):
+					if(get_node("../../../UI/ResouceContainer/HBoxContainer/ResourceLabel").current_resources - TowerCost >= 0):
+						if(get_parent().get_child(1).text == "Turret1"):
+							tempTower = Tower.instance()
+							tempTower.set_position(get_global_mouse_position())
+							get_node("../../../TowerHandler").add_child(tempTower)
+							get_node("../../../UI/ResouceContainer/HBoxContainer/ResourceLabel").add_resources(-TowerCost)
+						if(get_parent().get_child(1).text == "Turret2"):
+							tempTower = Tower2.instance()
+							tempTower.set_position(get_global_mouse_position())
+							get_node("../../../TowerHandler").add_child(tempTower)
+							get_node("../../../UI/ResouceContainer/HBoxContainer/ResourceLabel").add_resources(-TowerCost)
+						if(get_parent().get_child(1).text == "Turret3"):
+							tempTower = Tower3.instance()
+							tempTower.set_position(get_global_mouse_position())
+							get_node("../../../TowerHandler").add_child(tempTower)
+							get_node("../../../UI/ResouceContainer/HBoxContainer/ResourceLabel").add_resources(-TowerCost)
 
 func _on_TextureButton_pressed():
 	if(building):
 		building = false
+		canBuild = false
 		build.visible = false
-		build.get_parent().remove_child(self)
+		build.queue_free()
+		#build.get_parent().remove_child(self)
 	else:
 		building = true
 		build = cursorSprite.instance()
