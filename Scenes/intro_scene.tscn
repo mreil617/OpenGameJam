@@ -1,11 +1,14 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/level_intro.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tiles/test_tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://Scripts/intro_spawner.gd" type="Script" id=3]
-[ext_resource path="res://Prefabs/alien_staic_green_right.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/alien_static_red_Left.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Prefabs/alien_static_red_right.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scripts/intro_user_interface.gd" type="Script" id=6]
+[ext_resource path="res://Prefabs/alien_staic_green_right.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Prefabs/alien_staic_green_Left.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/intro_user_interface.gd" type="Script" id=8]
+[ext_resource path="res://Assets/Comfortaa-Bold.ttf" type="DynamicFontData" id=9]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -36,6 +39,12 @@ _data = {
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -46.4321, 336.01, 0, 0, 0, 0, 775.906, 338.246, 0, 0, 0, 0, 883.033, 422.587, 0, 0, -2.62794, -12.7017, 882.982, 553.689 )
 }
+
+[sub_resource type="DynamicFont" id=8]
+size = 28
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 9 )
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 32.2, 38.45 )
@@ -79,41 +88,44 @@ curve = SubResource( 6 )
 [node name="Aliens" type="Node" parent="."]
 editor/display_folded = true
 
-[node name="Node2D2" parent="Aliens" instance=ExtResource( 4 )]
-position = Vector2( 67.0793, 108.302 )
-scale = Vector2( 1.88018, 1.88018 )
+[node name="Node2D" parent="Aliens" instance=ExtResource( 4 )]
+position = Vector2( 638.036, 112.808 )
+scale = Vector2( 1.88, 1.88 )
 
-[node name="Node2D4" parent="Aliens" instance=ExtResource( 4 )]
-position = Vector2( 401.813, 99.1381 )
-scale = Vector2( 1.88018, 1.88018 )
+[node name="Node2D2" parent="Aliens" instance=ExtResource( 4 )]
+position = Vector2( 375.55, 112.76 )
+scale = Vector2( 1.88, 1.88 )
 
 [node name="Node2D5" parent="Aliens" instance=ExtResource( 5 )]
-position = Vector2( 540.462, 95.7003 )
+position = Vector2( 551.435, 110.758 )
 scale = Vector2( 1.88018, 1.88018 )
 
 [node name="Node2D6" parent="Aliens" instance=ExtResource( 5 )]
-position = Vector2( 759.813, 113.996 )
+position = Vector2( 123.835, 108.344 )
 scale = Vector2( 1.88018, 1.88018 )
 
-[node name="Node2D7" parent="Aliens" instance=ExtResource( 4 )]
-position = Vector2( 868.625, 91.534 )
+[node name="Node2D7" parent="Aliens" instance=ExtResource( 6 )]
+position = Vector2( 813.193, 111.294 )
+scale = Vector2( 1.88018, 1.88018 )
+
+[node name="Node2D9" parent="Aliens" instance=ExtResource( 6 )]
+position = Vector2( 462.12, 108.587 )
 scale = Vector2( 1.88018, 1.88018 )
 
 [node name="Node2D8" parent="Aliens" instance=ExtResource( 5 )]
-position = Vector2( 1051.79, 114.203 )
+position = Vector2( 967.43, 111.305 )
 scale = Vector2( 1.88018, 1.88018 )
 
-[node name="Node2D9" parent="Aliens" instance=ExtResource( 4 )]
-position = Vector2( 305.135, 110.888 )
-scale = Vector2( 1.88018, 1.88018 )
+[node name="Node2D3" parent="Aliens" instance=ExtResource( 7 )]
+position = Vector2( 728.761, 114.565 )
+scale = Vector2( 1.88, 1.88 )
 
-[node name="Node2D" parent="Aliens" instance=ExtResource( 5 )]
-position = Vector2( 186.529, 108.302 )
-scale = Vector2( 1.88018, 1.88018 )
+[node name="Node2D4" parent="Aliens" instance=ExtResource( 7 )]
+position = Vector2( 224.785, 111.098 )
+scale = Vector2( 1.88, 1.88 )
 
 [node name="UI" type="Node" parent="."]
-editor/display_folded = true
-script = ExtResource( 6 )
+script = ExtResource( 8 )
 
 [node name="PlayButton" type="Button" parent="UI"]
 editor/display_folded = true
@@ -180,6 +192,14 @@ margin_top = 55.4589
 margin_right = 196.775
 margin_bottom = 77.8889
 text = "OK"
+
+[node name="Title" type="Label" parent="UI"]
+margin_left = 349.031
+margin_top = 22.1607
+margin_right = 699.031
+margin_bottom = 54.1607
+custom_fonts/font = SubResource( 8 )
+text = "Ralph's Terrible Mistake"
 
 [node name="Exit" type="Node2D" parent="."]
 editor/display_folded = true

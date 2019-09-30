@@ -23,6 +23,7 @@ const ralph_phrases_two_timeline = [0.01, 0.11, 0.3, 0.45, 0.45, 0.6, 0.68, 0.69
 
 const random_word_chance = 2 #percent out of 100
 const random_words = ["Where did we go wrong", "Welcome to the future", "I want to go home", "I miss Earth", "Another day another dolla", "This is life"]
+const winning_words = ["Where did we go wrong", "How did they defeat us?", "We deserve this", "I wonder if they have a time machine", "Darn Ted"]
 const ted_died_random_words = ["Did you hear someone tried to escape?", "Poor Ted", "At least someone is trying", "Who's next?", "We need more Teds"]
 const random_word_time = 3 #each person will not say a work more frequently then this
 var remaining_random_word_time = 0
@@ -39,6 +40,7 @@ func clear_text():
 func _ready():
 	var level = get_tree().get_root().get_node("Root").level
 	if level == 1:
+		print("this")
 		ralph_phrases = ralph_phrases_one
 		ralph_phrases_timeline = ralph_phrases_one_timeline
 	elif level == 2:
@@ -113,8 +115,12 @@ func _process(delta):
 		
 	if current_text_bubble != null:
 		if get_parent() != null and get_parent().name != "TimeMachine":
+		#if get_parent() != null and get_parent().name != "Enemies" and get_parent().name != "TimeMachine":
 			current_text_bubble.set_position(get_child(0).get_position())
-		else:
+		#elif get_parent() != null and get_parent().name == "Enemies":
+		#	print("this")
+			#current_text_bubble.set_position(Vector2(get_child(0).get_position().x, get_child(0).get_position().y-10))
+		else:#elif get_parent() != null and get_parent().name == "TimeMachine":
 			current_text_bubble.set_global_position(Vector2(100,100))
 		current_text_bubble.set_global_rotation(0)
 			
@@ -125,6 +131,8 @@ func random_words():
 		var word = ""
 		if globals.ted_died:
 			word = ted_died_random_words[randi() % ted_died_random_words.size()]
+		elif globals.game_won:
+			word = winning_words[randi() % winning_words.size()]
 		else:
 			word = random_words[randi() % random_words.size()]
 		self.say_something(word, 0, 0)
