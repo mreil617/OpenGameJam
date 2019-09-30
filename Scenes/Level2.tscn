@@ -45,7 +45,7 @@ radius = 40.0
 
 [sub_resource type="Curve2D" id=7]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 764.351, 346.497, 0, 0, 0, 0, 770.638, 421.939, 0, 0, 0, 0, 927.809, 410.264, 0, 0, 0, 0, 920.624, 256.686, 0, 0, 0, 0, 694.298, 261.176, 0, 0, 0, 0, 757.166, 218.965, 0, 0, 0, 0, 747.287, 111.191, 0, 0, 0, 0, 853.265, 86.9416, 0, 0, 0, 0, 648.494, 86.9416, 0, 0, 0, 0, 583.83, 154.3, 0, 0, 0, 0, 387.142, 112.089, 0, 0, 0, 0, 574.848, 130.949, 0, 0, 0, 0, 617.958, 254.89, 0, 0, 0, 0, 765.249, 278.241, 0, 0, 0, 0, 592.811, 271.056, 0, 0, 0, 0, 596.403, 402.181, 0, 0, 0, 0, 563.173, 544.083, 0, 0, 0, 0, 95.2536, 540.491, 0, 0, 0, 0, 52.144, 445.29 )
+"points": PoolVector2Array( 0, 0, 0, 0, 764.351, 346.497, 0, 0, 0, 0, 770.638, 421.939, 0, 0, 0, 0, 927.809, 410.264, 0, 0, 0, 0, 920.624, 256.686, 0, 0, 0, 0, 694.298, 261.176, 0, 0, 0, 0, 757.166, 218.965, 0, 0, 0, 0, 747.287, 111.191, 0, 0, 0, 0, 853.265, 86.9416, 0, 0, 0, 0, 648.494, 86.9416, 0, 0, 0, 0, 583.83, 154.3, 0, 0, 0, 0, 387.142, 112.089, 0, 0, 0, 0, 574.848, 130.949, 0, 0, 0, 0, 617.958, 254.89, 0, 0, 0, 0, 765.249, 278.241, 0, 0, 0, 0, 592.811, 271.056, 0, 0, 0, 0, 596.403, 402.181, 0, 0, 0, 0, 563.173, 544.083, 0, 0, 0, 0, 95.2536, 540.491, 0, 0, 0, 0, 52.144, 445.29, 0, 0, 0, 0, 120, 380.857, 0, 0, 0, 0, 540, 380.857, 0, 0, 0, 0, 650, 420.857, 0, 0, 0, 0, 840, 400.857 )
 }
 
 [node name="Root" type="Node2D"]
@@ -226,7 +226,6 @@ position = Vector2( 409.653, 525.927 )
 [node name="Drops" type="Node" parent="."]
 
 [node name="TimeMachine" type="KinematicBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( 841.436, 334.571 )
 collision_layer = 0
 collision_mask = 0
@@ -285,3 +284,4 @@ curve = SubResource( 7 )
 [connection signal="pressed" from="UI/VBoxContainer3/TextureButton" to="UI/VBoxContainer3/TextureButton" method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer4/TextureButton" to="UI/VBoxContainer4/TextureButton" method="_on_TextureButton_pressed"]
 [connection signal="body_entered" from="TimeMachine/Area2D" to="TimeMachine" method="_on_TimeMachineArea_body_entered"]
+[connection signal="body_exited" from="TimeMachine/Area2D" to="TimeMachine" method="_on_Area2D_body_exited"]

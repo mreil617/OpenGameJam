@@ -1,17 +1,31 @@
 extends Node2D
 
+var move_off_screen = false
 
 func _on_NPCArea_body_entered(body):
 	print("npc area entered: " + body.get_parent().name)
 	if body.get_parent().name == "Ralph":
-		say_something("Can I help you?", 0, 1)
-		body.get_parent().say_something("Dad?", 1.5, 1)
-		say_something("Who are you guy?", 3, 1)
-		say_something("Why are you wearing that crazy outfit?", 3, 1)
-		body.get_parent().say_something("Dad it's me, Ralph", 6, 1)
-		body.get_parent().say_something("We made a horrible mistake", 6, 1)
-		body.get_parent().say_something("That plan to go to space worked", 6, 1)
-		body.get_parent().say_something("...but now we're all slaves", 6, 1)
+		body.get_parent().ralph_can_progress = false
+		body.get_parent().say_something("Hello?", 0, 1)
+		say_something("Can I help you?", 2, 1)
+		body.get_parent().say_something("Dad?", 3.5, 1)
+		say_something("Who are you guy?", 5, 1)
+		say_something("Why are you wearing that crazy outfit?", 5, 1)
+		body.get_parent().say_something("Dad it's me, Ralph", 8.5, 1)
+		body.get_parent().say_something("We made a horrible mistake", 8.5, 1)
+		body.get_parent().say_something("That plan to go to space worked", 8.5, 1)
+		body.get_parent().say_something("...but now we're all slaves", 8.5, 1)
+		say_something("Are you mocking me boy?", 16, 1)
+		body.get_parent().say_something("Dad I figured it...", 17, 1)
+		body.get_parent().say_something("No time to explain", 17, 1)
+		body.get_parent().say_something("You have to stop me.", 17, 1)
+		say_something("...", 20, 1)
+		say_something("Your the competition arn't you", 22, 1)
+		say_something("I hope when someone does get to space...", 22, 1)
+		say_something("they sell you to the aliens", 22, 1)
+		say_something("Now get lost", 22, 1)
+		say_something(".. off screen", 28, 1)
+		 
 
 #below is code copied from enemy follower.. should instance this stuff
 const text_bubble = preload("res://Prefabs/text_bubble.tscn")
@@ -35,12 +49,18 @@ func say_something(text, delay = 0, style = 0):
 			self.add_child(current_text_bubble) #attached to child instead of parent
 			print("attached bubble")
 		current_text_bubble.show_text(text, style)
-		if text == "This way Ted":
-			say_something(text, 5, style)
+		if text == "Now get lost":
+			move_off_screen = true
+		if text == ".. off screen":
+			get_node("../RalphPath/Ralph").ralph_can_progress = true
 	else:
 		queued_text.append([text, delay, style])
 
 func _process(delta):
+	if move_off_screen:
+		transform.origin.x -= 1
+		if transform.origin.x < -1:
+			move_off_screen = false
 	var body = get_child(0)
 	#delayed text
 	var continued_delays = []

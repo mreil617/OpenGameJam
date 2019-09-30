@@ -5,6 +5,7 @@ var speed = 500
 var step = 0
 var target = null
 var active = false
+var player_present = false
 
 func _ready():
 	target = get_node("../TimeMachinePoints").get_child(step).get_global_position()
@@ -40,8 +41,30 @@ func _physics_process(delta):
 			else:
 				print("ERROR: time machine doesnt know what level we're on")
 		
+func begin_takeoff():
+	active = true
+	var body = get_node("../PSpawn/Player/KinematicBody2D")
+	body.global_position = Vector2(0,0)
+	var playerRoot = body.get_parent()
+	playerRoot.say_something("TED: Get in Ralph!",0,1)
+	playerRoot.say_something("TED: Where are we headed anyway?",2,1)
+	playerRoot.say_something("TED: Really??????",4,1)
+	body.get_node("../../../PSpawn").remove_child(playerRoot)
+	self.add_child(playerRoot)
 	
+	var ralph = get_node("../RalphPath/Ralph")
+	ralph.global_position = Vector2(0,0)
+	ralph.get_parent().remove_child(ralph)
+	self.add_child(ralph)
+	
+	ralph.say_something("RALPH: Theres someone I need you to meet", 3, 1)
+	ralph.say_something("RALPH: Almost there!", 3, 1)
+	playerRoot.hide()
+			
 func _on_TimeMachineArea_body_entered(body):
+	if body.get_parent().name == "Player":
+		player_present = true
+		
 	if body.get_parent().name == "Player" and not active:
 		if get_parent().has_key == false:
 			if get_parent().level == 1:
@@ -52,20 +75,9 @@ func _on_TimeMachineArea_body_entered(body):
 			elif get_parent().level == 2:
 				body.get_parent().say_something("I have to wait for Ralph", 0, 1)
 		else:
-			active = true
-			body.global_position = Vector2(0,0)
-			var playerRoot = body.get_parent()
-			playerRoot.say_something("TED: Get in Ralph!",0,1)
-			playerRoot.say_something("TED: Where are we headed anyway?",2,1)
-			playerRoot.say_something("TED: Really??????",4,1)
-			body.get_node("../../../PSpawn").remove_child(playerRoot)
-			self.add_child(playerRoot)
-			
-			var ralph = get_node("../RalphPath/Ralph")
-			ralph.global_position = Vector2(0,0)
-			ralph.get_parent().remove_child(ralph)
-			self.add_child(ralph)
-			
-			ralph.say_something("RALPH: Theres someone I need you to meet", 3, 1)
-			ralph.say_something("RALPH: Almost there!", 3, 1)
-			playerRoot.hide()
+			begin_takeoff()
+
+
+func _on_Area2D_body_exited(body):
+	if body.get_parent().name == "Player":
+		player_present = false

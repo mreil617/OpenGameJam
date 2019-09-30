@@ -16,10 +16,10 @@ var ralph_can_progress = true
 #level one phrases
 var ralph_phrases = []
 var ralph_phrases_timeline = []
-const ralph_phrases_one = ["There it is!", "Hurry", "There coming for us!"]
-const ralph_phrases_one_timeline = [0.0, 0.44, 0.8]
-const ralph_phrases_two = ["Dad!", "Where is he?!", "This can't be right", "Ahhhhh!!!", "Ted HELP", "I'll wait here", "Destroy those beasts!", "Have to find Dad", "Where is he!?", "Dad!" ]
-const ralph_phrases_two_timeline = [0.01, 0.11, 0.3, 0.45, 0.45, 0.6, 0.68, 0.69, 0.74, 0.86]
+var ralph_phrases_one = ["There it is!", "Hurry", "There coming for us!"]
+var ralph_phrases_one_timeline = [0.0, 0.44, 0.8]
+var ralph_phrases_two = ["Dad!", "Where is he?!", "This can't be right", "Ahhhhh!!!", "Ted HELP", "I'll wait here", "Destroy those beasts!", "Have to find Dad", "Where is he!?", "Dad!" ]
+var ralph_phrases_two_timeline = [0.01, 0.11, 0.3, 0.45, 0.45, 0.6, 0.68, 0.69, 0.74, 0.86]
 
 const random_word_chance = 2 #percent out of 100
 const random_words = ["Where did we go wrong", "Welcome to the future", "I want to go home", "I miss Earth", "Another day another dolla", "This is life"]
@@ -37,6 +37,11 @@ func clear_text():
 		current_text_bubble = null
 
 func _ready():
+	ralph_phrases_one = ["There it is!", "Hurry", "There coming for us!"]
+	ralph_phrases_one_timeline = [0.0, 0.44, 0.8]
+	ralph_phrases_two = ["Dad!", "Where is he?!", "This can't be right", "Ahhhhh!!!", "Ted HELP", "I'll wait here", "Destroy those beasts!", "Have to find Dad", "Where is he!?", "Dad!" ]
+	ralph_phrases_two_timeline = [0.01, 0.11, 0.3, 0.45, 0.45, 0.6, 0.68, 0.69, 0.74, 0.86]
+	
 	var level = get_tree().get_root().get_node("Root").level
 	if level == 1:
 		ralph_phrases = ralph_phrases_one
@@ -87,6 +92,9 @@ func _process(delta):
 	
 	if unit_offset >= 1 and name != "player_two" and name != "Ralph":
 		get_parent().remove_child(self)		
+	elif unit_offset >= 1 and name == "Ralph":
+		if get_node("../../TimeMachine").player_present:
+			get_node("../../TimeMachine").begin_takeoff()
 	elif name == "player_two" and unit_offset >= 1:
 		say_something("This way Ted", 0, 1)
 	elif name == "Ralph" and ralph_phrases.size() > 0 and unit_offset >= ralph_phrases_timeline[0]:
@@ -100,7 +108,7 @@ func _process(delta):
 		elif text == "Destroy those beasts!":
 			ralph_can_progress = false
 		elif text == "Where is he?!":
-			get_node("../../PSpawn/Player").say_something("What are you talking about Ralph", 0, 1)
+			get_node("../../PSpawn/Player").say_something("Why are we looking for your Dad?", 0, 1)
 		
 		
 	#movement

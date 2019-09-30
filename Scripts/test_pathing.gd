@@ -4,6 +4,7 @@ const flying_text_prefab = preload("res://Prefabs/text_bubble_flying.tscn")
 
 var path : = PoolVector2Array() setget set_path
 
+var type = null
 var health = null
 var gold_worth = null
 var speed = null
@@ -17,6 +18,7 @@ var attack_cooldown_remaining = 0
 
 func _ready():
 	var stats = get_node("Stats")
+	type = stats.type
 	health = stats.health
 	gold_worth = stats.value
 	speed = stats.speed
@@ -93,8 +95,13 @@ func takeDamageEnemy(amount):
 					var new_drop = drop.instance()
 					new_drop.transform.origin = self.transform.origin
 					get_node("../../Drops").add_child(new_drop)
-					get_node("../../RalphPath/Ralph").say_something("Grab the key!", 0, 1)
-					
+					if get_tree().get_root().get_node("Root").level == 1:
+						get_node("../../RalphPath/Ralph").say_something("Grab the key!", 0, 1)
+			
+			if type == "boss" and get_tree().get_root().get_node("Root").level == 2:
+				get_tree().get_root().get_node("Root").has_key = true
+				get_node("../../RalphPath/Ralph").ralph_can_progress = true
+				
 			get_node("../../UI/HBoxContainer/ResourceLabel").add_resources(gold_worth)
 			get_node("../../Enemies/Spawners/Spawner").enemies_killed += 1
 			get_parent().remove_child(self)

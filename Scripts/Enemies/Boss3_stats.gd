@@ -1,5 +1,7 @@
 extends Node
 
+const type = "boss"
+
 const health = 200
 const value = 10
 const speed = 80

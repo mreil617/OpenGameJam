@@ -1,5 +1,7 @@
 extends Node
 
+const type = "norm"
+
 const health = 40
 const value = 3
 const speed = 60
