@@ -210,6 +210,7 @@ custom_fonts/font = SubResource( 4 )
 text = "Scrap"
 
 [node name="RalphPath" type="Path2D" parent="."]
+editor/display_folded = true
 curve = SubResource( 5 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="RalphPath"]

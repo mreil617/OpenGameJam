@@ -28,6 +28,8 @@ func _ready():
 	
 	var healthbar = get_node("HealthBar")
 	healthbar.max_value = health
+	healthbar.min_value = 0
+	healthbar.value = health
 	
 	set_process(false)
 
@@ -91,6 +93,7 @@ func takeDamageEnemy(amount):
 					var new_drop = drop.instance()
 					new_drop.transform.origin = self.transform.origin
 					get_node("../../Drops").add_child(new_drop)
+					get_node("../../RalphPath/Ralph").say_something("Grab the key!", 0, 1)
 					
 			get_node("../../UI/HBoxContainer/ResourceLabel").add_resources(gold_worth)
 			get_node("../../Enemies/Spawners/Spawner").enemies_killed += 1
