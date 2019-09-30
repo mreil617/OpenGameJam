@@ -1,12 +1,18 @@
 extends Node
 
 const duel_laser = preload("res://Prefabs/duel_laser.tscn")
+const single_laser = preload("res://Prefabs/single_laser.tscn")
+const duel_big_laser = preload("res://Prefabs/duel_big_laser.tscn")
+const big_tank = preload("res://Prefabs/big_tank.tscn")
+const medium_tank = preload("res://Prefabs/Medium_tank.tscn")
+const small_tank = preload("res://Prefabs/Small_tank.tscn")
 
 const damage = 20
 const bullet_speed = 5
 const cooldown = 2 #seconds
 var remaining_cooldown = 0
 var IsOverlapping = false
+var laser = null
 
 var enemies_in_range = []
 var lasers = []
@@ -27,9 +33,37 @@ func _process(delta):
 		turretBody.look_at(targetPosition)
 		turretBody.rotate(275 * PI / 180) #adjusts rotation from lookat to be slightly in-front
 		##enemies_in_range.front().get_parent().takeDamage(damage)
+		var iam = self.get_node("Label").text
+		if iam == "Turret1":
+			laser = single_laser.instance()
+			laser.name = "laser"
+		elif iam == "Turret2":
+			laser = duel_laser.instance()
+			laser.name = "laser"
+		elif iam == "Turret3":
+			laser = duel_big_laser.instance()
+			laser.name = "laser"
+		elif iam == "Turret4":
+			laser = small_tank.instance()
+			laser.name = "laser"
+		elif iam == "Turret5":
+			laser = medium_tank.instance()
+			laser.name = "laser"
+		elif iam == "Turret6":
+			laser = big_tank.instance()
+			laser.name = "laser"
+		elif iam == "Turret7":
+			laser = duel_laser.instance()
+			laser.name = "laser"
+		elif iam == "Turret8":
+			laser = duel_laser.instance()
+			laser.name = "laser"
+		elif iam == "Turret9":
+			laser = duel_laser.instance()
+			laser.name = "laser"
 		
-		var laser = duel_laser.instance()
-		laser.name = "laser"
+		#laser = duel_laser.instance()
+		#laser.name = "laser"
 		laser.get_child(0).transform.origin = self.transform.origin
 		add_child(laser)
 		lasers.append(laser)

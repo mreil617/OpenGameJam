@@ -13,6 +13,12 @@ var TowerCost3 = 30
 var Tower = preload("res://Prefabs/tower_one.tscn")
 var Tower2 = preload("res://Prefabs/tower_two.tscn")
 var Tower3 = preload("res://Prefabs/tower_three.tscn")
+var Tower4 = preload("res://Prefabs/tower_four.tscn")
+var Tower5 = preload("res://Prefabs/tower_five.tscn")
+var Tower6 = preload("res://Prefabs/tower_six.tscn")
+var Tower7 = preload("res://Prefabs/tower_seven.tscn")
+var Tower8 = preload("res://Prefabs/tower_eight.tscn")
+var Tower9 = preload("res://Prefabs/tower_nine.tscn")
 
 func overlapping():
 	var overlap = false
@@ -59,23 +65,60 @@ func _process(delta):
 				if(!onPath()):
 					if(get_node("../../../UI/HBoxContainer/ResourceLabel").current_resources - TowerCost >= 0):
 						if(get_parent().get_child(1).text == "Turret1"):
-							print("this")
 							tempTower = Tower.instance()
 							tempTower.set_position(get_global_mouse_position())
+							tempTower.set_name("Turret1")
 							get_node("../../../TowerHandler").add_child(tempTower)
 							get_node("../../../UI/HBoxContainer/ResourceLabel").add_resources(-TowerCost)
 						if(get_parent().get_child(1).text == "Turret2"):
-							print("thiss")
 							tempTower = Tower2.instance()
 							tempTower.set_position(get_global_mouse_position())
+							tempTower.set_name("Turret2")
 							get_node("../../../TowerHandler").add_child(tempTower)
 							get_node("../../../UI/HBoxContainer/ResourceLabel").add_resources(-TowerCost)
 						if(get_parent().get_child(1).text == "Turret3"):
-							print("thisss")
 							tempTower = Tower3.instance()
 							tempTower.set_position(get_global_mouse_position())
+							tempTower.set_name("Turret3")
 							get_node("../../../TowerHandler").add_child(tempTower)
 							get_node("../../../UI/HBoxContainer/ResourceLabel").add_resources(-TowerCost)
+						if(get_parent().get_child(1).text == "Turret4"):
+							tempTower = Tower4.instance()
+							tempTower.set_position(get_global_mouse_position())
+							tempTower.set_name("Turret4")
+							get_node("../../../TowerHandler").add_child(tempTower)
+							get_node("../../../UI/HBoxContainer/ResourceLabel").add_resources(-TowerCost)
+						if(get_parent().get_child(1).text == "Turret5"):
+							tempTower = Tower5.instance()
+							tempTower.set_position(get_global_mouse_position())
+							tempTower.set_name("Turret5")
+							get_node("../../../TowerHandler").add_child(tempTower)
+							get_node("../../../UI/HBoxContainer/ResourceLabel").add_resources(-TowerCost)
+						if(get_parent().get_child(1).text == "Turret6"):
+							tempTower = Tower6.instance()
+							tempTower.set_position(get_global_mouse_position())
+							tempTower.set_name("Turret6")
+							get_node("../../../TowerHandler").add_child(tempTower)
+							get_node("../../../UI/HBoxContainer/ResourceLabel").add_resources(-TowerCost)
+						if(get_parent().get_child(1).text == "Turret7"):
+							tempTower = Tower7.instance()
+							tempTower.set_position(get_global_mouse_position())
+							tempTower.set_name("Turret7")
+							get_node("../../../TowerHandler").add_child(tempTower)
+							get_node("../../../UI/HBoxContainer/ResourceLabel").add_resources(-TowerCost)
+						if(get_parent().get_child(1).text == "Turret8"):
+							tempTower = Tower8.instance()
+							tempTower.set_position(get_global_mouse_position())
+							tempTower.set_name("Turret8")
+							get_node("../../../TowerHandler").add_child(tempTower)
+							get_node("../../../UI/HBoxContainer/ResourceLabel").add_resources(-TowerCost)
+						if(get_parent().get_child(1).text == "Turret9"):
+							tempTower = Tower9.instance()
+							tempTower.set_position(get_global_mouse_position())
+							tempTower.set_name("Turret9")
+							get_node("../../../TowerHandler").add_child(tempTower)
+							get_node("../../../UI/HBoxContainer/ResourceLabel").add_resources(-TowerCost)
+
 
 func _on_TextureButton_pressed():
 	if(building):
