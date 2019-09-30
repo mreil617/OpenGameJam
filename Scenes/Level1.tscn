@@ -41,10 +41,10 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 880.852, 25.5585, 0, 0, 0, 0, 844.378, 87.9703, 0, 0, 0, 0, 614.183, 79.0543, 0, 0, 0, 0, 546.908, 136.603, 0, 0, 0, 0, 545.287, 257.374 )
 }
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 55.46, 58.98 )
 
-[sub_resource type="CircleShape2D" id=8]
+[sub_resource type="CircleShape2D" id=7]
 radius = 40.0
 
 [node name="Root" type="Node2D"]
@@ -289,13 +289,13 @@ collision_layer = 3
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TimeMachine/Area2D"]
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="TimeMachine"]
 texture = ExtResource( 19 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TimeMachine"]
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 [connection signal="pressed" from="UI/VBoxContainer2/TextureButton" to="UI/VBoxContainer2/TextureButton" method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer3/TextureButton" to="UI/VBoxContainer3/TextureButton" method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer4/TextureButton" to="UI/VBoxContainer4/TextureButton" method="_on_TextureButton_pressed"]
