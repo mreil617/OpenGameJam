@@ -25,29 +25,29 @@
 size = 20
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=8]
-size = 27
-font_data = ExtResource( 7 )
-
 [sub_resource type="DynamicFont" id=2]
-size = 40
+size = 27
 font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 27
+size = 40
 font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 27
 font_data = ExtResource( 7 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="DynamicFont" id=5]
+size = 27
+font_data = ExtResource( 7 )
+
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 55.46, 58.98 )
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=7]
 radius = 40.0
 
-[sub_resource type="Curve2D" id=7]
+[sub_resource type="Curve2D" id=8]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 931.14, 300.253, 0, 0, 0, 0, 772.815, 348.606, 0, 0, 0, 0, 419.8, 348.606, 0, 0, 0, 0, 352.759, 502.592, 0, 0, 0, 0, 111.829, 496.307, 0, 0, 0, 0, 107.639, 108.724, 0, 0, 0, 0, 412.468, 65.7753, 0, 0, 0, 0, 718.344, 84.6307, 0, 0, 0, 0, 808.431, 152.72, 0, 0, 0, 0, 913.183, 183.098, 0, 0, 0, 0, 927.848, 320.323, 0, 0, 0, 0, 799.003, 120.246, 0, 0, 0, 0, 440.175, 99.312, 0, 0, 0, 0, 797.956, 99.296, 0, 0, 0, 0, 945.656, 301.468 )
 }
@@ -97,7 +97,7 @@ margin_left = 930.016
 margin_top = 565.343
 margin_right = 1015.02
 margin_bottom = 596.343
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 2 )
 text = "Scrap"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI"]
@@ -116,7 +116,7 @@ margin_left = 88.0
 margin_top = 19.0
 margin_right = 173.0
 margin_bottom = 65.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "1000"
 align = 2
 script = ExtResource( 9 )
@@ -145,14 +145,14 @@ script = ExtResource( 11 )
 margin_top = 88.0
 margin_right = 109.0
 margin_bottom = 119.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Buster"
 
 [node name="Label2" type="Label" parent="UI/VBoxContainer2"]
 margin_top = 123.0
 margin_right = 109.0
 margin_bottom = 154.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "30"
 align = 1
 
@@ -173,14 +173,14 @@ script = ExtResource( 11 )
 margin_top = 88.0
 margin_right = 109.0
 margin_bottom = 119.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Crossy"
 
 [node name="Label2" type="Label" parent="UI/VBoxContainer3"]
 margin_top = 123.0
 margin_right = 109.0
 margin_bottom = 188.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "20
 "
 align = 1
@@ -202,14 +202,14 @@ script = ExtResource( 11 )
 margin_top = 88.0
 margin_right = 111.0
 margin_bottom = 119.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Cannon"
 
 [node name="Label2" type="Label" parent="UI/VBoxContainer4"]
 margin_top = 123.0
 margin_right = 111.0
 margin_bottom = 188.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "10
 "
 align = 1
@@ -285,20 +285,20 @@ collision_layer = 3
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TimeMachine/Area2D"]
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="TimeMachine"]
 texture = ExtResource( 19 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TimeMachine"]
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="PSpawn" type="Node2D" parent="."]
 position = Vector2( 1014.3, 416.911 )
 script = ExtResource( 20 )
 
 [node name="RalphPath" type="Path2D" parent="."]
-curve = SubResource( 7 )
+curve = SubResource( 8 )
 [connection signal="pressed" from="UI/VBoxContainer2/TextureButton" to="UI/VBoxContainer2/TextureButton" method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer3/TextureButton" to="UI/VBoxContainer3/TextureButton" method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer4/TextureButton" to="UI/VBoxContainer4/TextureButton" method="_on_TextureButton_pressed"]

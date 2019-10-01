@@ -37,17 +37,17 @@ font_data = ExtResource( 7 )
 size = 40
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=5]
 size = 20
 font_data = ExtResource( 7 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 55.46, 58.98 )
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=7]
 radius = 40.0
 
-[sub_resource type="Curve2D" id=7]
+[sub_resource type="Curve2D" id=8]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 764.351, 346.497, 0, 0, 0, 0, 770.638, 421.939, 0, 0, 0, 0, 927.809, 410.264, 0, 0, 0, 0, 920.624, 256.686, 0, 0, 0, 0, 694.298, 261.176, 0, 0, 0, 0, 757.166, 218.965, 0, 0, 0, 0, 747.287, 111.191, 0, 0, 0, 0, 853.265, 86.9416, 0, 0, 0, 0, 648.494, 86.9416, 0, 0, 0, 0, 583.83, 154.3, 0, 0, 0, 0, 387.142, 112.089, 0, 0, 0, 0, 574.848, 130.949, 0, 0, 0, 0, 617.958, 254.89, 0, 0, 0, 0, 765.249, 278.241, 0, 0, 0, 0, 592.811, 271.056, 0, 0, 0, 0, 596.403, 402.181, 0, 0, 0, 0, 563.173, 544.083, 0, 0, 0, 0, 95.2536, 540.491, 0, 0, 0, 0, 52.144, 445.29, 0, 0, 0, 0, 120, 380.857, 0, 0, 0, 0, 540, 380.857, 0, 0, 0, 0, 650, 420.857, 0, 0, 0, 0, 840, 400.857 )
 }
@@ -210,7 +210,7 @@ margin_left = 672.764
 margin_top = 505.811
 margin_right = 799.764
 margin_bottom = 533.811
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 5 )
 text = "Defences"
 
 [node name="FlyingHelpText" type="Node" parent="."]
@@ -249,14 +249,14 @@ collision_layer = 3
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TimeMachine/Area2D"]
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="TimeMachine"]
 z_as_relative = false
 texture = ExtResource( 16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TimeMachine"]
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="Scrapboxes" type="Node" parent="."]
 editor/display_folded = true
@@ -291,7 +291,7 @@ position = Vector2( 1000.3, 251.911 )
 script = ExtResource( 20 )
 
 [node name="RalphPath" type="Path2D" parent="."]
-curve = SubResource( 7 )
+curve = SubResource( 8 )
 [connection signal="pressed" from="UI/VBoxContainer2/TextureButton" to="UI/VBoxContainer2/TextureButton" method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer3/TextureButton" to="UI/VBoxContainer3/TextureButton" method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer4/TextureButton" to="UI/VBoxContainer4/TextureButton" method="_on_TextureButton_pressed"]
