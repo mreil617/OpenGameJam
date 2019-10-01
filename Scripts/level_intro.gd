@@ -8,6 +8,8 @@ var players_spawned = false
 	
 func _ready():
 	if globals.ted_died:
+		get_node("UI/Title").visible = false
+		get_node("UI/Title3").visible = true
 		get_node("UI/PlayButton/Label").text = "Replay"
 		
 func give_player_control():

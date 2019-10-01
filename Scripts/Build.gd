@@ -2,7 +2,7 @@ extends TextureButton
 
 var building = false
 var cursorSprite = preload("res://Prefabs/BuildSprite.tscn")
-var build
+var build = null
 var canBuild = false
 var tempTower = null
 

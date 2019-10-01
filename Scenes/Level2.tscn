@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Scripts/level_two.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tiles/test_tiles.tres" type="TileSet" id=2]
@@ -35,6 +35,10 @@ font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 40
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 20
 font_data = ExtResource( 7 )
 
 [sub_resource type="RectangleShape2D" id=5]
@@ -91,9 +95,9 @@ text = "Scrap"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="UI"]
 margin_left = 791.168
-margin_top = 516.882
+margin_top = 525.181
 margin_right = 900.168
-margin_bottom = 646.881
+margin_bottom = 679.181
 rect_scale = Vector2( 0.5, 0.5 )
 
 [node name="TextureButton" type="TextureButton" parent="UI/VBoxContainer2"]
@@ -119,9 +123,9 @@ align = 1
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="UI"]
 margin_left = 731.738
-margin_top = 517.342
+margin_top = 525.641
 margin_right = 840.738
-margin_bottom = 647.341
+margin_bottom = 679.641
 rect_scale = Vector2( 0.5, 0.5 )
 
 [node name="TextureButton" type="TextureButton" parent="UI/VBoxContainer3"]
@@ -146,10 +150,10 @@ text = "20"
 align = 1
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="UI"]
-margin_left = 675.135
-margin_top = 516.874
-margin_right = 784.135
-margin_bottom = 646.873
+margin_left = 676.113
+margin_top = 526.374
+margin_right = 785.113
+margin_bottom = 714.374
 rect_scale = Vector2( 0.5, 0.5 )
 
 [node name="TextureButton" type="TextureButton" parent="UI/VBoxContainer4"]
@@ -200,6 +204,14 @@ custom_fonts/font = SubResource( 4 )
 text = "1000"
 align = 2
 script = ExtResource( 13 )
+
+[node name="Label3" type="Label" parent="UI"]
+margin_left = 672.764
+margin_top = 505.811
+margin_right = 799.764
+margin_bottom = 533.811
+custom_fonts/font = SubResource( 8 )
+text = "Defences"
 
 [node name="FlyingHelpText" type="Node" parent="."]
 script = ExtResource( 14 )

@@ -10,6 +10,7 @@ func _on_Play_pressed():
 		get_node("../Paths/Spawner").start_game()
 		get_node("PlayButton").visible = false
 		get_node("Title").visible = false
+		get_node("Title3").visible = false
 
 func _on_WASDHint_pressed():
 	get_node("HintPanel").visible = false
