@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Scripts/level_three.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tiles/test_tiles.tres" type="TileSet" id=2]
@@ -6,48 +6,49 @@
 [ext_resource path="res://Scripts/PowerUpSpawner.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/enemy_nav_mover.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/enemy_nav_spawner.gd" type="Script" id=6]
-[ext_resource path="res://Assets/Comfortaa-Bold.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://Assets/Scrap.png" type="Texture" id=8]
-[ext_resource path="res://Scripts/gold.gd" type="Script" id=9]
-[ext_resource path="res://Assets/Towers/cannon2.png" type="Texture" id=10]
-[ext_resource path="res://Scripts/Build.gd" type="Script" id=11]
-[ext_resource path="res://Assets/Towers/crossy.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Towers/cannon1.png" type="Texture" id=13]
-[ext_resource path="res://Scripts/scrapboxes.gd" type="Script" id=14]
-[ext_resource path="res://Prefabs/scrapbox_three.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Scenes/flying_help_text.gd" type="Script" id=16]
-[ext_resource path="res://Prefabs/NPC_women.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Scripts/time_machine.gd" type="Script" id=18]
-[ext_resource path="res://Assets/ufoYellow.png" type="Texture" id=19]
-[ext_resource path="res://Scripts/PSpawn.gd" type="Script" id=20]
+[ext_resource path="res://Scripts/scene_ui_root.gd" type="Script" id=7]
+[ext_resource path="res://Assets/Comfortaa-Bold.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Assets/Scrap.png" type="Texture" id=9]
+[ext_resource path="res://Scripts/gold.gd" type="Script" id=10]
+[ext_resource path="res://Assets/Towers/cannon2.png" type="Texture" id=11]
+[ext_resource path="res://Scripts/Build.gd" type="Script" id=12]
+[ext_resource path="res://Assets/Towers/crossy.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Towers/cannon1.png" type="Texture" id=14]
+[ext_resource path="res://Scripts/scrapboxes.gd" type="Script" id=15]
+[ext_resource path="res://Prefabs/scrapbox_three.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/flying_help_text.gd" type="Script" id=17]
+[ext_resource path="res://Prefabs/NPC_women.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scripts/time_machine.gd" type="Script" id=19]
+[ext_resource path="res://Assets/ufoYellow.png" type="Texture" id=20]
+[ext_resource path="res://Scripts/PSpawn.gd" type="Script" id=21]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
-font_data = ExtResource( 7 )
-
-[sub_resource type="DynamicFont" id=8]
-size = 27
-font_data = ExtResource( 7 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 40
-font_data = ExtResource( 7 )
+size = 27
+font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 27
-font_data = ExtResource( 7 )
+size = 40
+font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 27
-font_data = ExtResource( 7 )
+font_data = ExtResource( 8 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="DynamicFont" id=5]
+size = 27
+font_data = ExtResource( 8 )
+
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 55.46, 58.98 )
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=7]
 radius = 40.0
 
-[sub_resource type="Curve2D" id=7]
+[sub_resource type="Curve2D" id=8]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 931.14, 300.253, 0, 0, 0, 0, 772.815, 348.606, 0, 0, 0, 0, 419.8, 348.606, 0, 0, 0, 0, 352.759, 502.592, 0, 0, 0, 0, 111.829, 496.307, 0, 0, 0, 0, 107.639, 108.724, 0, 0, 0, 0, 412.468, 65.7753, 0, 0, 0, 0, 718.344, 84.6307, 0, 0, 0, 0, 808.431, 152.72, 0, 0, 0, 0, 913.183, 183.098, 0, 0, 0, 0, 927.848, 320.323, 0, 0, 0, 0, 799.003, 120.246, 0, 0, 0, 0, 440.175, 99.312, 0, 0, 0, 0, 797.956, 99.296, 0, 0, 0, 0, 945.656, 301.468 )
 }
@@ -83,6 +84,7 @@ position = Vector2( 15.134, 239.165 )
 script = ExtResource( 6 )
 
 [node name="UI" type="Node" parent="."]
+script = ExtResource( 7 )
 
 [node name="Label3" type="Label" parent="UI"]
 margin_left = 673.673
@@ -97,7 +99,7 @@ margin_left = 930.016
 margin_top = 565.343
 margin_right = 1015.02
 margin_bottom = 596.343
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 2 )
 text = "Scrap"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI"]
@@ -109,17 +111,17 @@ margin_bottom = 589.86
 [node name="TextureRect" type="TextureRect" parent="UI/HBoxContainer"]
 margin_right = 84.0
 margin_bottom = 84.0
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="ResourceLabel" type="Label" parent="UI/HBoxContainer"]
 margin_left = 88.0
 margin_top = 19.0
 margin_right = 173.0
 margin_bottom = 65.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "1000"
 align = 2
-script = ExtResource( 9 )
+script = ExtResource( 10 )
 
 [node name="ResouceContainer" type="VBoxContainer" parent="UI"]
 margin_left = 861.425
@@ -138,21 +140,21 @@ rect_scale = Vector2( 0.5, 0.5 )
 [node name="TextureButton" type="TextureButton" parent="UI/VBoxContainer2"]
 margin_right = 109.0
 margin_bottom = 84.0
-texture_normal = ExtResource( 10 )
-script = ExtResource( 11 )
+texture_normal = ExtResource( 11 )
+script = ExtResource( 12 )
 
 [node name="Label" type="Label" parent="UI/VBoxContainer2"]
 margin_top = 88.0
 margin_right = 109.0
 margin_bottom = 119.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Buster"
 
 [node name="Label2" type="Label" parent="UI/VBoxContainer2"]
 margin_top = 123.0
 margin_right = 109.0
 margin_bottom = 154.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "30"
 align = 1
 
@@ -166,21 +168,21 @@ rect_scale = Vector2( 0.5, 0.5 )
 [node name="TextureButton" type="TextureButton" parent="UI/VBoxContainer3"]
 margin_right = 109.0
 margin_bottom = 84.0
-texture_normal = ExtResource( 12 )
-script = ExtResource( 11 )
+texture_normal = ExtResource( 13 )
+script = ExtResource( 12 )
 
 [node name="Label" type="Label" parent="UI/VBoxContainer3"]
 margin_top = 88.0
 margin_right = 109.0
 margin_bottom = 119.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Crossy"
 
 [node name="Label2" type="Label" parent="UI/VBoxContainer3"]
 margin_top = 123.0
 margin_right = 109.0
 margin_bottom = 188.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "20
 "
 align = 1
@@ -195,21 +197,21 @@ rect_scale = Vector2( 0.5, 0.5 )
 [node name="TextureButton" type="TextureButton" parent="UI/VBoxContainer4"]
 margin_right = 111.0
 margin_bottom = 84.0
-texture_normal = ExtResource( 13 )
-script = ExtResource( 11 )
+texture_normal = ExtResource( 14 )
+script = ExtResource( 12 )
 
 [node name="Label" type="Label" parent="UI/VBoxContainer4"]
 margin_top = 88.0
 margin_right = 111.0
 margin_bottom = 119.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Cannon"
 
 [node name="Label2" type="Label" parent="UI/VBoxContainer4"]
 margin_top = 123.0
 margin_right = 111.0
 margin_bottom = 188.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "10
 "
 align = 1
@@ -222,33 +224,33 @@ margin_bottom = 577.689
 
 [node name="Scrapboxes" type="Node" parent="."]
 editor/display_folded = true
-script = ExtResource( 14 )
+script = ExtResource( 15 )
 
-[node name="Scrapbox8" parent="Scrapboxes" instance=ExtResource( 15 )]
+[node name="Scrapbox8" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 41.0019, 72.2745 )
 
-[node name="Scrapbox9" parent="Scrapboxes" instance=ExtResource( 15 )]
+[node name="Scrapbox9" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 353.033, 136.905 )
 
-[node name="Scrapbox10" parent="Scrapboxes" instance=ExtResource( 15 )]
+[node name="Scrapbox10" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 448.936, 275.199 )
 
-[node name="Scrapbox11" parent="Scrapboxes" instance=ExtResource( 15 )]
+[node name="Scrapbox11" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 143.854, 446.851 )
 
-[node name="Scrapbox12" parent="Scrapboxes" instance=ExtResource( 15 )]
+[node name="Scrapbox12" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 428.783, 559.433 )
 
-[node name="Scrapbox13" parent="Scrapboxes" instance=ExtResource( 15 )]
+[node name="Scrapbox13" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 752.628, 218.908 )
 
-[node name="Scrapbox14" parent="Scrapboxes" instance=ExtResource( 15 )]
+[node name="Scrapbox14" parent="Scrapboxes" instance=ExtResource( 16 )]
 position = Vector2( 854.785, 106.327 )
 
 [node name="FlyingHelpText" type="Node" parent="."]
-script = ExtResource( 16 )
+script = ExtResource( 17 )
 
-[node name="NPC" parent="." instance=ExtResource( 17 )]
+[node name="NPC" parent="." instance=ExtResource( 18 )]
 position = Vector2( 427.389, 139.32 )
 rotation = -1.60074
 
@@ -277,7 +279,7 @@ editor/display_folded = true
 position = Vector2( 997.515, 298.608 )
 collision_layer = 0
 collision_mask = 0
-script = ExtResource( 18 )
+script = ExtResource( 19 )
 
 [node name="Area2D" type="Area2D" parent="TimeMachine"]
 editor/display_folded = true
@@ -285,20 +287,20 @@ collision_layer = 3
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TimeMachine/Area2D"]
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="TimeMachine"]
-texture = ExtResource( 19 )
+texture = ExtResource( 20 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TimeMachine"]
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="PSpawn" type="Node2D" parent="."]
 position = Vector2( 1014.3, 416.911 )
-script = ExtResource( 20 )
+script = ExtResource( 21 )
 
 [node name="RalphPath" type="Path2D" parent="."]
-curve = SubResource( 7 )
+curve = SubResource( 8 )
 [connection signal="pressed" from="UI/VBoxContainer2/TextureButton" to="UI/VBoxContainer2/TextureButton" method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer3/TextureButton" to="UI/VBoxContainer3/TextureButton" method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer4/TextureButton" to="UI/VBoxContainer4/TextureButton" method="_on_TextureButton_pressed"]
