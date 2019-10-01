@@ -21,6 +21,7 @@ collision_mask = 512
 shape = SubResource( 1 )
 
 [node name="Label" type="Label" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 14.0
 text = "builder"
