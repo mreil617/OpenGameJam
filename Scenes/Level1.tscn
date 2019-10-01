@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/level_one.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tiles/test_tiles.tres" type="TileSet" id=2]
@@ -7,34 +7,36 @@
 [ext_resource path="res://Scripts/PowerUpSpawner.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/enemy_nav_mover.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/enemy_nav_spawner.gd" type="Script" id=7]
-[ext_resource path="res://Assets/Comfortaa-Bold.ttf" type="DynamicFontData" id=8]
+
+[ext_resource path="res://Scripts/scene_ui_root.gd" type="Script" id=8]
 [ext_resource path="res://Assets/Towers/spaceShips_004.png" type="Texture" id=9]
 [ext_resource path="res://Scripts/Build.gd" type="Script" id=10]
-[ext_resource path="res://Assets/Towers/spaceShips_008.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Towers/spaceShips_002.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Scrap.png" type="Texture" id=13]
-[ext_resource path="res://Scripts/gold.gd" type="Script" id=14]
-[ext_resource path="res://Scripts/scrapboxes.gd" type="Script" id=15]
-[ext_resource path="res://Prefabs/scrapbox_one.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Scenes/flying_help_text.gd" type="Script" id=17]
-[ext_resource path="res://Scripts/time_machine.gd" type="Script" id=18]
-[ext_resource path="res://Assets/ufoYellow.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Comfortaa-Bold.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://Assets/Towers/spaceShips_008.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Towers/spaceShips_002.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Scrap.png" type="Texture" id=14]
+[ext_resource path="res://Scripts/gold.gd" type="Script" id=15]
+[ext_resource path="res://Scripts/scrapboxes.gd" type="Script" id=16]
+[ext_resource path="res://Prefabs/scrapbox_one.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/flying_help_text.gd" type="Script" id=18]
+[ext_resource path="res://Scripts/time_machine.gd" type="Script" id=19]
+[ext_resource path="res://Assets/ufoYellow.png" type="Texture" id=20]
 
 [sub_resource type="DynamicFont" id=1]
-size = 20
-font_data = ExtResource( 8 )
+size = 24
+font_data = ExtResource( 11 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 27
-font_data = ExtResource( 8 )
+font_data = ExtResource( 11 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 40
-font_data = ExtResource( 8 )
+font_data = ExtResource( 11 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 27
-font_data = ExtResource( 8 )
+font_data = ExtResource( 11 )
 
 [sub_resource type="Curve2D" id=5]
 _data = {
@@ -82,6 +84,7 @@ position = Vector2( 84.707, 41.6189 )
 script = ExtResource( 7 )
 
 [node name="UI" type="Node" parent="."]
+script = ExtResource( 8 )
 
 [node name="Label3" type="Label" parent="UI"]
 margin_left = 672.764
@@ -192,7 +195,7 @@ margin_bottom = 589.86
 [node name="TextureRect" type="TextureRect" parent="UI/HBoxContainer"]
 margin_right = 84.0
 margin_bottom = 84.0
-texture = ExtResource( 13 )
+texture = ExtResource( 14 )
 
 [node name="ResourceLabel" type="Label" parent="UI/HBoxContainer"]
 margin_left = 88.0
@@ -202,7 +205,7 @@ margin_bottom = 65.0
 custom_fonts/font = SubResource( 3 )
 text = "1000"
 align = 2
-script = ExtResource( 14 )
+script = ExtResource( 15 )
 
 [node name="Label" type="Label" parent="UI"]
 margin_left = 930.016
@@ -217,52 +220,52 @@ curve = SubResource( 5 )
 
 [node name="Scrapboxes" type="Node" parent="."]
 editor/display_folded = true
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 
-[node name="Scrapbox" parent="Scrapboxes" instance=ExtResource( 16 )]
+[node name="Scrapbox" parent="Scrapboxes" instance=ExtResource( 17 )]
 position = Vector2( 602.42, 138.95 )
 
-[node name="Scrapbox2" parent="Scrapboxes" instance=ExtResource( 16 )]
+[node name="Scrapbox2" parent="Scrapboxes" instance=ExtResource( 17 )]
 position = Vector2( 491.641, 254.236 )
 
-[node name="Scrapbox3" parent="Scrapboxes" instance=ExtResource( 16 )]
+[node name="Scrapbox3" parent="Scrapboxes" instance=ExtResource( 17 )]
 position = Vector2( 241.988, 135.665 )
 
-[node name="Scrapbox4" parent="Scrapboxes" instance=ExtResource( 16 )]
+[node name="Scrapbox4" parent="Scrapboxes" instance=ExtResource( 17 )]
 position = Vector2( 149.634, 285.219 )
 
-[node name="Scrapbox5" parent="Scrapboxes" instance=ExtResource( 16 )]
+[node name="Scrapbox5" parent="Scrapboxes" instance=ExtResource( 17 )]
 position = Vector2( 174.063, 389.489 )
 
-[node name="Scrapbox6" parent="Scrapboxes" instance=ExtResource( 16 )]
+[node name="Scrapbox6" parent="Scrapboxes" instance=ExtResource( 17 )]
 position = Vector2( 346.258, 491.376 )
 
-[node name="Scrapbox7" parent="Scrapboxes" instance=ExtResource( 16 )]
+[node name="Scrapbox7" parent="Scrapboxes" instance=ExtResource( 17 )]
 position = Vector2( 345.662, 339.44 )
 
-[node name="Scrapbox8" parent="Scrapboxes" instance=ExtResource( 16 )]
+[node name="Scrapbox8" parent="Scrapboxes" instance=ExtResource( 17 )]
 position = Vector2( 536.924, 456.818 )
 
-[node name="Scrapbox9" parent="Scrapboxes" instance=ExtResource( 16 )]
+[node name="Scrapbox9" parent="Scrapboxes" instance=ExtResource( 17 )]
 position = Vector2( 716.865, 373.402 )
 
-[node name="Scrapbox10" parent="Scrapboxes" instance=ExtResource( 16 )]
+[node name="Scrapbox10" parent="Scrapboxes" instance=ExtResource( 17 )]
 position = Vector2( 896.806, 305.477 )
 
-[node name="Scrapbox11" parent="Scrapboxes" instance=ExtResource( 16 )]
+[node name="Scrapbox11" parent="Scrapboxes" instance=ExtResource( 17 )]
 position = Vector2( 883.102, 475.289 )
 
-[node name="Scrapbox12" parent="Scrapboxes" instance=ExtResource( 16 )]
+[node name="Scrapbox12" parent="Scrapboxes" instance=ExtResource( 17 )]
 position = Vector2( 75.7512, 596.838 )
 
-[node name="Scrapbox13" parent="Scrapboxes" instance=ExtResource( 16 )]
+[node name="Scrapbox13" parent="Scrapboxes" instance=ExtResource( 17 )]
 position = Vector2( 1017.76, 104.682 )
 
-[node name="Scrapbox14" parent="Scrapboxes" instance=ExtResource( 16 )]
+[node name="Scrapbox14" parent="Scrapboxes" instance=ExtResource( 17 )]
 position = Vector2( 34.0432, 148.774 )
 
 [node name="FlyingHelpText" type="Node" parent="."]
-script = ExtResource( 17 )
+script = ExtResource( 18 )
 
 [node name="TimeMachinePoints" type="Node" parent="."]
 editor/display_folded = true
@@ -285,10 +288,11 @@ position = Vector2( 409.653, 525.927 )
 [node name="Drops" type="Node" parent="."]
 
 [node name="TimeMachine" type="KinematicBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 516.316, 339.617 )
 collision_layer = 0
 collision_mask = 0
-script = ExtResource( 18 )
+script = ExtResource( 19 )
 
 [node name="Area2D" type="Area2D" parent="TimeMachine"]
 editor/display_folded = true
@@ -299,7 +303,7 @@ collision_mask = 2
 shape = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="TimeMachine"]
-texture = ExtResource( 19 )
+texture = ExtResource( 20 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TimeMachine"]
 shape = SubResource( 7 )

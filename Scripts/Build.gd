@@ -48,6 +48,9 @@ func _process(delta):
 		if(Input.is_action_just_pressed("exitMenu")):
 			building = false
 			canBuild = false
+			var this_type = get_parent().get_child(1).text
+			if get_node("../../../UI").building != null and get_node("../../../UI").building == this_type:
+				get_node("../../../UI").building = null
 			get_node("../../../UI/BuildTool").remove_child(build)
 			build.queue_free()
 			#build.get_parent().remove_child(self)
@@ -121,13 +124,19 @@ func _process(delta):
 
 
 func _on_TextureButton_pressed():
+	var this_type = get_parent().get_child(1).text
+	if get_node("../../../UI").building != null and get_node("../../../UI").building != this_type:
+		return
+		
 	if(building):
+		get_node("../../../UI").building = null
 		building = false
 		canBuild = false
 		build.visible = false
 		build.queue_free()
 		#build.get_parent().remove_child(self)
 	else:
+		get_node("../../../UI").building = this_type
 		building = true
 		build = cursorSprite.instance()
 		build.get_child(0).texture = self.texture_normal
