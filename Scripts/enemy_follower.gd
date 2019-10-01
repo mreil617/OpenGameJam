@@ -126,8 +126,7 @@ func _process(delta):
 		elif text == "Where is he?!":
 			get_node("../../PSpawn/Player").say_something("Why are we looking for your Dad?", 0, 1)
 		elif text == "Keep us safe":
-			pass
-			#ralph_can_progress = false
+			ralph_can_progress = false
 		
 	#movement
 	if name == "player_two" and unit_offset >= 0.7:
