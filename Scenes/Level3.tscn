@@ -216,12 +216,6 @@ text = "10
 "
 align = 1
 
-[node name="TextureRect" type="TextureRect" parent="UI"]
-margin_left = 655.491
-margin_top = 537.689
-margin_right = 695.491
-margin_bottom = 577.689
-
 [node name="Scrapboxes" type="Node" parent="."]
 editor/display_folded = true
 script = ExtResource( 15 )
