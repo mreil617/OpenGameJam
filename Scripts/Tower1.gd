@@ -17,6 +17,7 @@ var remaining_cooldown = 0
 var IsOverlapping = false
 var laser = null
 
+
 var enemies_in_range = []
 var lasers = []
 
@@ -38,51 +39,51 @@ func _process(delta):
 		##enemies_in_range.front().get_parent().takeDamage(damage)
 		var iam = self.get_node("Label").text
 		if iam == "Lil Pew":
-			print("this")
+			damage = 10
+			cooldown = 1
 			laser = single_laser.instance()
 			laser.name = "laser"
-			var damage = 20
-			var cooldown = 2
 		elif iam == "Dual Pew":
+			damage = 25
+			cooldown = 2
 			laser = duel_laser.instance()
 			laser.name = "laser"
-			var damage = 30
-			var cooldown = 2
 		elif iam == "Mega Pew":
+			damage = 50
+			cooldown = 3
 			laser = duel_big_laser.instance()
 			laser.name = "laser"
-			var damage = 50
-			var cooldown = 3
 		elif iam == "  T-95":
+			damage = 10
+			cooldown = 1
 			laser = small_tank.instance()
 			laser.name = "laser"
-			var damage = 20
-			var cooldown = 2
 		elif iam == "Big Red":
+			damage = 25
+			cooldown = 2
 			laser = medium_tank.instance()
 			laser.name = "laser"
-			var damage = 30
-			var cooldown = 2
 		elif iam == "T-2000":
+			damage = 50
+			cooldown = 3
 			laser = big_tank.instance()
 			laser.name = "laser"
-			var damage = 50
-			var cooldown = 3
 		elif iam == "Cannon":
+			damage = 10
+			cooldown = 1
 			laser = small_cannon.instance()
 			laser.name = "laser"
-			var damage = 20
-			var cooldown = 2
 		elif iam == "Crossy":
+			damage = 25
+			cooldown = 2
 			laser = crossbow.instance()
 			laser.name = "laser"
-			var damage = 30
-			var cooldown = 2
 		elif iam == "Buster":
+			damage = 50
+			cooldown = 3
 			laser = big_cannon.instance()
 			laser.name = "laser"
-			var damage = 50
-			var cooldown = 3
+
 		
 		#laser = duel_laser.instance()
 		#laser.name = "laser"

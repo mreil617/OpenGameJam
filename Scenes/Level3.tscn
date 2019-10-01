@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Scripts/level_three.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tiles/test_tiles.tres" type="TileSet" id=2]
@@ -22,6 +22,10 @@
 [ext_resource path="res://Scripts/PSpawn.gd" type="Script" id=20]
 
 [sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=8]
 size = 27
 font_data = ExtResource( 7 )
 
@@ -79,14 +83,21 @@ position = Vector2( 15.134, 239.165 )
 script = ExtResource( 6 )
 
 [node name="UI" type="Node" parent="."]
-editor/display_folded = true
+
+[node name="Label3" type="Label" parent="UI"]
+margin_left = 673.673
+margin_top = 504.372
+margin_right = 769.673
+margin_bottom = 527.372
+custom_fonts/font = SubResource( 1 )
+text = "Defences"
 
 [node name="Label" type="Label" parent="UI"]
 margin_left = 930.016
 margin_top = 565.343
 margin_right = 1015.02
 margin_bottom = 596.343
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 8 )
 text = "Scrap"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI"]
@@ -119,9 +130,9 @@ rect_scale = Vector2( 0.5, 0.5 )
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="UI"]
 margin_left = 791.168
-margin_top = 516.882
+margin_top = 524.18
 margin_right = 900.168
-margin_bottom = 646.881
+margin_bottom = 678.18
 rect_scale = Vector2( 0.5, 0.5 )
 
 [node name="TextureButton" type="TextureButton" parent="UI/VBoxContainer2"]
@@ -135,7 +146,7 @@ margin_top = 88.0
 margin_right = 109.0
 margin_bottom = 119.0
 custom_fonts/font = SubResource( 3 )
-text = "Turret9"
+text = "Buster"
 
 [node name="Label2" type="Label" parent="UI/VBoxContainer2"]
 margin_top = 123.0
@@ -146,10 +157,10 @@ text = "30"
 align = 1
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="UI"]
-margin_left = 731.738
-margin_top = 517.342
-margin_right = 840.738
-margin_bottom = 647.341
+margin_left = 734.84
+margin_top = 522.649
+margin_right = 843.84
+margin_bottom = 710.649
 rect_scale = Vector2( 0.5, 0.5 )
 
 [node name="TextureButton" type="TextureButton" parent="UI/VBoxContainer3"]
@@ -163,7 +174,7 @@ margin_top = 88.0
 margin_right = 109.0
 margin_bottom = 119.0
 custom_fonts/font = SubResource( 3 )
-text = "Turret8"
+text = "Crossy"
 
 [node name="Label2" type="Label" parent="UI/VBoxContainer3"]
 margin_top = 123.0
@@ -176,27 +187,27 @@ align = 1
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="UI"]
 margin_left = 675.135
-margin_top = 516.874
-margin_right = 784.135
-margin_bottom = 646.873
+margin_top = 524.835
+margin_right = 786.135
+margin_bottom = 712.835
 rect_scale = Vector2( 0.5, 0.5 )
 
 [node name="TextureButton" type="TextureButton" parent="UI/VBoxContainer4"]
-margin_right = 109.0
+margin_right = 111.0
 margin_bottom = 84.0
 texture_normal = ExtResource( 13 )
 script = ExtResource( 11 )
 
 [node name="Label" type="Label" parent="UI/VBoxContainer4"]
 margin_top = 88.0
-margin_right = 109.0
+margin_right = 111.0
 margin_bottom = 119.0
 custom_fonts/font = SubResource( 3 )
-text = "Turret7"
+text = "Cannon"
 
 [node name="Label2" type="Label" parent="UI/VBoxContainer4"]
 margin_top = 123.0
-margin_right = 109.0
+margin_right = 111.0
 margin_bottom = 188.0
 custom_fonts/font = SubResource( 4 )
 text = "10

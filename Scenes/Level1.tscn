@@ -7,6 +7,7 @@
 [ext_resource path="res://Scripts/PowerUpSpawner.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/enemy_nav_mover.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/enemy_nav_spawner.gd" type="Script" id=7]
+
 [ext_resource path="res://Scripts/scene_ui_root.gd" type="Script" id=8]
 [ext_resource path="res://Assets/Towers/spaceShips_004.png" type="Texture" id=9]
 [ext_resource path="res://Scripts/Build.gd" type="Script" id=10]
@@ -85,11 +86,19 @@ script = ExtResource( 7 )
 [node name="UI" type="Node" parent="."]
 script = ExtResource( 8 )
 
+[node name="Label3" type="Label" parent="UI"]
+margin_left = 672.764
+margin_top = 505.811
+margin_right = 799.764
+margin_bottom = 533.811
+custom_fonts/font = SubResource( 1 )
+text = "Defences"
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="UI"]
 margin_left = 791.191
-margin_top = 509.449
+margin_top = 513.431
 margin_right = 917.191
-margin_bottom = 721.449
+margin_bottom = 725.431
 rect_scale = Vector2( 0.5, 0.5 )
 
 [node name="TextureButton" type="TextureButton" parent="UI/VBoxContainer2"]
@@ -101,72 +110,72 @@ script = ExtResource( 10 )
 [node name="Label" type="Label" parent="UI/VBoxContainer2"]
 margin_top = 112.0
 margin_right = 126.0
-margin_bottom = 140.0
+margin_bottom = 135.0
 custom_fonts/font = SubResource( 1 )
 text = "Mega Pew"
 
 [node name="Label2" type="Label" parent="UI/VBoxContainer2"]
-margin_top = 144.0
+margin_top = 139.0
 margin_right = 126.0
-margin_bottom = 209.0
+margin_bottom = 204.0
 custom_fonts/font = SubResource( 2 )
 text = "30
 "
 align = 1
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="UI"]
-margin_left = 729.644
-margin_top = 517.342
-margin_right = 856.644
-margin_bottom = 703.342
+margin_left = 730.782
+margin_top = 527.012
+margin_right = 857.782
+margin_bottom = 713.012
 rect_scale = Vector2( 0.5, 0.5 )
 
 [node name="TextureButton" type="TextureButton" parent="UI/VBoxContainer3"]
 margin_right = 127.0
 margin_bottom = 82.0
-texture_normal = ExtResource( 12 )
+texture_normal = ExtResource( 11 )
 script = ExtResource( 10 )
 
 [node name="Label" type="Label" parent="UI/VBoxContainer3"]
 margin_top = 86.0
 margin_right = 127.0
-margin_bottom = 114.0
+margin_bottom = 109.0
 custom_fonts/font = SubResource( 1 )
 text = "Dual Pew"
 
 [node name="Label2" type="Label" parent="UI/VBoxContainer3"]
-margin_top = 118.0
+margin_top = 113.0
 margin_right = 127.0
-margin_bottom = 183.0
+margin_bottom = 178.0
 custom_fonts/font = SubResource( 2 )
 text = "20
 "
 align = 1
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="UI"]
-margin_left = 675.798
-margin_top = 521.518
-margin_right = 784.798
-margin_bottom = 665.518
+margin_left = 674.66
+margin_top = 530.619
+margin_right = 783.66
+margin_bottom = 674.619
 rect_scale = Vector2( 0.5, 0.5 )
 
 [node name="TextureButton" type="TextureButton" parent="UI/VBoxContainer4"]
 margin_right = 109.0
 margin_bottom = 74.0
-texture_normal = ExtResource( 13 )
+texture_normal = ExtResource( 12 )
 script = ExtResource( 10 )
 
 [node name="Label" type="Label" parent="UI/VBoxContainer4"]
 margin_top = 78.0
 margin_right = 109.0
-margin_bottom = 106.0
+margin_bottom = 101.0
 custom_fonts/font = SubResource( 1 )
 text = "Lil Pew"
 
 [node name="Label2" type="Label" parent="UI/VBoxContainer4"]
-margin_top = 110.0
+margin_top = 105.0
 margin_right = 109.0
-margin_bottom = 141.0
+margin_bottom = 136.0
 custom_fonts/font = SubResource( 2 )
 text = "10"
 align = 1

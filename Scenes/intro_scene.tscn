@@ -125,7 +125,6 @@ position = Vector2( 224.785, 111.098 )
 scale = Vector2( 1.88, 1.88 )
 
 [node name="UI" type="Node" parent="."]
-editor/display_folded = true
 script = ExtResource( 8 )
 
 [node name="PlayButton" type="Button" parent="UI"]
@@ -201,6 +200,15 @@ margin_right = 699.031
 margin_bottom = 54.1607
 custom_fonts/font = SubResource( 7 )
 text = "Ralph's Terrible Mistake"
+
+[node name="Title3" type="Label" parent="UI"]
+visible = false
+margin_left = 349.031
+margin_top = 22.1607
+margin_right = 699.031
+margin_bottom = 54.1607
+custom_fonts/font = SubResource( 7 )
+text = "Ralph's Unfortunate Mistake"
 
 [node name="Exit" type="Node2D" parent="."]
 editor/display_folded = true
