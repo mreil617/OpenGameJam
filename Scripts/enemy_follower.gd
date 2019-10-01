@@ -46,7 +46,7 @@ func _ready():
 	ralph_phrases_one = ["There it is!", "Hurry", "There coming for us!"]
 	ralph_phrases_one_timeline = [0.0, 0.44, 0.8]
 
-	ralph_phrases_two = ["Dad!", "Where is he?!", "This can't be right", "Ahhhhh!!!", "Ted HELP", "I'll wait here", "Destroy those beasts!","Gotta look for Dad", "Have to find Dad", "Where is he!?", "Dad!" , "Ted get over here!"]
+	ralph_phrases_two = ["Dad! Where are you?", "Where is he?!", "This can't be right", "Ahhhhh!!!", "Ted HELP", "I'll wait here", "Destroy those beasts!","Gotta look for Dad", "Have to find Dad", "Where is he!?", "Dad!" , "Ted get over here!"]
 	ralph_phrases_two_timeline = [0.01, 0.18, 0.3, 0.3673, 0.45, 0.4965, 0.4965, 0.52, 0.63, 0.74, 0.86, .98]
 
 	ralph_phrases_three = ["Hope she's here", "Sally!", "Here we go again Ted", "Ahhhhh!!!", "Ted HELP", "Sally look out!", "You got this Ted", "Keep us safe", "Sally!", "Thank you!", "Let's get out of here", "Get in Ted!"]

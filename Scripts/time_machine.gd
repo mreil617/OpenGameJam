@@ -44,12 +44,10 @@ func _physics_process(delta):
 		
 func begin_takeoff():
 	active = true
+	var level = get_tree().get_root().get_node("Root").level
 	var body = get_node("../PSpawn/Player/KinematicBody2D")
 	body.global_position = Vector2(0,0)
 	var playerRoot = body.get_parent()
-	playerRoot.say_something("TED: Get in Ralph!",0,1)
-	playerRoot.say_something("TED: Where are we headed anyway?",2,1)
-	playerRoot.say_something("TED: Really??????",4,1)
 	body.get_node("../../../PSpawn").remove_child(playerRoot)
 	self.add_child(playerRoot)
 	
@@ -58,9 +56,27 @@ func begin_takeoff():
 	ralph.get_parent().remove_child(ralph)
 	self.add_child(ralph)
 	
-	ralph.say_something("RALPH: Theres someone I need you to meet", 3, 1)
-	ralph.say_something("RALPH: Almost there!", 3, 1)
 	playerRoot.hide()
+	
+	if level == 1:
+		playerRoot.say_something("TED: Get in Ralph!",0,1)
+		playerRoot.say_something("TED: Where are we headed anyway?",1.5,1)
+		playerRoot.say_something("TED: This better be worth it",5,1)
+		ralph.say_something("RALPH: Theres someone I need you to meet", 2.5, 1)
+		ralph.say_something("RALPH: Almost there!", 5.5, 1)
+		
+	elif level == 2:
+		playerRoot.say_something("TED: All these years enslaved because of you????", 0, 1)
+		playerRoot.say_something("TED: I could kill you!", 0, 1)
+		ralph.say_something("RALPH: Please don't start", 4, 1)
+		ralph.say_something("RALPH: I'm trying to do the right thing", 4, 1)
+		
+	elif level == 3:
+		ralph.say_something("RALPH: Let's hope that worked", 0, 1)
+		playerRoot.say_something("TED: I'm getting queasy!", 1, 1)
+		ralph.say_something("RALPH: Almost done Ted", 3, 1)
+		ralph.say_something("RALPH: Rest is in Sally's hands", 3, 1)
+	
 			
 func _on_TimeMachineArea_body_entered(body):
 	if body.get_parent().name == "Player":
@@ -68,7 +84,6 @@ func _on_TimeMachineArea_body_entered(body):
 		
 	if body.get_parent().name == "Player" and not active:
 		if get_parent().has_key == false:
-			print(get_parent().has_key)
 			if get_parent().level == 1:
 				body.get_parent().say_something("It's locked...", 0, 1)
 				var ralph = get_node("../RalphPath/Ralph")
@@ -76,6 +91,8 @@ func _on_TimeMachineArea_body_entered(body):
 				ralph.say_something("Check those orange barrels", 1, 1)
 			elif get_parent().level == 2 or get_parent().level == 3:
 				body.get_parent().say_something("I have to wait for Ralph", 0, 1)
+		elif get_node("../RalphPath/Ralph").unit_offset < 1:
+			body.get_parent().say_something("I have to wait for Ralph", 0, 1)
 		else:
 			begin_takeoff()
 

@@ -19,6 +19,7 @@ func _process(delta):
 				self.remove_child(get_child(child))
 				
 				if opened_first_box == false:
-					get_node("../RalphPath/Ralph").say_something("Maybe the keys not there", 0, 1)
+					if get_tree().get_root().get_node("Root").level == 1:
+						get_node("../RalphPath/Ralph").say_something("Maybe the keys not there", 0, 1)
 					opened_first_box = true
 				return
