@@ -2,9 +2,9 @@ extends Node
 
 const type = "boss"
 
-const health = 200
+const health = 300
 const value = 10
-const speed = 80
+const speed = 100
 const attack_distance = 40
 const damage = 10
 const attack_cooldown = 2

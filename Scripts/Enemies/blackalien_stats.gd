@@ -4,7 +4,7 @@ const type = "norm"
 
 const health = 100
 const value = 5
-const speed = 100
+const speed = 80
 const attack_distance = 40
 const damage = 40
 const attack_cooldown = 2

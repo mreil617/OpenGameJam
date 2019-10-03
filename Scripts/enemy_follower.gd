@@ -16,7 +16,7 @@ var ralph_can_progress = true
 #level one phrases
 var ralph_phrases = []
 var ralph_phrases_timeline = []
-var ralph_phrases_one = ["There it is!", "Hurry", "There coming for us!"]
+var ralph_phrases_one = ["There it is!", "Hurry", "They're coming for us!"]
 var ralph_phrases_one_timeline = [0.0, 0.44, 0.8]
 
 var ralph_phrases_two = ["Dad!", "Where is he?!", "This can't be right", "Ahhhhh!!!", "Ted HELP", "I'll wait here", "Destroy those beasts!", "Gotta look for Dad", "Have to find Dad", "Where is he!?", "Dad!", "Ted get over here!"]
@@ -28,7 +28,7 @@ var ralph_phrases_three_timeline = [0.01, 0.08, 0.17, 0.36, 0.36, 0.46, 0.56, 0.
 
 const random_word_chance = 2 #percent out of 100
 const random_words = ["Where did we go wrong", "Welcome to the future", "I want to go home", "I miss Earth", "Another day another dolla", "This is life"]
-const winning_words = ["Where did we go wrong", "How did they defeat us?", "We deserve this", "I wonder if they have a time machine", "Darn Ted"]
+const winning_words = ["Where did we go wrong", "How did they defeat us?", "We deserve this", "Do they have a time machine", "Darn Ted"]
 const ted_died_random_words = ["Did you hear someone tried to escape?", "Poor Ted", "At least someone is trying", "Who's next?", "We need more Teds"]
 const random_word_time = 3 #each person will not say a work more frequently then this
 var remaining_random_word_time = 0
@@ -43,7 +43,7 @@ func clear_text():
 		current_text_bubble = null
 
 func _ready():
-	ralph_phrases_one = ["There it is!", "Hurry", "There coming for us!"]
+	ralph_phrases_one = ["There it is!", "Hurry", "They're coming for us!"]
 	ralph_phrases_one_timeline = [0.0, 0.44, 0.8]
 
 	ralph_phrases_two = ["Dad! Where are you?", "Where is he?!", "This can't be right", "Ahhhhh!!!", "Ted HELP", "I'll wait here", "Destroy those beasts!","Gotta look for Dad", "Have to find Dad", "Where is he!?", "Dad!" , "Ted get over here!"]
@@ -117,7 +117,7 @@ func _process(delta):
 		ralph_phrases_timeline.pop_front()
 		var text = ralph_phrases.pop_front()
 		say_something(text, 0, 1)
-		if text == "There coming for us!":
+		if text == "They're coming for us!":
 			get_node("../../Enemies/Spawners/Spawner").can_spawn = true
 		elif text == "Ahhhhh!!!":
 			get_node("../../Enemies/Spawners/Spawner").can_spawn = true

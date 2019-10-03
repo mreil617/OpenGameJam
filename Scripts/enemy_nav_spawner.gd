@@ -50,10 +50,10 @@ func _process(delta):
 	if time_till_spawn <= 0 and can_spawn:
 		time_till_spawn = spawn_interval
 		if(enemies_killed >= kills_for_boss and !spawnBoss):
-			spawn_interval = 2
+			spawn_interval = 1
+			time_till_spawn = spawn_interval
 			randNum = randi()%100+enemies_killed
-			print(randNum)
-			if(randNum >= 60 and keep_spawning):
+			if(randNum >= 40 and keep_spawning):
 				spawnBoss = true
 				spawn()
 		else:

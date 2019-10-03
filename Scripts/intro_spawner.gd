@@ -50,14 +50,14 @@ func spawn():
 		playertwo.say_something("They have a time machine", 8.5, 1)
 		playertwo.say_something("...", 18, 1)
 		playertwo.say_something("I know where they keep it", 18, 1)
-		playertwo.say_something("Folow me!", 25, 1)
+		playertwo.say_something("Follow me!", 25, 1)
 		
 		var playerone = player_one.instance()
 		playerone.name = "player_one"
 		get_parent().get_child(3).add_child(playerone)
 		playerone.say_something("How are you Ralph", 3, 1)
 		playerone.say_something("Ready for another day?", 3, 1)
-		playerone.say_something("Your crazy", 7.5, 1)
+		playerone.say_something("You're crazy", 7.5, 1)
 		playerone.say_something("A what??", 15, 1)
 		playerone.say_something("This isn't a movie Ralph", 15, 1)
 		playerone.say_something("Where...", 21, 1)
