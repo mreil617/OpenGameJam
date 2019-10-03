@@ -11,7 +11,7 @@ const enemy_boss_three = preload("res://Prefabs/Boss3.tscn")
 const enemies = [enemy_yellowship,enemy_greenalien, enemy_redalien, enemy_bluealien, enemy_blackalien]
 
 var can_spawn = false
-const spawn_interval = 2.5
+var spawn_interval = 2.5
 var time_till_spawn = spawn_interval
 var spawnBoss = false
 var enemies_killed = 0
@@ -41,9 +41,16 @@ func spawn():
 func _process(delta):
 	#print(enemies_killed)
 	time_till_spawn -= delta
+	if(get_tree().get_root().get_node("Root").level == 1):
+		spawn_interval = 5
+	elif(get_tree().get_root().get_node("Root").level == 2):
+		spawn_interval = 4
+	elif(get_tree().get_root().get_node("Root").level == 3):
+		spawn_interval = 3
 	if time_till_spawn <= 0 and can_spawn:
 		time_till_spawn = spawn_interval
 		if(enemies_killed >= kills_for_boss and !spawnBoss):
+			spawn_interval = 2
 			randNum = randi()%100+enemies_killed
 			print(randNum)
 			if(randNum >= 60 and keep_spawning):
